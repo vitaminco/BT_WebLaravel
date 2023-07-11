@@ -12,7 +12,8 @@ class Homecontroller extends Controller
     public function index()
     {
         $data = SanPham::orderBy("id", "asc")->paginate(9);
-        return view("welcome")->with("data", $data);
+        $data1 = DanhMuc::orderBy("id", "asc")->paginate(3);
+        return view("welcome")->with("data", $data)->with("data1", $data1);
     }
     // sản phẩm
     public function indexSanPham()

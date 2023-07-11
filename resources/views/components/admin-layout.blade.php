@@ -14,8 +14,13 @@
     <style>
         body {
             padding-top: 0px;
-            padding-bottom: 1rem;
+            padding-bottom: 1px;
             color: #5a5a5a;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
         }
 
         .bd-placeholder-img {
@@ -99,6 +104,27 @@
         .col-6 {
             color: black;
             text-decoration: none;
+        }
+
+        .footer_list li a {
+            padding: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .footer_list li a:hover {
+            color: #f1d132;
+        }
+
+        .social {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .social li a {
+            padding: 0 0 0 20px;
+            color: rgba(234, 234, 234, 0.496);
+            font-size: 1.2rem;
         }
     </style>
 </head>

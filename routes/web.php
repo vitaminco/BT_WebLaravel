@@ -6,8 +6,10 @@ use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\TinTucController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homecontroller;
+use App\Http\Controllers\MuaSanPhamController;
 use App\Models\SanPham;
 use App\Models\DanhMuc;
+use App\Models\MuaSanPham;
 
 Route::get('/', [Homecontroller::class, "index"])->name("home");
 Route::get('indexSanPham', [Homecontroller::class, "indexSanPham"])->name("sanpham");
@@ -46,6 +48,15 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
         Route::post('/luu/{id?}', [TinTucController::class, "upsert"])->name("upsert");
         //xóa
         Route::post('/xoa/{id?}', [TinTucController::class, "destroy"])->name("destroy");
+    });
+
+    Route::prefix("/muasanpham")->name("muasanpham.")->group(function () {
+        // mua
+        Route::get('/danh_sach_mua', [MuaSanPhamController::class, "index"])->name("index");
+        Route::get('/create', [MuaSanPhamController::class, "create"])->name("create");
+        Route::get('/{id}/sua_san_pham_mua', [MuaSanPhamController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [MuaSanPhamController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [MuaSanPhamController::class, "destroy"])->name("destroy");
     });
 });
 //DĂNG KÍ
