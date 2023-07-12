@@ -9,5 +9,5 @@ class DanhMuc extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["ten_danh_muc"];
+    protected $fillable = ["ten_danh_muc", "anh_cover"];
 }

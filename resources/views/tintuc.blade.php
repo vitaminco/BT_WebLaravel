@@ -1,26 +1,26 @@
 <x-admin-layout title="Sản phẩm">
     {{-- banner --}}
     <div class="industry-banner text-center page-banner"
-        style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/thoitrang.jpg); background-size: cover; background-repeat: no-repeat;">
-        <div class="container-wrap">
-            <h1 class="industry-heading mb-0">Phần mềm quản lý bán hàng</h1>
-            <h1 class="industry-heading"> Shop thời trang</h1>
-            <button class="btn btn-primary industry-btn box-popup-register">Dùng thử miễn phí</button>
+        style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/kiotviet.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
+        <div class="container-wrap" style="padding: 154px;text-align: center; display: block">
+            <h1 class="industry-heading mb-0" style="color: #fff;">Nơi bắt đầu của những ưu đãi</h1>
+            <h1 class="industry-heading" style="color: #fff;">Những tin tức hấp dẫn</h1>
         </div>
     </div>
     {{--  --}}
     <div class="container" style="margin: 10px auto">
-        <div class="row">
+        <div class="row row-cols-4">
             @foreach ($data as $item)
-                <div class="col-6 col-md-4">
+                <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col">
                     <title>{{ $item->ten_tin_tuc }}</title>
-                    <img src="{{ $item->anh_cover }}" width=100% />
+                    <img src="{{ $item->anh_cover }}" width=100% height="200px" />
                     <div style="display: flex; justify-content: space-between; padding: 10px">
                         <h4>{{ $item->ten_tin_tuc }}</h4>
-                        <p>Giá giảm: {{ number_format($item->giam_gia) }}</p>
+                        <p>Giảm giá: {{ number_format($item->giam_gia) }}</p>
                     </div>
+                    <p>{{ $item->mo_ta }}</p>
                     <hr>
-                </div>
+                </a>
             @endforeach
             {{-- giao diện phan trang --}}
             {{ $data->links() }}

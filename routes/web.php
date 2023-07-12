@@ -15,6 +15,7 @@ Route::get('/', [Homecontroller::class, "index"])->name("home");
 Route::get('indexSanPham', [Homecontroller::class, "indexSanPham"])->name("sanpham");
 Route::get('indexTinTuc', [Homecontroller::class, "indexTinTuc"])->name("tintuc");
 Route::get('/{id}/chitiet', [Homecontroller::class, "chitiet"])->name("chitiet");
+Route::get('/{id}/chitiettin', [Homecontroller::class, "chitiettin"])->name("chitiettin");
 
 //Đường dẫn site quảm trị
 ///admin/{table}/{function}

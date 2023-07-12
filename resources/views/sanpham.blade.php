@@ -28,6 +28,7 @@
                         <h4>{{ $item->ten_san_pham }}</h4>
                         <p>Giá: {{ number_format($item->gia) }}</p>
                     </div>
+                    <p>{{ $item->mo_ta }}</p>
                     <hr>
                 </a>
             @endforeach

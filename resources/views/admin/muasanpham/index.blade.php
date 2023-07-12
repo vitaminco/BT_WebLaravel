@@ -1,11 +1,11 @@
 <x-admin-layout title="Mua">
     <div>
-        @if (!empty(session('success_msg')))
+        {{-- @if (!empty(session('success_msg')))
             <div class="mt-2 alert alert-warning alert-dismissible fade show" role="alert">
                 {{ session('success_msg') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endif
+        @endif --}}
 
         <div class="col-md-10 mx-auto col-lg-5">
             <table class="table" border="5">

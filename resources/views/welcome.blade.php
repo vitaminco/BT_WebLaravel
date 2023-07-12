@@ -9,7 +9,7 @@
         </div>
         <div class="carousel-inner">
 
-            @foreach ($data as $item)
+            @foreach ($datab as $item)
                 <div class="carousel-item active">
                     <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -18,11 +18,7 @@
 
                     <div class="container">
                         <div class="carousel-caption text-start">
-                            <h1>
-                                {{ $item->ten_san_pham }}
-                            </h1>
-                            <p>{{ $item->mo_ta }}</p>
-                            <p><a class="btn btn-lg btn-primary" href="#">Click here</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Xem chi tiết</a></p>
                         </div>
                     </div>
                 </div>
@@ -39,21 +35,16 @@
     </div>
 
     {{-- phần thân --}}
-    <div class="container marketing">
+    <div class="container marketing" style="padding: 20px">
         <div class="row">
             @foreach ($data1 as $item)
                 <div class="col-lg-4 center">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>{{ $item->ten_danh_muc }}</title>
-                        <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%"
-                            fill="#777" dy=".3em">140x140</text>
-                    </svg>
+                    <title>{{ $item->ten_danh_muc }}</title>
+                    <img src="{{ $item->anh_cover }}" width=150 height="150px" style="border-radius: 100%" />
 
                     <h2>{{ $item->ten_danh_muc }}</h2>
                     <p></p>
-                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                    <p><a class="btn btn-warning" href="#">Xem ngay &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             @endforeach
         </div><!-- /.row -->
@@ -70,10 +61,11 @@
                         <h4>{{ $item->ten_san_pham }}</h4>
                         <p>Giá: {{ number_format($item->gia) }}</p>
                     </div>
+                    <p style="padding: 0 10px;max-height: 50px;overflow: hidden;">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
             {{-- giao diện phan trang --}}
-            {{-- $data->links() --}}
+            {{-- {{ $data->links() }} --}}
         </div>
 
         <div class="row">
@@ -81,29 +73,10 @@
                 <a href="{{ route('sanpham') }}">XEM TẤT CẢ</a>
             </div>
             <div class="col-4">
-                <div class="spinner-grow text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow text-secondary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow text-success" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow text-danger" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow text-warning" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow text-info" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow text-light" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div class="spinner-grow text-dark" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <div class="spinner-grow text-warning" style="background-color: transparent;--bs-spinner-width: 30rem;"
+                    role="status">
+                    <span class="visually-hidden">XEM</span>
+                    <h1>Xem thêm</h1>
                 </div>
             </div>
         </div>
@@ -112,21 +85,27 @@
     <div class="container">
         <h1 style="display: block; text-align: center; padding: 30px">Tin tức nổi bật</h1>
         <div class="row">
-            <div class="col-8">
-                <div class="row">
-                    <div class="col">
-                        1 of 2
+            @foreach ($data2 as $item)
+                <a href="{{ route('chitiettin', ['id' => $item->id]) }}"
+                    class="col tin"style="display: flex;width:200px; margin: 10px;">
+
+                    <title>{{ $item->ten_tin_tuc }}</title>
+                    <div class="col-sm-4">
+                        <img src="{{ $item->anh_cover }}" style="border-radius: 20px;" width="100%" height="80%" />
                     </div>
-                    <div class="col">
-                        2 of 2
+                    <div class="col-sm-4">
+                        <div style="padding: 10px">
+                            <h4>{{ $item->ten_tin_tuc }}</h4>
+                            <p style="padding: 0 10px;max-height: 74px;width: 237%;overflow: hidden;">
+                                {{ $item->mo_ta }}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="col">
-                    1 of 2
-                </div>
-            </div>
+                </a>
+            @endforeach
+        </div>
+        <div style="text-align: center">
+            <button class="btn btn-outline-success" style="border-radius:50px; margin: 10px "><a href=""
+                    style="font-weight: 600">Tất cả tin tức</a></button>
         </div>
     </div>
 

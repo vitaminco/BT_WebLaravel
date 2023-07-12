@@ -28,11 +28,6 @@ class SanPhamController extends Controller
         return view("admin.sanpham.create");
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
 
     public function edit($id)
     {

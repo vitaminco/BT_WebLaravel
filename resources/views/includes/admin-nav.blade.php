@@ -10,8 +10,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0"></ul>
-            <form class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar">
                     Sản Phẩm
                 </a>
@@ -34,6 +33,8 @@
                     Về Trang
                 </a>
                 {{--  --}}
+            </ul>
+            <form class="d-flex">
                 <div class="toolbar sidebar">
                     <i class="bi bi-bell"></i>
                     Thông báo

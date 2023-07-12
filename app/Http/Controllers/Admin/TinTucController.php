@@ -13,7 +13,7 @@ class TinTucController extends Controller
 
     public function index()
     {
-        $data = TinTuc::orderBy("id", "asc")->paginate(9);
+        $data = TinTuc::orderBy("id", "desc")->paginate(200);
         //cash 1:
         return view("admin.tintuc.index")->with("data", $data);
     }

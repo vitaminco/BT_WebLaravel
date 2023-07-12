@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('danh_mucs', function (Blueprint $table) {
             $table->id();
             $table->string("ten_danh_muc", 200)->nullable();
+            $table->string("anh_cover", 500)->nullable();
             $table->timestamps();
         });
     }

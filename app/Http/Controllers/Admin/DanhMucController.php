@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DanhMuc;
-use App\Models\SanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Validator;
@@ -17,17 +16,12 @@ class DanhMucController extends Controller
         //cách 1: $data = DanhMuc::orderBy("id", "desc")->get();
         //cách 2: $data= DanhMuc::all();
         //cách 3: paginate có thê phân trangs số dòng 1 trang
-        $data = DanhMuc::orderBy("id", "asc")->paginate(9);
+        $data = DanhMuc::orderBy("id", "desc")->paginate(20);
         //cash 1:
         return view("admin.danhmuc.index")->with("data", $data);
         //cashc 2: return view("admin.danhmuc.index" compact("data"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view("admin.danhmuc.create");
@@ -35,7 +29,7 @@ class DanhMucController extends Controller
 
     public function edit($id)
     {
-        $data = SanPham::findOrFail($id);
+        $data = DanhMuc::findOrFail($id);
         return view("admin.danhmuc.edit")->with("data", $data);
     }
 
@@ -47,13 +41,32 @@ class DanhMucController extends Controller
 
         //ràng buộc dữ liệu tối thiểu và tối da
         $this->customValidate($request);
-        //update hoặc insert
-        DanhMuc::updateOrCreate(["id" => $id], $data);
+
         if ($id == null) {
-            $msg = "Thêm danh mục thành công";
+            $filename = "";
+            $file = $request->file("anh_cover");
+            if (!empty($file)) { //tạo tên file ngẫu nhiên để tránh trùng tên gây lỗi
+                $filename = $file->hashName();
+                //luu ở thư mục public với tên mới tạo
+                $file->storeAs("/files", $filename);
+                $filename = "/files/" . $filename;
+            }
+            $data["anh_cover"] = $filename;
+
+            $msg = "Thêm thành công";
         } else {
+            $file = $request->file("anh_cover");
+            if (!empty($file)) { //tạo tên file ngẫu nhiên để tránh trùng tên gây lỗi
+                $filename = $file->hashName();
+                //luu ở thư mục public với tên mới tạo
+                $file->storeAs("/files", $filename);
+                $filename = "/files/" . $filename;
+            }
+            $data["anh_cover"] = $filename;
             $msg = "Cập nhật thành công!!! verrry goood!";
         }
+        //update hoặc insert
+        DanhMuc::updateOrCreate(["id" => $id], $data);
         return redirect()->route('admin.danhmuc.index')->with("success_msg", $msg);
     }
 
@@ -61,6 +74,7 @@ class DanhMucController extends Controller
     {
         $dm = DanhMuc::findOrFail($id);
         $ten_danh_muc = $dm->ten_danh_muc;
+        $anh_cover = $dm->anh_cover;
         DanhMuc::destroy($id);
         return redirect()->back()->with("success_msg", "XÓA '$ten_danh_muc' THÀNH CÔNG!!!");
     }

@@ -11,9 +11,15 @@ class Homecontroller extends Controller
 {
     public function index()
     {
-        $data = SanPham::orderBy("id", "asc")->paginate(9);
-        $data1 = DanhMuc::orderBy("id", "asc")->paginate(3);
-        return view("welcome")->with("data", $data)->with("data1", $data1);
+        $datab = SanPham::orderBy("id", "desc")->paginate(2); //banner
+        $data = SanPham::orderBy("id", "desc")->paginate(200); //sanpham
+        $data1 = DanhMuc::orderBy("id", "asc")->paginate(3); //danh muc
+        $data2 = TinTuc::orderBy("id", "desc")->paginate(6); //tin tuc
+        return view("welcome")
+            ->with("datab", $datab)
+            ->with("data", $data)
+            ->with("data1", $data1)
+            ->with("data2", $data2);
     }
     // sản phẩm
     public function indexSanPham()
@@ -32,5 +38,10 @@ class Homecontroller extends Controller
     {
         $data = TinTuc::orderBy("id", "asc")->paginate(30);
         return view(".tintuc")->with("data", $data);
+    }
+    public function chitiettin($id)
+    {
+        $data = TinTuc::findOrFail($id);
+        return view(".chitiettin")->with("data", $data);
     }
 }
