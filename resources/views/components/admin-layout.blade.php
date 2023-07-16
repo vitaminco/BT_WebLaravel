@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="">
     {{ $css ?? '' }}
 
     <style>
@@ -42,16 +43,24 @@
             flex: 0 0 auto;
             width: 33.33333333%;
             text-align: center;
+            padding: 10px;
+        }
+
+        .sidebar {
+            box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1);
+            border-radius: 2px;
         }
 
         .sidebar-item {
             display: none;
             position: absolute;
-            margin: 12px 0 0 -113px;
+            margin: 12px 0 0 -135px;
+            transition: ease-in-out color 0.2s;
         }
 
         .sidebar:hover .sidebar-item {
             display: block;
+            box-shadow: 0 1px 20px 0 rgb(0, 0, 0, 0.05);
         }
 
         .muinhon::after {
@@ -93,6 +102,7 @@
             cursor: pointer;
             color: black;
             padding: 10px;
+            transition: ease-in-out color 0.2s;
         }
 
         .toolbar:hover {
@@ -104,6 +114,51 @@
         .col-6 {
             color: black;
             text-decoration: none;
+        }
+
+        .products {
+            display: block;
+            margin: 10px 2px;
+            text-decoration: none;
+            background-color: #fff;
+            width: 209px;
+            position: relative;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1);
+            transition: transform ease-in 0.1s;
+            /*dịch lên xuống*/
+            will-change: transform;
+            /*cần khai báo transform*/
+        }
+
+        /*hover độ nhòe cái boder*/
+        .products:hover {
+            transform: translateY(-3px);
+            /*nhảy lên xuống khi hover*/
+            box-shadow: 0 1px 20px 0 rgb(0, 0, 0, 0.05);
+            border-color: #f1d132;
+        }
+
+        /* tin tứcs */
+        .tintuc {
+            display: block;
+            margin: 10px 2px;
+            text-decoration: none;
+            background-color: #fff;
+            position: relative;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            border: 2px solid transparent;
+        }
+
+        .tintuc:hover {
+            border: 2px solid #f1d132;
+        }
+
+        /* chi tiết mua */
+        .ct-mua li {
+            padding: 0 0 0 20px;
         }
 
         .footer_list li a {
@@ -133,7 +188,7 @@
     {{-- Thanh menu ở admin --}}
     @include('includes/admin-nav')
 
-    <div style="position: absolute; right: 0">
+    <div style="position: absolute; right: 0; z-index:4;">
         <div class="container">
             @if (!empty(session('success_msg')))
                 <div class="mt-2 alert alert-warning alert-dismissible fade show" role="alert">

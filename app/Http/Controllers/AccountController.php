@@ -9,6 +9,36 @@ use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
+    //hiển thị
+    public function index()
+    {
+        $data = User::orderBy("id", "asc")->paginate(20);
+        return view("admin.admin.index")->with("data", $data);
+    }
+    //sửa
+    public function edit($id)
+    {
+        $data = User::findOrFail($id);
+        return view("admin.admin.edit")->with("data", $data);
+    }
+    //
+    public function upsert(Request $request, $id = null)
+    {
+        $data = $request->all();
+        unset($data["_token"]);
+
+        if ($id == null) {
+            $msg = "Thêm thành công";
+        } else {
+
+            $msg = "Cập nhật thành công!!! verrry goood!";
+        }
+        //update hoặc insert
+        User::updateOrCreate(["id" => $id], $data);
+        return redirect()->route('admin.admin.index')->with("success_msg", $msg);
+    }
+
+
     //dăng kí tài khoảng
     public function register()
     {
@@ -30,6 +60,14 @@ class AccountController extends Controller
         $user = new User($data);
         $user->save();
         return redirect("/");
+    }
+    //xóa
+    public function destroy($id)
+    {
+        $dm = User::findOrFail($id);
+        $name = $dm->name;
+        User::destroy($id);
+        return redirect()->back()->with("success_msg", "XÓA '$name' THÀNH CÔNG!!!");
     }
     //đăng nhập
     public function login()

@@ -13,9 +13,14 @@ use App\Models\MuaSanPham;
 
 Route::get('/', [Homecontroller::class, "index"])->name("home");
 Route::get('indexSanPham', [Homecontroller::class, "indexSanPham"])->name("sanpham");
-Route::get('indexTinTuc', [Homecontroller::class, "indexTinTuc"])->name("tintuc");
+Route::get('/{id}/dm_sp', [Homecontroller::class, "dm_sp"])->name("dm_sp");
 Route::get('/{id}/chitiet', [Homecontroller::class, "chitiet"])->name("chitiet");
+Route::get('indexTinTuc', [Homecontroller::class, "indexTinTuc"])->name("tintuc");
 Route::get('/{id}/chitiettin', [Homecontroller::class, "chitiettin"])->name("chitiettin");
+Route::get('indexAdmin', [Homecontroller::class, "indexAdmin"])->name("index_Admin");
+//chi tiết đơn
+Route::get('/{id}/chitietdon', [MuaSanPhamController::class, "chitietdon"])->name("chitietdon");
+
 
 //Đường dẫn site quảm trị
 ///admin/{table}/{function}
@@ -54,10 +59,17 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
     Route::prefix("/muasanpham")->name("muasanpham.")->group(function () {
         // mua
         Route::get('/danh_sach_mua', [MuaSanPhamController::class, "index"])->name("index");
-        Route::get('/create', [MuaSanPhamController::class, "create"])->name("create");
+        Route::get('/{id}/create', [MuaSanPhamController::class, "create"])->name("create");
         Route::get('/{id}/sua_san_pham_mua', [MuaSanPhamController::class, "edit"])->name("edit");
         Route::post('/luu/{id?}', [MuaSanPhamController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [MuaSanPhamController::class, "destroy"])->name("destroy");
+    });
+
+    Route::prefix("/admin")->name("admin.")->group(function () {
+        Route::get('/danh_sach_tai_khoang', [AccountController::class, "index"])->name("index");
+        Route::get('/{id}/sua_san_tai_khoang', [AccountController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [AccountController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [AccountController::class, "destroy"])->name("destroy");
     });
 });
 //DĂNG KÍ

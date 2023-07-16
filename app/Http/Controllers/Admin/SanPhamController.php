@@ -16,7 +16,7 @@ class SanPhamController extends Controller
         //cách 1: $data = DanhMuc::orderBy("id", "desc")->get();
         //cách 2: $data= DanhMuc::all();
         //cách 3: paginate có thê phân trangs số dòng 1 trang
-        $data = SanPham::orderBy("id", "asc")->paginate(9);
+        $data = SanPham::orderBy("id", "asc")->paginate(50);
         //cash 1:
         return view("admin.sanpham.index")->with("data", $data);
         //cashc 2: return view("admin.danhmuc.index" compact("data"));
@@ -75,6 +75,7 @@ class SanPhamController extends Controller
     {
         $dm = SanPham::findOrFail($id);
         $ten_san_pham = $dm->ten_san_pham;
+        $anh_cover = $dm->anh_cover;
         SanPham::destroy($id);
         return redirect()->back()->with("success_msg", "XÓA '$ten_san_pham' THÀNH CÔNG!!!");
     }

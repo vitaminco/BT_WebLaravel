@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\SanPham;
 use App\Models\DanhMuc;
 use App\Models\TinTuc;
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Database\Query\Builder;
 
 class Homecontroller extends Controller
 {
     public function index()
     {
-        $datab = SanPham::orderBy("id", "desc")->paginate(2); //banner
-        $data = SanPham::orderBy("id", "desc")->paginate(200); //sanpham
+        $datab = SanPham::skip(2)->take(3)->get(); //banner
+        $data = SanPham::orderBy("id", "desc")->paginate(42); //sanpham
         $data1 = DanhMuc::orderBy("id", "asc")->paginate(3); //danh muc
         $data2 = TinTuc::orderBy("id", "desc")->paginate(6); //tin tuc
         return view("welcome")
@@ -31,7 +34,17 @@ class Homecontroller extends Controller
     public function chitiet($id)
     {
         $data = SanPham::findOrFail($id);
-        return view(".chitiet")->with("data", $data);
+        return view(".chitiet")
+            ->with("data", $data);
+    }
+    //danh mục san pham
+    public function dm_sp($id_danh_muc)
+    {
+        $data = SanPham::where("id_danh_muc", $id_danh_muc)
+            ->orderBy("id", "asc")
+            ->paginate(50);
+        return view(".sanpham")
+            ->with("data", $data);
     }
     // tin tức
     public function indexTinTuc()
@@ -43,5 +56,10 @@ class Homecontroller extends Controller
     {
         $data = TinTuc::findOrFail($id);
         return view(".chitiettin")->with("data", $data);
+    }
+    //index_admin
+    public function indexAdmin()
+    {
+        return view(".index_Admin");
     }
 }

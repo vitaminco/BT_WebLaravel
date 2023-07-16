@@ -14,18 +14,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>TRANG ĐĂNG NHẬP TÀI KHOẢN</h1>
-                    <form action="" method="post">
-                        @csrf
-                        <x-app-input name="email" type="email" label="Email" />
-                        <x-app-input name="password" type="password" label="Mật khẩu" />
 
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-outline-success">Đăng Nhập</button>
-                        </div>
-                    </form>
+            <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+                <div class="row align-items-center g-lg-5 py-5">
+                    <div class="col-md-10 mx-auto">
+                        <h1>TRANG ĐĂNG NHẬP TÀI KHOẢN</h1>
+                        <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+                            @csrf
+                            <x-app-input name="email" type="email" label="Email" />
+                            <x-app-input name="password" type="password" label="Mật khẩu" />
+
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-outline-success">Đăng Nhập</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

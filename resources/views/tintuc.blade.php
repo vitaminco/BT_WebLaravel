@@ -1,4 +1,4 @@
-<x-admin-layout title="Sản phẩm">
+<x-admin-layout title="Tin tức">
     {{-- banner --}}
     <div class="industry-banner text-center page-banner"
         style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/kiotviet.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
@@ -9,16 +9,16 @@
     </div>
     {{--  --}}
     <div class="container" style="margin: 10px auto">
-        <div class="row row-cols-4">
+        <div class="row row-cols-3"style="background-color: cornsilk;border-radius: 3px">
             @foreach ($data as $item)
-                <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col">
+                <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col tintuc" style="padding: 10px">
                     <title>{{ $item->ten_tin_tuc }}</title>
-                    <img src="{{ $item->anh_cover }}" width=100% height="200px" />
-                    <div style="display: flex; justify-content: space-between; padding: 10px">
+                    <img src="{{ $item->anh_cover }}" width=100% height="250px" style="object-fit: cover; " />
+                    <div style="padding: 10px 10px 0 10px">
                         <h4>{{ $item->ten_tin_tuc }}</h4>
-                        <p>Giảm giá: {{ number_format($item->giam_gia) }}</p>
+                        <p>{{ $item->mo_ta }}</p>
                     </div>
-                    <p>{{ $item->mo_ta }}</p>
+
                     <hr>
                 </a>
             @endforeach

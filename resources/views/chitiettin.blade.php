@@ -13,7 +13,7 @@
         <div class="row" style="margin: 10px">
             <div class="col-8">
                 <title>{{ $data->ten_tin_tuc }}</title>
-                <img src="{{ $data->anh_cover }}" width=100% />
+                <img src="{{ $data->anh_cover }}" width=100% height="500px" style="object-fit: cover; " />
             </div>
             <div class="col-4">
                 <div class="p-4 p-md-5 border rounded-3 bg-light">

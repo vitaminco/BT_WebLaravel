@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" style="background-color:#fff3f1">
     <div class="container px-4" id="featured-3" style="padding-top: 3rem;">
         <h2 class="pb-2 border-bottom">WEBSITE</h2>
         <div class="row g-4 row-cols-1 row-cols-lg-3" style="padding-top: 3rem;">
@@ -178,7 +178,8 @@
                 </div>
                 <div class="col-4">
                     <ul class="social" style="list-style: none;">
-                        <li><a rel="nofollow" title="Facebook" href="" target="_blank"><i
+                        <li><a rel="nofollow" title="Facebook"
+                                href="https://www.facebook.com/profile.php?id=100024003636060" target="_blank"><i
                                     class="bi bi-facebook"></i></a>
                         </li>
                         <li><a rel="nofollow" title="Twitter" href="" target="_blank"><i

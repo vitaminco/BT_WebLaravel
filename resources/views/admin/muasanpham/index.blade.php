@@ -1,53 +1,29 @@
-<x-admin-layout title="Mua">
-    <div>
-        {{-- @if (!empty(session('success_msg')))
-            <div class="mt-2 alert alert-warning alert-dismissible fade show" role="alert">
-                {{ session('success_msg') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif --}}
-
-        <div class="col-md-10 mx-auto col-lg-5">
-            <table class="table" border="5">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên</th>
-                        <th>dia chi</th>
-                        <th>sdt</th>
-                        <th>id sản phẩm</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Gía</th>
-                        <th>Mô tả</th>
-                        <th><a class="btn btn-primary" aria-current="page" href="{{ route('admin.muasanpham.create') }}">
-                                <i class="bi bi-plus-circle-dotted"></i> Mua Sản Phẩm
-                            </a></th>
-                    </tr>
-                <tbody>
-                    @foreach ($data as $item)
-                        <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->dia_chi }}</td>
-                            <td>{{ $item->so_dt }}</td>
-                            <td>{{ $item->id_san_pham }}</td>
-                            <td>{{ $item->san_phams->ten_san_pham ?? '' }}</td>
-                            <td>{{ $item->gia }}</td>
-                            <td>{{ $item->mo_ta }}</td>
-                            <td>
-                                <a href="{{ route('admin.muasanpham.edit', ['id' => $item->id]) }}"
-                                    class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
-                                <form class="d-inline"
-                                    action="{{ route('admin.muasanpham.destroy', ['id' => $item->id]) }}"
-                                    method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-                </thead>
-            </table>
+<x-admin-layout title="Mua hàng">
+    <div class="industry-banner text-center page-banner"
+        style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/thoitrang.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
+        <div class="container-wrap" style="padding: 154px;text-align: center; display: block">
+            <h1 class="industry-heading mb-0" style="color: #fff;">Giỏ hàng thân yêu</h1>
+            <h1 class="industry-heading" style="color: #fff;"> Nơi chứa đựng những sản phẩm hữu ích</h1>
         </div>
+    </div>
+    <div class="container">
+        <div class="list-group list-group-flush border-bottom scrollarea" style="margin: 10px">
+            @foreach ($data as $item)
+                <a href="{{ route('chitietdon', ['id' => $item->id]) }}"
+                    class="list-group-item list-group-item-action py-3 lh-tight d-flex"
+                    style="border: 2px solid #949393">
+                    <img src="{{ $item->san_phams->anh_cover ?? '' }}" width=100 style="margin: 0 10px 0 0" />
+                    <div>
+                        <div class="w-100 align-items-center justify-content-between">
+                            <strong class="mb-1">Tên sản phẩm: {{ $item->san_phams->ten_san_pham ?? '' }}</strong>
+                            <small class="text-muted">Giá: {{ $item->san_phams->gia ?? '' }}</small>
+                        </div>
+                        <div class="col-10 mb-1 small">
+                            Mô tả: {{ $item->san_phams->mo_ta ?? '' }}
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
 </x-admin-layout>

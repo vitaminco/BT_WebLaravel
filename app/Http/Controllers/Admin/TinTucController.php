@@ -70,6 +70,7 @@ class TinTucController extends Controller
     {
         $dm = TinTuc::findOrFail($id);
         $ten_tin_tuc = $dm->ten_tin_tuc;
+        $anh_cover = $dm->anh_cover;
         TinTuc::destroy($id);
         return redirect()->back()->with("success_msg", "XÓA '$ten_tin_tuc' THÀNH CÔNG!!!");
     }
