@@ -68,10 +68,10 @@
             display: block;
             border-width: 12px 20px;
             border-style: solid;
-            border-color: transparent transparent #fff transparent;
+            border-color: transparent transparent cornsilk transparent;
             position: absolute;
             top: -23px;
-            left: 166px;
+            left: 249px;
             z-index: 2;
         }
 

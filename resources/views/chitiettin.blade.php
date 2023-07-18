@@ -20,7 +20,7 @@
                     <div
                         style="display: flex; justify-content: space-between; padding: 10px; font-weight: 700; font-size: 1.2rem">
                         <p>{{ $data->ten_tin_tuc }}</p> <br>
-                        <p>Giảm giá: {{ number_format($data->giam_gia) }}</p> <br>
+                        <p>Giảm giá: {{ number_format($data->giam_gia) }}%</p> <br>
                     </div>
                     <p>Mô tả: {{ $data->mo_ta }}</p>
                 </div>

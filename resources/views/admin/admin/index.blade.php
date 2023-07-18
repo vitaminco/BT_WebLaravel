@@ -9,7 +9,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
-                            Admin
+                            Home
                         </a>
                     </li>
                     <li class="nav-item">
@@ -44,6 +44,14 @@
                             Trang users
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.donggop.index') }}" class="nav-link link-dark">
+                            <svg class="bi me-2" width="16" height="16">
+                                <use xlink:href="#speedometer2" />
+                            </svg>
+                            Trang đóng góp
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -56,6 +64,7 @@
                         <th>Tên</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Avatar</th>
                         <th>Ngày tạo</th>
                         <th>Ngày update</th>
                         <th><a class="btn btn-primary" aria-current="page" href="{{ route('account.register') }}">
@@ -69,6 +78,9 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->password }}</td>
+                            <td>
+                                <img src="{{ $item->avatar }}" width=100 />
+                            </td>
                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
                             <td>{{ $item->updated_at->format('d/m/Y') }}</td>
                             <td>

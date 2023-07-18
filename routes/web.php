@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\DanhMucController;
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\TinTucController;
+use App\Http\Controllers\DongGopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homecontroller;
 use App\Http\Controllers\MuaSanPhamController;
@@ -71,7 +72,16 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
         Route::post('/luu/{id?}', [AccountController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [AccountController::class, "destroy"])->name("destroy");
     });
+
+    Route::prefix("/donggop")->name("donggop.")->group(function () {
+        //đóng góp
+        Route::get('/danh_sach_dong_gop', [DongGopController::class, "index"])->name("index");
+        Route::get('/{id}/create', [DongGopController::class, "create"])->name("create");
+        Route::post('/luu/{id?}', [DongGopController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [DongGopController::class, "destroy"])->name("destroy");
+    });
 });
+
 //DĂNG KÍ
 Route::get("/dang-ky", [AccountController::class, "register"])->name("account.register");
 Route::post('/dang-ky', [AccountController::class, "save"])->name("account.save");

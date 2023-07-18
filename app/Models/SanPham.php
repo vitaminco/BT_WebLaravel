@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class SanPham extends Model
 {
     use HasFactory;
-    protected $fillable = ["ten_san_pham", "gia", "mo_ta", "anh_cover", "id_danh_muc"];
+    protected $fillable = ["ten_san_pham", "gia", "mo_ta", "anh_cover", "id_danh_muc", "so_luong_ton"];
     //cấu hình liên kết khóa ngoại(left- jone)
     public function danh_mucs(): BelongsTo
     {

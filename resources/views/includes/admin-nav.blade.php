@@ -43,12 +43,23 @@
                     </a>
                 </div>
                 @if (Auth::check())
-                    <div class="toolbar sidebar">
+                    <div class="toolbar sidebar" style="">
+                        {{-- tên --}}
                         <i class="bi bi-person-circle"></i>
                         {{ Auth::user()->name }}
-                        <div class="sidebar-item muinhon" style="margin: 12px 0 0 -105px;">
+                        <div class="sidebar-item muinhon toolbar"
+                            style="margin: 12px 2px 0 -183px;background-color: cornsilk;border-radius: 40px;width: 356px;">
+                            <div style="text-align: center;">
+                                <img src="{{ Auth::user()->avatar }}" style="border-radius: 100%;margin: 0 0 10px 0;"
+                                    width="50%" height="50%" />
+                                <br><a class="nav-link" href="{{ route('admin.admin.edit', [Auth::user()->id]) }}"><i
+                                        class="bi bi-pencil-square"></i> Thay
+                                    đổi</a>
+                            </div>
+
                             {{--  --}}
-                            <div class=" d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                            <div class=" d-flex flex-column flex-shrink-0 p-3 bg-light"
+                                style="width: 100%;margin: 20px 0 10px 0; box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1)">
                                 <ul class="nav nav-pills flex-column mb-auto">
                                     <li class="nav-item">
                                         <a href="/" class="nav-link active" aria-current="page">

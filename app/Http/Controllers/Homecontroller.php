@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\SanPham;
 use App\Models\DanhMuc;
+use App\Models\DongGop;
 use App\Models\TinTuc;
-use Illuminate\Support\Facades\DB;
-
-use Illuminate\Database\Query\Builder;
 
 class Homecontroller extends Controller
 {
@@ -34,8 +32,10 @@ class Homecontroller extends Controller
     public function chitiet($id)
     {
         $data = SanPham::findOrFail($id);
+        $data1 = DongGop::orderBy("id", "desc")->paginate(30); //donggop
         return view(".chitiet")
-            ->with("data", $data);
+            ->with("data", $data)
+            ->with("data1", $data1);
     }
     //danh mục san pham
     public function dm_sp($id_danh_muc)

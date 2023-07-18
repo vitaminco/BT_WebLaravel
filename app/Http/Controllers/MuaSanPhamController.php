@@ -12,7 +12,7 @@ class MuaSanPhamController extends Controller
 {
     public function index()
     {
-        $data = MuaSanPham::orderBy("id", "asc")->paginate(10);
+        $data = MuaSanPham::orderBy("id", "desc")->paginate(20);
         return view("admin.muasanpham.index")->with("data", $data);
     }
     //chitietdon
@@ -28,8 +28,6 @@ class MuaSanPhamController extends Controller
         $data = SanPham::findOrFail($id);
         return view("admin.muasanpham.create")
             ->with("data", $data);
-        // $data = MuaSanPham::findOrFail($id);
-        // return view("admin.muasanpham.create")->with("data", $data);
     }
 
     public function edit($id)
@@ -60,15 +58,14 @@ class MuaSanPhamController extends Controller
     {
         $dm = MuaSanPham::findOrFail($id);
         $ten_san_pham = $dm->ten_san_pham;
-        $anh_cover = $dm->anh_cover;
         MuaSanPham::destroy($id);
         return redirect()->route('admin.muasanpham.index')->with("success_msg", "XÓA THÀNH CÔNG!!!");
     }
     private function customValidate(Request $request)
     {
         $rules = [
-            "name" => "required|min:3|max:100", //not null min 3 k tự max 100 kí tự
-            "so_dt" => "required|min:10|max:10",
+            "so_dt" => "required|min:9|max:10",
+            "so_luong" => "required|min:1",
         ];
         $request->validate($rules);
     }

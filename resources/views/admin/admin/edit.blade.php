@@ -9,6 +9,10 @@
                     <x-app-input name="name" type="name" label="Name" value="{{ $data->name }}" />
                     <x-app-input name="email" type="email" label="Email" value="{{ $data->email }}" />
                     <x-app-input name="password" type="password" label="Mật khẩu" value="{{ $data->password }}" />
+                    <x-app-input name="cf_password" type="password" label="Xác nhận mật khẩu"
+                        value="{{ $data->cf_password }}" />
+                    <x-app-input type="file" name="avatar" label="Hình ảnh" value="{{ $data->avatar }}" />
+
                     <div class="mt-3">
                         <button type="submit" class="btn btn-outline-success">Sửa</button>
                     </div>

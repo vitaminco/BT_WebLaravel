@@ -10,7 +10,7 @@
 <div class="mt-3">
     <label class="form-label" for="">{{ $label }}</label>
     <input type="{{ $type }}" class="form-control" name="{{ $name }}" id="{{ $name }}"
-        value="{{ $value }}" />
+        value="{{ $value }}" placeholder="{{ $label }}" />
 
     @error($name)
         <small class="text-danger font-italic">{{ $message }}</small>

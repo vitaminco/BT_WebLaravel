@@ -11,7 +11,7 @@
                 <x-app-input name="gia" label="Gía" type="number" />
                 <x-app-input name="mo_ta" label="Mô tả" />
                 <x-app-input type="file" name="anh_cover" label="Hình ảnh" />
-
+                <x-app-input name="so_luong_ton" label="Số lượng tồn" />
                 <x-app-select model="Danhmuc" name="id_danh_muc" label="Danh mục" displayMember="ten_danh_muc"
                     valueMember="id" />
                 <div class="mt-3">

@@ -9,7 +9,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
-                            Admin
+                            Home
                         </a>
                     </li>
                     <li class="nav-item">
@@ -42,6 +42,14 @@
                                 <use xlink:href="#speedometer2" />
                             </svg>
                             Trang users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.donggop.index') }}" class="nav-link link-dark">
+                            <svg class="bi me-2" width="16" height="16">
+                                <use xlink:href="#speedometer2" />
+                            </svg>
+                            Trang đóng góp
                         </a>
                     </li>
                 </ul>

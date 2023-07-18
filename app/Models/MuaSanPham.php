@@ -9,8 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class MuaSanPham extends Model
 {
     use HasFactory;
-    protected $fillable = ["name", "dia_chi", "so_dt", "id_san_pham", "gia", "mo_ta"];
-    //cấu hình liên kết khóa ngoại(left- jone)
+    protected $fillable = ["ten", "dia_chi", "so_dt", "id_san_pham", "id_users ", "gia", "mo_ta", "so_luong"];
+    public function users(): BelongsTo
+    {
+        return $this->belongsTo(User::class, "id_users", "id");
+    }
     public function san_phams(): BelongsTo
     {
         return $this->belongsTo(SanPham::class, "id_san_pham", "id");

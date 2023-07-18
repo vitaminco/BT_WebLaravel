@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal("gia", 20, 0)->nullable();
             $table->text("mo_ta")->nullable();
             $table->string("anh_cover", 500)->nullable();
+            $table->text("so_luong_ton")->nullable();
             $table->bigInteger("id_nguoi_tao")
                 ->index("idx_san_phams_id_nguoi_tao")
                 ->nullable();

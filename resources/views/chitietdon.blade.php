@@ -12,14 +12,17 @@
                             <b>Tên sản phẩm: </b>{{ $data->san_phams->ten_san_pham ?? '' }}
                         </li>
                         <li class="nav-item">
-                            <b>Giá: </b>{{ number_format($data->gia) }}
+                            <b>Giá: </b>{{ number_format($data->san_phams->gia) }}.000đ
                         </li>
                         <li class="nav-item">
-                            <b>Mô tả: </b>{{ $data->mo_ta }}
+                            <small class="text-muted">Số lượng: {{ $data->so_luong }}</small>
+                        </li>
+                        <li class="nav-item">
+                            <b>Mô tả: </b>{{ $data->san_phams->mo_ta ?? '' }}
                         </li>
                         <h3>Thông tin người mua</h3>
                         <li class="nav-item">
-                            <b>Họ & Tên: </b>{{ $data->name }}
+                            <b>Họ & Tên: </b>{{ $data->ten }}
                         </li>
                         <li class="nav-item">
                             <b>Địa chỉ: </b>{{ $data->dia_chi }}

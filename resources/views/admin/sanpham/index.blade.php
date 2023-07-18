@@ -9,7 +9,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
-                            Admin
+                            Home
                         </a>
                     </li>
                     <li class="nav-item">
@@ -44,6 +44,14 @@
                             Trang users
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.donggop.index') }}" class="nav-link link-dark">
+                            <svg class="bi me-2" width="16" height="16">
+                                <use xlink:href="#speedometer2" />
+                            </svg>
+                            Trang đóng góp
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -58,6 +66,7 @@
                         <th>Tên danh mục</th>
                         <th>Mô tả</th>
                         <th>Hình ảnh</th>
+                        <th>Số lượng tồn</th>
                         <th>ID danh mục</th>
                         <th>Ngày tạo</th>
                         <th>Ngày update</th>
@@ -76,6 +85,7 @@
                             <td>
                                 <img src="{{ $item->anh_cover }}" width=100 />
                             </td>
+                            <td>{{ $item->so_luong_ton }}</td>
                             <td>{{ $item->id_danh_muc }}</td>
                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
                             <td>{{ $item->updated_at->format('d/m/Y') }}</td>

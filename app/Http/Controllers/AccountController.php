@@ -26,13 +26,35 @@ class AccountController extends Controller
     {
         $data = $request->all();
         unset($data["_token"]);
+        unset($data["cf_password"]);
 
         if ($id == null) {
+            $filename = "";
+            $file = $request->file("avatar");
+            if (!empty($file)) { //tạo tên file ngẫu nhiên để tránh trùng tên gây lỗi
+                $filename = $file->hashName();
+                //luu ở thư mục public với tên mới tạo
+                $file->storeAs("/files", $filename);
+                $filename = "/files/" . $filename;
+            }
+            $data["avatar"] = $filename;
+
             $msg = "Thêm thành công";
         } else {
-
+            $file = $request->file("avatar");
+            if (!empty($file)) { //tạo tên file ngẫu nhiên để tránh trùng tên gây lỗi
+                $filename = $file->hashName();
+                //luu ở thư mục public với tên mới tạo
+                $file->storeAs("/files", $filename);
+                $filename = "/files/" . $filename;
+            }
+            $data["avatar"] = $filename;
             $msg = "Cập nhật thành công!!! verrry goood!";
         }
+
+        //hash mật khẩu
+        $data["password"] = Hash::make($data["password"]);
+
         //update hoặc insert
         User::updateOrCreate(["id" => $id], $data);
         return redirect()->route('admin.admin.index')->with("success_msg", $msg);
@@ -66,6 +88,7 @@ class AccountController extends Controller
     {
         $dm = User::findOrFail($id);
         $name = $dm->name;
+        $avatar = $dm->avatar;
         User::destroy($id);
         return redirect()->back()->with("success_msg", "XÓA '$name' THÀNH CÔNG!!!");
     }

@@ -11,17 +11,23 @@
                     <form action="{{ route('admin.muasanpham.upsert', ['id' => $data->id]) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
-                        <x-app-input name="name" label="Tên" />
+                        <x-app-input name="ten" label="Tên" />
                         <x-app-input name="dia_chi" label="Địa chỉ" />
                         <x-app-input name="so_dt" label="Số điện thoại" type="number" />
                         <img src="{{ $data->anh_cover }}" width=100% height="250px"
                             style="object-fit: cover;border-radius: 2px; margin: 10px 0" />
-                        <x-app-select model="SanPham" name="id_san_pham" label="Tên sản phẩm"
-                            displayMember="ten_san_pham" valueMember="id" selected="{{ $data->id }}" /> <br>
+                        <div style="display: none">
+                            <x-app-select model="SanPham" name="id_san_pham" label="Tên sản phẩm"
+                                displayMember="ten_san_pham" valueMember="id" selected="{{ $data->id }}" />
+                        </div>
+                        <x-app-select model="User" name="id_users" label="User" displayMember="name"
+                            valueMember="id" selected="{{ Auth::user()->id }}" />
+
+                        <p>Tên sản phẩm: {{ $data->ten_san_pham }}</p>
                         <p>Giá: {{ $data->gia }}</p>
                         <p>Mô tả: {{ $data->mo_ta }}</p>
 
-                        <x-app-input label="Số lượng" min="1" name="" type="number" value="1" />
+                        <x-app-input label="Số lượng" name="so_luong" value="1" />
                         <div class="mt-3">
                             <input type="submit" class="btn btn-success" value="Mua sản phẩm" />
                         </div>
