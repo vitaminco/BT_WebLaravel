@@ -38,6 +38,10 @@
             }
         }
 
+        .ani-nav a:hover {
+            background-color: #f1d132;
+        }
+
         .center {
             display: block;
             flex: 0 0 auto;
@@ -150,6 +154,8 @@
             border: 1px solid transparent;
             border-radius: 2px;
             border: 2px solid transparent;
+            max-height: 622px;
+            overflow: hidden;
         }
 
         .tintuc:hover {

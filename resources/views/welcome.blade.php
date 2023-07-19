@@ -69,7 +69,6 @@
                     <p style="padding: 0 10px;max-height: 50px;overflow: hidden;">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
-
         </div>
 
         <div style="text-align: center">

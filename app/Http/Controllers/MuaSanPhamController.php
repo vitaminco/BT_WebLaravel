@@ -41,13 +41,10 @@ class MuaSanPhamController extends Controller
         $data = $request->all();
         unset($data["_token"]);
 
-        //ràng buộc dữ liệu tối thiểu và tối da
         $this->customValidate($request);
-
         if ($id == null) {
             $msg = "Thêm thành công";
         } else {
-
             $msg = "Cập nhật thành công!!! verrry goood!";
         }
         //update hoặc insert

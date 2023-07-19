@@ -39,10 +39,8 @@ class SanPhamController extends Controller
     {
         $data = $request->all();
         unset($data["_token"]);
-
         //ràng buộc dữ liệu tối thiểu và tối da
         $this->customValidate($request);
-
         if ($id == null) {
             $filename = "";
             $file = $request->file("anh_cover");

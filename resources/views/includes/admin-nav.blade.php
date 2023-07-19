@@ -18,9 +18,6 @@
                     Giải Pháp
                 </a>
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
-                    Khách Hàng
-                </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
                     Phí Dịch Vụ
                 </a>
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
@@ -29,11 +26,12 @@
                 <a href="{{ route('tintuc') }}" class="navbar-brand toolbar sidebar">
                     Tin Tức
                 </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
-                    Về Trang
-                </a>
                 {{--  --}}
             </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
             <form class="d-flex">
 
                 <div class="toolbar sidebar">
@@ -61,13 +59,13 @@
                             <div class=" d-flex flex-column flex-shrink-0 p-3 bg-light"
                                 style="width: 100%;margin: 20px 0 10px 0; box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1)">
                                 <ul class="nav nav-pills flex-column mb-auto">
-                                    <li class="nav-item">
+                                    <li class="nav-item ani-nav">
                                         <a href="/" class="nav-link link-dark">
                                             <i class="bi bi-house"></i>
                                             Home
                                         </a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item ani-nav">
                                         <a href="{{ route('index_Admin') }}" class="nav-link link-dark">
                                             <i class="bi bi-person"></i>
                                             Admin

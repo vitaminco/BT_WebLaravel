@@ -3,7 +3,7 @@
         style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/thoitrang.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
         <div class="container-wrap" style="padding: 154px;text-align: center; display: block">
             <h1 class="industry-heading mb-0" style="color: #fff;">Giỏ hàng thân yêu</h1>
-            <h1 class="industry-heading" style="color: #fff;"> Nơi chứa đựng những sản phẩm hữu ích</h1>
+            <h1 class="industry-heading" style="color: #fff;"> Nơi chứa đựng những bộ phim hay</h1>
         </div>
     </div>
     <div class="container">

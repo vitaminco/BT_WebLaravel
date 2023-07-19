@@ -18,8 +18,6 @@
                         <h4>{{ $item->ten_tin_tuc }}</h4>
                         <p>{{ $item->mo_ta }}</p>
                     </div>
-
-                    <hr>
                 </a>
             @endforeach
             {{-- giao diện phan trang --}}

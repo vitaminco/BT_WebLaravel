@@ -25,19 +25,11 @@ class DongGopController extends Controller
             ->with("data1", $data1);
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
     public function upsert(Request $request, $id = null)
     {
         $data = $request->all();
         unset($data["_token"]);
-
-        //ràng buộc dữ liệu tối thiểu và tối da
         $this->customValidate($request);
-
         if ($id == null) {
             $msg = "Thêm thành công";
         } else {
