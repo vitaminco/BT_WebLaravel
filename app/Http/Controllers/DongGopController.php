@@ -18,7 +18,7 @@ class DongGopController extends Controller
 
     public function create($id)
     {
-        $data1 = DongGop::orderBy("id", "desc")->paginate(30); //donggop
+        $data1 = DongGop::where("id_san_phams", $id)->orderBy("id_san_phams", "desc")->paginate(30); //donggop
         $data = SanPham::findOrFail($id);
         return view("admin.donggop.create")
             ->with("data", $data)
@@ -41,7 +41,7 @@ class DongGopController extends Controller
         if ($id == null) {
             $msg = "Thêm thành công";
         } else {
-            $msg = "Cập nhật thành công!!! verrry goood!";
+            $msg = "Excellent!!!";
         }
         //update hoặc insert
         DongGop::updateOrCreate(["id" => $id], $data);
@@ -52,7 +52,7 @@ class DongGopController extends Controller
         $dm = DongGop::findOrFail($id);
         $mo_ta = $dm->mo_ta;
         DongGop::destroy($id);
-        return redirect()->back()->with("success_msg", "XÓA THÀNH CÔNG!!!");
+        return redirect()->back()->with("success_msg", "Ôi không!!!");
     }
 
     private function customValidate(Request $request)

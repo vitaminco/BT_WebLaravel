@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
-                    Sản Phẩm
+                    Phim & Giá Vé
                 </a>
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
                     Giải Pháp
@@ -62,7 +62,7 @@
                                 style="width: 100%;margin: 20px 0 10px 0; box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1)">
                                 <ul class="nav nav-pills flex-column mb-auto">
                                     <li class="nav-item">
-                                        <a href="/" class="nav-link active" aria-current="page">
+                                        <a href="/" class="nav-link link-dark">
                                             <i class="bi bi-house"></i>
                                             Home
                                         </a>

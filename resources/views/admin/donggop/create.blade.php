@@ -23,7 +23,9 @@
         <div class="container">
             <div class="row" style="background-color: rgba(147, 145, 145, 0.496)">
                 <div class="col-12">
-                    <h2 class="mt-4">Đóng góp nào!!</h2>
+                    <h2 class="mt-4">Góp ý nào!!!</h2>
+                    <a href="{{ route('chitiet', ['id' => $data->id]) }}"><i class="bi bi-arrow-left-circle"></i> Về
+                        trang chi tiết</a>
                 </div>
                 <div class="col-md-6 offset-md-3">
                     @include('includes/errors')

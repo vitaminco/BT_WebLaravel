@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\SanPham;
 use App\Models\DanhMuc;
 use App\Models\DongGop;
+use App\Models\MuaSanPham;
 use App\Models\TinTuc;
 
 class Homecontroller extends Controller
@@ -32,7 +33,9 @@ class Homecontroller extends Controller
     public function chitiet($id)
     {
         $data = SanPham::findOrFail($id);
-        $data1 = DongGop::orderBy("id", "desc")->paginate(30); //donggop
+        $data1 = DongGop::where("id_san_phams", $id)
+            ->orderBy("id_san_phams", "desc")
+            ->paginate(30); //donggop
         return view(".chitiet")
             ->with("data", $data)
             ->with("data1", $data1);
@@ -49,7 +52,7 @@ class Homecontroller extends Controller
     // tin tức
     public function indexTinTuc()
     {
-        $data = TinTuc::orderBy("id", "asc")->paginate(30);
+        $data = TinTuc::orderBy("id", "desc")->paginate(30);
         return view(".tintuc")->with("data", $data);
     }
     public function chitiettin($id)
@@ -60,6 +63,7 @@ class Homecontroller extends Controller
     //index_admin
     public function indexAdmin()
     {
-        return view(".index_Admin");
+        $data = MuaSanPham::orderBy("id", "desc")->paginate(30);
+        return view(".index_Admin")->with("data", $data);
     }
 }

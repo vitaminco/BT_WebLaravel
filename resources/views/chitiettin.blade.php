@@ -3,7 +3,7 @@
     <div class="industry-banner text-center page-banner"
         style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/kiotviet.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
         <div class="container-wrap" style="padding: 154px;text-align: center; display: block">
-            <h1 class="industry-heading mb-0" style="color: #fff;">Giang hàng sản phẩm</h1>
+            <h1 class="industry-heading mb-0" style="color: #fff;">Giang hàng bán vé</h1>
             <h1 class="industry-heading" style="color: #fff;"> Thông tin tin tức</h1>
         </div>
     </div>

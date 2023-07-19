@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             {{--  --}}
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -10,6 +10,7 @@
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
+                                <i class="bi bi-house"></i>
                                 Home
                             </a>
                         </li>
@@ -18,6 +19,7 @@
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
+                                <i class="bi bi-list-columns-reverse"></i>
                                 Trang danh sách
                             </a>
                         </li>
@@ -26,6 +28,7 @@
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#table" />
                                 </svg>
+                                <i class="bi bi-film"></i>
                                 Trang sản phẩm
                             </a>
                         </li>
@@ -34,6 +37,7 @@
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
+                                <i class="bi bi-journal-text"></i>
                                 Trang Tin Tức
                             </a>
                         </li>
@@ -42,6 +46,7 @@
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
+                                <i class="bi bi-person"></i>
                                 Trang users
                             </a>
                         </li>
@@ -50,6 +55,7 @@
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
+                                <i class="bi bi-chat-square-heart"></i>
                                 Trang đóng góp
                             </a>
                         </li>
@@ -62,21 +68,21 @@
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Tên</th>
+                                <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Số lượng mua</th>
-                                <th scope="col">Còn dư</th>
+                                <th scope="col">Còn tồn</th>
                                 <th scope="col">Ghi chú</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>random</td>
-                                <td>data</td>
-                                <td>placeholder</td>
-                                <td>text</td>
-                            </tr>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td>{{ $item->san_phams->ten_san_pham ?? '' }}</td>
+                                    <td>{{ $item->so_luong }}</td>
+                                    <td>{{ $item->san_phams->so_luong_ton ?? '' }}</td>
+                                    <td>text</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

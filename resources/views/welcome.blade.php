@@ -52,7 +52,7 @@
     </div>
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
-        <h1 style="display: block; text-align: center; padding: 30px">Sản phẩm nổi bật</h1>
+        <h1 style="display: block; text-align: center; padding: 30px">Phim nổi bật</h1>
         <div class="row row-cols-2 row-cols-lg-3"
             style="background-color: rgba(234, 234, 234, 0.496);border-radius: 20px;padding: 0 21px;">
             @foreach ($data as $item)
@@ -64,13 +64,12 @@
                         <p style="max-height: 46px;overflow: hidden;">{{ $item->ten_san_pham }}
                         </p>
                         <p><b>Giá:</b> {{ number_format($item->gia) }}.000đ</p>
-                        <p><b>Số lượng:</b> {{ $item->so_luong_ton }}</p>
+                        <p><b>Số lượng:</b> {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
                     </div>
                     <p style="padding: 0 10px;max-height: 50px;overflow: hidden;">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
-            {{-- giao diện phan trang --}}
-            {{ $data->links() }}
+
         </div>
 
         <div style="text-align: center">
@@ -91,8 +90,9 @@
 
                         <title>{{ $item->ten_tin_tuc }}</title>
                         <div class="col-sm-4"style="display: flex;flex-direction: column;justify-content: center;">
-                            <img src="{{ $item->anh_cover }}" style="border-radius: 20px;margin-left: 24px;"
-                                width="100%" height="80%" />
+                            <img src="{{ $item->anh_cover }}"
+                                style="border-radius: 20px;margin-left: 24px;object-fit: cover;" width="100%"
+                                height="80%" />
                         </div>
                         <div class="col-sm-4">
                             <div style="margin: 30px 0 0 43px;">

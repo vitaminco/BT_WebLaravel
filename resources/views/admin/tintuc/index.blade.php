@@ -9,6 +9,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-house"></i>
                             Home
                         </a>
                     </li>
@@ -17,6 +18,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-list-columns-reverse"></i>
                             Trang danh sách
                         </a>
                     </li>
@@ -25,6 +27,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#table" />
                             </svg>
+                            <i class="bi bi-film"></i>
                             Trang sản phẩm
                         </a>
                     </li>
@@ -33,6 +36,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-journal-text"></i>
                             Trang Tin Tức
                         </a>
                     </li>
@@ -41,6 +45,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-person"></i>
                             Trang users
                         </a>
                     </li>
@@ -49,6 +54,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-chat-square-heart"></i>
                             Trang đóng góp
                         </a>
                     </li>

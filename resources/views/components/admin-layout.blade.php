@@ -68,7 +68,7 @@
             display: block;
             border-width: 12px 20px;
             border-style: solid;
-            border-color: transparent transparent cornsilk transparent;
+            border-color: transparent transparent #f1d132 transparent;
             position: absolute;
             top: -23px;
             left: 249px;

@@ -9,6 +9,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-house"></i>
                             Home
                         </a>
                     </li>
@@ -17,6 +18,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-list-columns-reverse"></i>
                             Trang danh sách
                         </a>
                     </li>
@@ -25,6 +27,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#table" />
                             </svg>
+                            <i class="bi bi-film"></i>
                             Trang sản phẩm
                         </a>
                     </li>
@@ -33,6 +36,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-journal-text"></i>
                             Trang Tin Tức
                         </a>
                     </li>
@@ -41,6 +45,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-person"></i>
                             Trang users
                         </a>
                     </li>
@@ -49,6 +54,7 @@
                             <svg class="bi me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2" />
                             </svg>
+                            <i class="bi bi-chat-square-heart"></i>
                             Trang đóng góp
                         </a>
                     </li>
@@ -65,9 +71,8 @@
                         <th>Mô tả</th>
                         <th>id user</th>
                         <th>id sản phẩm</th>
-                        <th><a class="btn btn-primary" aria-current="page" href="{{ route('admin.donggop.create') }}">
-                                <i class="bi bi-plus-circle-dotted"></i> Thêm đóng góp
-                            </a></th>
+                        <th>tên sản phẩm</th>
+                        <th></th>
                     </tr>
                 <tbody>
                     @foreach ($data as $item)
@@ -79,6 +84,7 @@
                             <td>{{ $item->mo_ta }}</td>
                             <td>{{ $item->id_users }}</td>
                             <td>{{ $item->id_san_phams }}</td>
+                            <td>{{ $item->san_phams->ten_san_pham ?? '' }}</td>
                             <td>
                                 <form class="d-inline"
                                     action="{{ route('admin.donggop.destroy', ['id' => $item->id]) }}" method="POST">

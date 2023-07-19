@@ -107,7 +107,7 @@
                 <ul class="footer_list">
                     <li>
                         <a href="#" class="icon-link">
-                            Thời trang
+                            Các loại vé xem phim
                             <svg class="bi" width="1em" height="1em">
                                 <use xlink:href="#chevron-right" />
                             </svg>
@@ -115,7 +115,7 @@
                     </li>
                     <li>
                         <a href="#" class="icon-link">
-                            Tạp hóa & Siêu thị mini
+                            Rạp
                             <svg class="bi" width="1em" height="1em">
                                 <use xlink:href="#chevron-right" />
                             </svg>
@@ -123,7 +123,7 @@
                     </li>
                     <li>
                         <a href="#" class="icon-link">
-                            Điện thoại & Điện máy
+                            Thức ăn
                             <svg class="bi" width="1em" height="1em">
                                 <use xlink:href="#chevron-right" />
                             </svg>
@@ -131,7 +131,7 @@
                     </li>
                     <li>
                         <a href="#" class="icon-link">
-                            Nội thất & Gia dụng
+                            Sân khấu
                             <svg class="bi" width="1em" height="1em">
                                 <use xlink:href="#chevron-right" />
                             </svg>
@@ -139,7 +139,7 @@
                     </li>
                     <li>
                         <a href="#" class="icon-link">
-                            Nhà thuốc
+                            Kháng phòng
                             <svg class="bi" width="1em" height="1em">
                                 <use xlink:href="#chevron-right" />
                             </svg>
@@ -147,7 +147,7 @@
                     </li>
                     <li>
                         <a href="#" class="icon-link">
-                            Mỹ phẩm
+                            Phòng họp
                             <svg class="bi" width="1em" height="1em">
                                 <use xlink:href="#chevron-right" />
                             </svg>
