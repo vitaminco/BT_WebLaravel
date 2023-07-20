@@ -78,7 +78,6 @@
                 </a>
             </button>
         </div>
-
         {{-- tin tức --}}
         <div class="container">
             <h1 style="display: block; text-align: center; padding: 30px">Tin tức nổi bật</h1>

@@ -26,18 +26,24 @@
                 <a href="{{ route('tintuc') }}" class="navbar-brand toolbar sidebar">
                     Tin Tức
                 </a>
-                {{--  --}}
             </ul>
+            {{-- sreach --}}
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2 border border-warning" name="tukhoa" type="search"
+                    placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-warning rounded-pill sidebar" type="submit"><i
+                        class="bi bi-search-heart"></i></button>
             </form>
+            {{--  --}}
             <form class="d-flex">
-
                 <div class="toolbar sidebar">
-                    <a href="{{ route('admin.muasanpham.index') }} " class="toolbar">
+                    <a href="{{ route('admin.muasanpham.index') }} " class="toolbar position-relative">
                         <i class="bi bi-cart4"></i>
                         Giỏ hàng
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            99+
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
                     </a>
                 </div>
                 @if (Auth::check())
@@ -48,7 +54,7 @@
                         <div class="sidebar-item muinhon toolbar"
                             style="margin: 12px 2px 0 -183px;background-color: cornsilk;border-radius: 40px;width: 356px;">
                             <div style="text-align: center;">
-                                <img src="{{ Auth::user()->avatar }}" style="border-radius: 100%;margin: 0 0 10px 0;"
+                                <img src="{{ Auth::user()->avatar }}" class="rounded-circle" style="margin: 0 0 10px 0;"
                                     width="50%" height="50%" />
                                 <br><a class="nav-link" href="{{ route('admin.admin.edit', [Auth::user()->id]) }}"><i
                                         class="bi bi-pencil-square"></i> Thay

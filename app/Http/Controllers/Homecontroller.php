@@ -8,26 +8,47 @@ use App\Models\DanhMuc;
 use App\Models\DongGop;
 use App\Models\MuaSanPham;
 use App\Models\TinTuc;
+use Illuminate\Pagination\Paginator;
+
+Paginator::useBootstrap();
 
 class Homecontroller extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $datab = SanPham::skip(2)->take(3)->get(); //banner
         $data = SanPham::orderBy("id", "desc")->paginate(42); //sanpham
-        $data1 = DanhMuc::orderBy("id", "asc")->paginate(3); //danh muc
+        $data1 = DanhMuc::orderBy("id", "desc")->paginate(3); //danh muc
         $data2 = TinTuc::orderBy("id", "desc")->paginate(6); //tin tuc
+        //tìm kiếm
+        $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
+        $tukhoa = trim(strip_tags($tukhoa));
+        // $data = [];
+        if ($tukhoa != "") {
+            $data = SanPham::where("ten_san_pham", "like", "%$tukhoa%")->paginate(42);
+        }
+
         return view("welcome")
             ->with("datab", $datab)
             ->with("data", $data)
             ->with("data1", $data1)
-            ->with("data2", $data2);
+            ->with("data2", $data2)
+            ->with("tukhoa,data", $tukhoa, $data);
     }
     // sản phẩm
-    public function indexSanPham()
+    public function indexSanPham(Request $request)
     {
-        $data = SanPham::orderBy("id", "asc")->paginate(30);
-        return view(".sanpham")->with("data", $data);
+        $data = SanPham::orderBy("id", "desc")->paginate(48);
+        //tìm kiếm
+        $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
+        $tukhoa = trim(strip_tags($tukhoa));
+        if ($tukhoa != "") {
+            $data = SanPham::where("ten_san_pham", "like", "%$tukhoa%")->paginate(42);
+        }
+
+        return view(".sanpham")
+            ->with("data", $data)
+            ->with("tukhoa,data", $tukhoa, $data);
     }
 
     public function chitiet($id)
@@ -50,10 +71,17 @@ class Homecontroller extends Controller
             ->with("data", $data);
     }
     // tin tức
-    public function indexTinTuc()
+    public function indexTinTuc(Request $request)
     {
         $data = TinTuc::orderBy("id", "desc")->paginate(30);
-        return view(".tintuc")->with("data", $data);
+        $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
+        $tukhoa = trim(strip_tags($tukhoa));
+        if ($tukhoa != "") {
+            $data = TinTuc::where("ten_tin_tuc", "like", "%$tukhoa%")->paginate(42);
+        }
+        return view(".tintuc")
+            ->with("data", $data)
+            ->with("tukhoa,data", $tukhoa, $data);
     }
     public function chitiettin($id)
     {

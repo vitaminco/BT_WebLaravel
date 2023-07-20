@@ -17,14 +17,14 @@
             </div>
             <div class="col-4">
                 <div class="p-4 p-md-5 border rounded-3 bg-light">
-                    <div
-                        style="display: flex; justify-content: space-between; padding: 10px; font-weight: 700; font-size: 1.2rem">
-                        <p>{{ $data->ten_tin_tuc }}</p> <br>
-                        <p>Giảm giá: {{ number_format($data->giam_gia) }}%</p> <br>
+                    <div style="padding: 10px; font-weight: 700; font-size: 1.2rem">
+                        <p>{{ $data->ten_tin_tuc }}</p>
+                        <p>Giảm giá: {{ number_format($data->giam_gia) }}%</p>
                     </div>
-                    <p>Mô tả: {{ $data->mo_ta }}</p>
+                    <div class="card card-body">
+                        <p><b>Mô tả: </b>{{ $data->mo_ta }}</p>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

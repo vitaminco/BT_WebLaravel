@@ -17,12 +17,21 @@
             </div>
             <div class="col-4">
                 <div class="p-4 p-md-5 border rounded-3 bg-light">
-                    <div style=" padding: 10px; font-weight: 700; font-size: 1.2rem">
-                        <p>{{ $data->ten_san_pham }}</p> <br>
-                        <p>Giá: {{ number_format($data->gia) }}.000đ</p> <br>
-                        <p><b>Số lượng:</b> {{ $data->so_luong_ton }}</p>
+                    <div data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false"
+                        aria-controls="multiCollapseExample1 multiCollapseExample2">
+                        <div style=" padding: 10px; font-weight: 700; font-size: 1.2rem">
+                            <p>{{ $data->ten_san_pham }}</p>
+                            <p>Giá: {{ number_format($data->gia) }}.000đ</p>
+                            <p><b>Số lượng:</b> {{ $data->so_luong_ton }}</p>
+                        </div>
+                        <div class="collapse multi-collapse" id="multiCollapseExample1">
+                            <div class="card card-body">
+                                <p><b>Mô tả: </b>{{ $data->mo_ta }}</p>
+                            </div>
+                        </div>
+                        <p style="cursor: pointer; color: blueviolet">Xem thêm</p>
                     </div>
-                    <p><b>Mô tả: </b>{{ $data->mo_ta }}</p>
+
                     <div class="mt-3" style="text-align: center;">
                         <button class="btn btn-outline-success"><a style="color: #f1d132"
                                 href="{{ route('admin.muasanpham.create', ['id' => $data->id]) }}">MUA
@@ -49,7 +58,8 @@
                         <img src="{{ $item->users->avatar ?? '' }}" width=30 height="30"
                             style="object-fit: cover;border-radius:50%; margin: 5px " />
                         <p class="pb-3 mb-0 small lh-sm border-bottom">
-                            <strong class="d-block text-gray-dark">@ {{ $item->users->name ?? '' }}</strong>Nội dung:
+                            <strong class="d-block text-gray-dark">@ {{ $item->users->name ?? '' }}</strong>Nội
+                            dung:
                             {{ $item->mo_ta }}
                         </p>
                     </div>

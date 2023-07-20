@@ -8,18 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Validator;
 
+
 class SanPhamController extends Controller
 {
 
     public function index()
     {
-        //cách 1: $data = DanhMuc::orderBy("id", "desc")->get();
-        //cách 2: $data= DanhMuc::all();
-        //cách 3: paginate có thê phân trangs số dòng 1 trang
-        $data = SanPham::orderBy("id", "asc")->paginate(50);
-        //cash 1:
+        $data = SanPham::orderBy("id", "desc")->paginate(50);
         return view("admin.sanpham.index")->with("data", $data);
-        //cashc 2: return view("admin.danhmuc.index" compact("data"));
     }
 
 
