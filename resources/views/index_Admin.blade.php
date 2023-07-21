@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout title="Home">
     <div class="container">
         <div class="row">
             {{--  --}}
@@ -59,6 +59,15 @@
                                 Trang đóng góp
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.cauhinh.index') }}" class="nav-link link-dark">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2" />
+                                </svg>
+                                <i class="bi bi-gear"></i>
+                                Trang cấu hình
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -89,7 +98,4 @@
             </main>
         </div>
     </div>
-
-
-
 </x-admin-layout>

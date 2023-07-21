@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CauHinh;
 use Illuminate\Http\Request;
 use App\Models\SanPham;
 use App\Models\DanhMuc;
 use App\Models\DongGop;
 use App\Models\MuaSanPham;
 use App\Models\TinTuc;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Pagination\Paginator;
 
 Paginator::useBootstrap();
@@ -16,7 +18,7 @@ class Homecontroller extends Controller
 {
     public function index(Request $request)
     {
-        $datab = SanPham::skip(2)->take(3)->get(); //banner
+        $datab = SanPham::skip(2)->take(3)->orderBy("id", "desc")->get(); //banner
         $data = SanPham::orderBy("id", "desc")->paginate(42); //sanpham
         $data1 = DanhMuc::orderBy("id", "desc")->paginate(3); //danh muc
         $data2 = TinTuc::orderBy("id", "desc")->paginate(6); //tin tuc
@@ -27,13 +29,16 @@ class Homecontroller extends Controller
         if ($tukhoa != "") {
             $data = SanPham::where("ten_san_pham", "like", "%$tukhoa%")->paginate(42);
         }
+        //logo
+        $datach = CauHinh::orderBy("id", "desc")->paginate(1); //sanpham
 
         return view("welcome")
             ->with("datab", $datab)
             ->with("data", $data)
             ->with("data1", $data1)
             ->with("data2", $data2)
-            ->with("tukhoa,data", $tukhoa, $data);
+            ->with("tukhoa,data", $tukhoa, $data)
+            ->with("datach", $datach);
     }
     // sản phẩm
     public function indexSanPham(Request $request)

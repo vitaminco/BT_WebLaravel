@@ -1,7 +1,6 @@
-<x-admin-layout>
+<x-admin-layout title="Danh mục">
     <div class="container">
         <div class="row">
-
             {{--  --}}
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
@@ -60,6 +59,15 @@
                                 Trang đóng góp
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.cauhinh.index') }}" class="nav-link link-dark">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2" />
+                                </svg>
+                                <i class="bi bi-gear"></i>
+                                Trang cấu hình
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -104,8 +112,6 @@
                     </tbody>
                     </thead>
                 </table>
-
-                {{-- giao diện phan trang --}}
                 {{ $data->links() }}
             </div>
         </div>

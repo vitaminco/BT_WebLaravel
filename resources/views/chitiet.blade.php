@@ -55,8 +55,12 @@
             @foreach ($data1 as $item)
                 <div class="d-flex text-muted pt-3" style="justify-content: space-between;">
                     <div class="d-flex">
-                        <img src="{{ $item->users->avatar ?? '' }}" width=30 height="30"
-                            style="object-fit: cover;border-radius:50%; margin: 5px " />
+                        @if (Auth::user()->avatar != '')
+                            <img src="{{ $item->users->avatar ?? '' }}" width=30 height="30"
+                                style="object-fit: cover;border-radius:50%; margin: 5px " />
+                        @else
+                            <i class="bi bi-person-circle"></i>
+                        @endif
                         <p class="pb-3 mb-0 small lh-sm border-bottom">
                             <strong class="d-block text-gray-dark">@ {{ $item->users->name ?? '' }}</strong>Nội
                             dung:

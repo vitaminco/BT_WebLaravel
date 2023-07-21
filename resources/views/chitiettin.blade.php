@@ -8,7 +8,6 @@
         </div>
     </div>
     {{--  --}}
-
     <div class="container">
         <div class="row" style="margin: 10px">
             <div class="col-8">
@@ -28,5 +27,4 @@
             </div>
         </div>
     </div>
-
 </x-admin-layout>

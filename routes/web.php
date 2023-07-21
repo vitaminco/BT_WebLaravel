@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\DanhMucController;
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\TinTucController;
+use App\Http\Controllers\CauHinhController;
 use App\Http\Controllers\DongGopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homecontroller;
@@ -19,6 +20,8 @@ Route::get('/{id}/chitiet', [Homecontroller::class, "chitiet"])->name("chitiet")
 Route::get('indexTinTuc', [Homecontroller::class, "indexTinTuc"])->name("tintuc");
 Route::get('/{id}/chitiettin', [Homecontroller::class, "chitiettin"])->name("chitiettin");
 Route::get('indexAdmin', [Homecontroller::class, "indexAdmin"])->name("index_Admin");
+
+Route::get('/nav', [Homecontroller::class, "nav"])->name("admin-nav");
 //chi tiết đơn
 Route::get('/{id}/chitietdon', [MuaSanPhamController::class, "chitietdon"])->name("chitietdon");
 
@@ -74,11 +77,18 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
     });
 
     Route::prefix("/donggop")->name("donggop.")->group(function () {
-        //đóng góp
         Route::get('/danh_sach_dong_gop', [DongGopController::class, "index"])->name("index");
         Route::get('/{id}/create', [DongGopController::class, "create"])->name("create");
         Route::post('/luu/{id?}', [DongGopController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [DongGopController::class, "destroy"])->name("destroy");
+    });
+
+    Route::prefix("/cauhinh")->name("cauhinh.")->group(function () {
+        Route::get('/cau_hinh', [CauHinhController::class, "index"])->name("index");
+        Route::get('/create', [CauHinhController::class, "create"])->name("create");
+        Route::get('/{id}/sua_cau_hinh', [CauHinhController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [CauHinhController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [CauHinhController::class, "destroy"])->name("destroy");
     });
 });
 

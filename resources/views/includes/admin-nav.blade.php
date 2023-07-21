@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light"
-    style="background: #fff;;z-index:3; padding:10px; position: sticky;top: 0;right: 0;left: 0; box-shadow: 0 4px 8px rgba(84,104,120,0.1);">
+<nav class="navbar navbar-expand-md navbar-light fixed-top"
+    style="background: #fffffff5;;z-index:3; padding:10px; position: sticky;top: 0;right: 0;left: 0; box-shadow: 0 4px 8px rgba(84,104,120,0.1);">
     <div class="container-fluid">
         <a href="/" class="navbar-brand toolbar">
             <i class="bi bi-house"></i>
@@ -10,8 +10,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0 tin">
+                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
                     Phim & Giá Vé
                 </a>
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
@@ -49,13 +49,22 @@
                 @if (Auth::check())
                     <div class="toolbar sidebar" style="">
                         {{-- tên --}}
-                        <i class="bi bi-person-circle"></i>
+                        @if (Auth::user()->avatar != '')
+                            <img src="{{ Auth::user()->avatar }}" class="rounded-circle border border-warning"
+                                width="25px" height="25px" />
+                        @else
+                            <i class="bi bi-person-circle"></i>
+                        @endif
                         {{ Auth::user()->name }}
                         <div class="sidebar-item muinhon toolbar"
                             style="margin: 12px 2px 0 -183px;background-color: cornsilk;border-radius: 40px;width: 356px;">
                             <div style="text-align: center;">
-                                <img src="{{ Auth::user()->avatar }}" class="rounded-circle" style="margin: 0 0 10px 0;"
-                                    width="50%" height="50%" />
+                                @if (Auth::user()->avatar != '')
+                                    <img src="{{ Auth::user()->avatar }}" class="rounded-circle border border-warning"
+                                        style="margin: 0 0 10px 0;" width="50%" height="50%" />
+                                @else
+                                    <i class="bi bi-person-circle" style="margin: 0 0 10px 0;font-size: 8rem;"></i>
+                                @endif
                                 <br><a class="nav-link" href="{{ route('admin.admin.edit', [Auth::user()->id]) }}"><i
                                         class="bi bi-pencil-square"></i> Thay
                                     đổi</a>

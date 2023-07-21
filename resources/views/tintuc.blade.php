@@ -11,7 +11,8 @@
     <div class="container" style="margin: 10px auto">
         <div class="row row-cols-3"style="background-color: cornsilk;border-radius: 3px">
             @foreach ($data as $item)
-                <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col tintuc" style="padding: 10px">
+                <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col tintuc"
+                    style="padding: 10px;width: 33%;">
                     <title>{{ $item->ten_tin_tuc }}</title>
                     <img src="{{ $item->anh_cover }}" width=100% height="250px" style="object-fit: cover; " />
                     <div style="padding: 10px 10px 0 10px">
