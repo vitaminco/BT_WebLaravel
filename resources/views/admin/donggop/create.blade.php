@@ -3,18 +3,24 @@
         @foreach ($data1 as $item)
             <div class="d-flex text-muted pt-3" style="justify-content: space-between;">
                 <div class="d-flex">
-                    <img src="{{ $item->users->avatar ?? '' }}" width=30 height="30"
-                        style="object-fit: cover;border-radius:50%; margin: 5px " />
+                    @if (Auth::user()->avatar != '')
+                        <img src="{{ $item->users->avatar ?? '' }}" width=30 height="30"
+                            style="object-fit: cover;border-radius:50%; margin: 5px " />
+                    @else
+                        <i class="bi bi-person-circle"style="margin: 0 0 10px 0;font-size: 1.2rem;"></i>
+                    @endif
                     <p class="pb-3 mb-0 small lh-sm border-bottom">
                         <strong class="d-block text-gray-dark">@ {{ $item->users->name ?? '' }}</strong>Nội dung:
                         {{ $item->mo_ta }}
                     </p>
                 </div>
-                <form class="d-inline" action="{{ route('admin.donggop.destroy', ['id' => $item->id]) }}" method="POST"
-                    style="">
-                    @csrf
-                    <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
-                </form>
+                @if ($item->id_users == Auth::user()->id)
+                    <form class="d-inline" action="{{ route('admin.donggop.destroy', ['id' => $item->id]) }}"
+                        method="POST" style="">
+                        @csrf
+                        <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
+                    </form>
+                @endif
             </div>
         @endforeach
     </div>

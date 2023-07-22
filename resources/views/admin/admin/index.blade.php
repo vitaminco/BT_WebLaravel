@@ -98,7 +98,7 @@
                                     @if ($item->avatar != '')
                                         <img src="{{ $item->avatar }}" width=100 />
                                     @else
-                                        <i class="bi bi-person-circle"></i>
+                                        <i class="bi bi-person-circle" style="margin: 0 0 10px 0;font-size: 5rem;"></i>
                                     @endif
                                 </td>
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>

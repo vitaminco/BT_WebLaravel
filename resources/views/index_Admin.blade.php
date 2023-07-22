@@ -81,6 +81,7 @@
                                 <th scope="col">Số lượng mua</th>
                                 <th scope="col">Còn tồn</th>
                                 <th scope="col">Ghi chú</th>
+                                <th>Số lượng mua: {{ $datac }} SP</th>
                             </tr>
                         </thead>
                         <tbody>

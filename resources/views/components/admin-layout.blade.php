@@ -18,6 +18,7 @@
             padding-top: 0px;
             padding-bottom: 1px;
             color: #5a5a5a;
+            background: #cecccc;
         }
 
         /* Tuyết rơi */
@@ -315,9 +316,8 @@
             border-color: #f1d132;
         }
 
-        .tin a {
+        .tin {
             transform: translateX(0px);
-            /* animation: float 6s ease-out initial; */
             animation-name: tin;
             animation-duration: 4s;
             animation-iteration-count: 1;
@@ -334,6 +334,51 @@
 
             100% {
                 transform: translatey(0px);
+            }
+        }
+
+        /* an ct */
+        .ctl {
+
+            transform: translateX(0px);
+            animation-name: ctl;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+        }
+
+        .ctr {
+
+            transform: translateX(0px);
+            animation-name: ctr;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes ctl {
+            0% {
+                transform: translatex(-100px);
+            }
+
+            50% {
+                transform: translatex(0px);
+            }
+
+            100% {
+                transform: translatex(0px);
+            }
+        }
+
+        @keyframes ctr {
+            0% {
+                transform: translatex(100px);
+            }
+
+            50% {
+                transform: translatex(0px);
+            }
+
+            100% {
+                transform: translatex(0px);
             }
         }
 

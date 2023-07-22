@@ -12,7 +12,6 @@ class DongGopController extends Controller
     public function index()
     {
         $data = DongGop::orderBy("id", "desc")->paginate(50);
-        //cash 1:
         return view("admin.donggop.index")->with("data", $data);
     }
 

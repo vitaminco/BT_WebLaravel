@@ -10,28 +10,28 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0 tin">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
                     Phim & Giá Vé
                 </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
+                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
                     Giải Pháp
                 </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
+                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
                     Phí Dịch Vụ
                 </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar">
+                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
                     Hổ Trợ
                 </a>
-                <a href="{{ route('tintuc') }}" class="navbar-brand toolbar sidebar">
+                <a href="{{ route('tintuc') }}" class="navbar-brand toolbar sidebar tin">
                     Tin Tức
                 </a>
             </ul>
             {{-- sreach --}}
             <form class="d-flex">
-                <input class="form-control me-2 border border-warning" name="tukhoa" type="search"
+                <input class="form-control me-2 border border-warning ctl" name="tukhoa" type="search"
                     placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-warning rounded-pill sidebar" type="submit"><i
+                <button class="btn btn-outline-warning rounded-pill sidebar ctr" type="submit"><i
                         class="bi bi-search-heart"></i></button>
             </form>
             {{--  --}}
@@ -69,7 +69,6 @@
                                         class="bi bi-pencil-square"></i> Thay
                                     đổi</a>
                             </div>
-
                             {{--  --}}
                             <div class=" d-flex flex-column flex-shrink-0 p-3 bg-light"
                                 style="width: 100%;margin: 20px 0 10px 0; box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1)">

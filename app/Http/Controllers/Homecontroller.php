@@ -97,6 +97,10 @@ class Homecontroller extends Controller
     public function indexAdmin()
     {
         $data = MuaSanPham::orderBy("id", "desc")->paginate(30);
-        return view(".index_Admin")->with("data", $data);
+        $dem = MuaSanPham::select('so_luong')->get();
+        $datac = $dem->count();
+        return view(".index_Admin")
+            ->with("data", $data)
+            ->with("datac", $datac);
     }
 }

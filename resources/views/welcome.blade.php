@@ -36,7 +36,7 @@
     </div>
     {{-- phần hiển thị danh mục --}}
     <div class="container marketing" style="padding: 20px">
-        <div class="row tin" style="background-color: cornsilk;border-radius: 20px;">
+        <div class="row" style="background-color: cornsilk;border-radius: 20px;">
             @foreach ($data1 as $item)
                 <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col-lg-4 center">
                     <title>{{ $item->ten_danh_muc }}</title>
@@ -81,10 +81,10 @@
         {{-- tin tức --}}
         <div class="container">
             <h1 style="display: block; text-align: center; padding: 30px">Tin tức nổi bật</h1>
-            <div class="row tin">
+            <div class="row">
                 @foreach ($data2 as $item)
                     <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col-6 tin"
-                        style="display: flex;width: 47%; margin: 10px; background-color: rgba(234, 234, 234, 0.496);border-radius: 10px;">
+                        style="display: flex;width: 47%; margin: 10px; background-color: #fff;border-radius: 10px;">
 
                         <title>{{ $item->ten_tin_tuc }}</title>
                         <div class="col-sm-4"style="display: flex;flex-direction: column;justify-content: center;">

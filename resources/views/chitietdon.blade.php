@@ -5,7 +5,7 @@
                 <img src="{{ $data->san_phams->anh_cover ?? '' }}" width=100% height="500" style="object-fit: cover; " />
             </div>
             <div class="col-4">
-                <div class="p-4 p-md-5 border rounded-3 bg-light">
+                <div class="p-4 p-md-5 border rounded-3 bg-light tin">
                     <ul class="nav flex-column ct-mua">
                         <h3>Thông tin vé</h3>
                         <li class="nav-item">
@@ -34,11 +34,13 @@
                     <div class="mt-3" style="text-align: center;">
                         {{-- <a href="{{ route('admin.muasanpham.edit', ['id' => $data->id]) }}" class="btn btn-success"><i
                                 class="bi bi-pencil-square"></i> Sửa</a> --}}
-                        <form class="d-inline" action="{{ route('admin.muasanpham.destroy', ['id' => $data->id]) }}"
-                            method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"> Xóa</i></button>
-                        </form>
+                        @if ($data->id_users == Auth::user()->id)
+                            <form class="d-inline" action="{{ route('admin.muasanpham.destroy', ['id' => $data->id]) }}"
+                                method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"> Xóa</i></button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
