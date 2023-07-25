@@ -60,6 +60,24 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.help.index') }}" class="nav-link link-dark">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2" />
+                                </svg>
+                                <i class="bi bi-patch-question"></i>
+                                Trang trợ giúp
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.banggia.index') }}" class="nav-link link-dark">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2" />
+                                </svg>
+                                <i class="bi bi-table"></i>
+                                Trang bảng giá
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('admin.cauhinh.index') }}" class="nav-link link-dark">
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />

@@ -4,6 +4,9 @@
         <a href="/" class="navbar-brand toolbar">
             <i class="bi bi-house"></i>
             HOME
+            {{-- @foreach ($data as $item)
+                {{ $item->ten_cong_ty }}
+            @endforeach --}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,15 +15,12 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
-                    Phim & Giá Vé
+                    Sản phẩm & Giá
                 </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
-                    Giải Pháp
+                <a href="{{ route('banggia') }}" class="navbar-brand toolbar sidebar tin">
+                    Ưu đãi
                 </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
-                    Phí Dịch Vụ
-                </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
+                <a href="{{ route('help') }}" class="navbar-brand toolbar sidebar tin">
                     Hổ Trợ
                 </a>
                 <a href="{{ route('tintuc') }}" class="navbar-brand toolbar sidebar tin">

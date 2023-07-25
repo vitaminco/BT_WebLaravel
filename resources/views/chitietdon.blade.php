@@ -7,7 +7,7 @@
             <div class="col-4">
                 <div class="p-4 p-md-5 border rounded-3 bg-light tin">
                     <ul class="nav flex-column ct-mua">
-                        <h3>Thông tin vé</h3>
+                        <h3>Thông tin sản phẩm</h3>
                         <li class="nav-item">
                             <b>Tên sản phẩm: </b>{{ $data->san_phams->ten_san_pham ?? '' }}
                         </li>

@@ -1,4 +1,4 @@
-<x-admin-layout title="Danh mục">
+<x-admin-layout title="Help">
     <div class="container">
         <div class="row">
             {{--  --}}
@@ -69,7 +69,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.help.index') }}" class="nav-link link-dark">
+                            <a href="{{ route('admin.help.index') }}" class="nav-link">
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.cauhinh.index') }}" class="nav-link">
+                            <a href="{{ route('admin.cauhinh.index') }}" class="nav-link link-dark">
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
@@ -90,44 +90,38 @@
                 </div>
             </nav>
             <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 table-responsive">
-                <h2>Danh sách cấu hình</h2>
+                <h2>Danh sách help</h2>
                 <table class="table" border="5">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Tên công ty</th>
-                            <th>Số ĐT</th>
-                            <th>Email</th>
-                            <th>Địa chỉ</th>
-                            <th>Logo</th>
+                            <th>Câu hỏi</th>
+                            <th>Trả lời</th>
+                            <th>Hình ảnh</th>
                             <th>Ghi chú</th>
                             <th>Ngày tạo</th>
                             <th>Ngày update</th>
-                            <th><a class="btn btn-primary" aria-current="page"
-                                    href="{{ route('admin.cauhinh.create') }}">
-                                    <i class="bi bi-plus-circle-dotted"></i> Thêm cấu hình
+                            <th><a class="btn btn-primary" aria-current="page" href="{{ route('admin.help.create') }}">
+                                    <i class="bi bi-plus-circle-dotted"></i> Thêm giúp đỡ
                                 </a></th>
                         </tr>
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->ten_cong_ty }}</td>
-                                <td>{{ $item->so_dt_tu_van }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>{{ $item->dia_chi }}</td>
+                                <td>{{ $item->cau_hoi }}</td>
+                                <td>{{ $item->tra_loi }}</td>
                                 <td>
-                                    <img src="{{ $item->logo }}" width=100 />
+                                    <img src="{{ $item->anh_help }}" width=100 />
                                 </td>
                                 <td>{{ $item->ghi_chu }}</td>
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                 <td>{{ $item->updated_at->format('d/m/Y') }}</td>
                                 <td>
-                                    <a href="{{ route('admin.cauhinh.edit', ['id' => $item->id]) }}"
+                                    <a href="{{ route('admin.help.edit', ['id' => $item->id]) }}"
                                         class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
                                     <form class="d-inline"
-                                        action="{{ route('admin.cauhinh.destroy', ['id' => $item->id]) }}"
-                                        method="POST">
+                                        action="{{ route('admin.help.destroy', ['id' => $item->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-danger"><i
                                                 class="bi bi-trash3"></i></button>
@@ -138,6 +132,8 @@
                     </tbody>
                     </thead>
                 </table>
+
+                {{-- giao diện phan trang --}}
                 {{ $data->links() }}
             </div>
         </div>

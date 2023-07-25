@@ -4,8 +4,10 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\DanhMucController;
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\TinTucController;
+use App\Http\Controllers\BangGiaController;
 use App\Http\Controllers\CauHinhController;
 use App\Http\Controllers\DongGopController;
+use App\Http\Controllers\HelpController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homecontroller;
 use App\Http\Controllers\MuaSanPhamController;
@@ -20,9 +22,9 @@ Route::get('/{id}/chitiet', [Homecontroller::class, "chitiet"])->name("chitiet")
 Route::get('indexTinTuc', [Homecontroller::class, "indexTinTuc"])->name("tintuc");
 Route::get('/{id}/chitiettin', [Homecontroller::class, "chitiettin"])->name("chitiettin");
 Route::get('indexAdmin', [Homecontroller::class, "indexAdmin"])->name("index_Admin");
-
-Route::get('/nav', [Homecontroller::class, "nav"])->name("admin-nav");
-//chi tiết đơn
+Route::get('/banggia', [Homecontroller::class, "banggia"])->name("banggia");
+Route::get('/help', [Homecontroller::class, "help"])->name("help");
+Route::get('/nav', [Homecontroller::class, "nav"])->name("nav"); //
 Route::get('/{id}/chitietdon', [MuaSanPhamController::class, "chitietdon"])->name("chitietdon");
 
 
@@ -89,6 +91,22 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
         Route::get('/{id}/sua_cau_hinh', [CauHinhController::class, "edit"])->name("edit");
         Route::post('/luu/{id?}', [CauHinhController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [CauHinhController::class, "destroy"])->name("destroy");
+    });
+
+    Route::prefix("/banggia")->name("banggia.")->group(function () {
+        Route::get('/bang_gia', [BangGiaController::class, "index"])->name("index");
+        Route::get('/create', [BangGiaController::class, "create"])->name("create");
+        Route::get('/{id}/sua_bang_gia', [BangGiaController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [BangGiaController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [BangGiaController::class, "destroy"])->name("destroy");
+    });
+
+    Route::prefix("/help")->name("help.")->group(function () {
+        Route::get('/help', [HelpController::class, "index"])->name("index");
+        Route::get('/create', [HelpController::class, "create"])->name("create");
+        Route::get('/{id}/sua_help', [HelpController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [HelpController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [HelpController::class, "destroy"])->name("destroy");
     });
 });
 

@@ -52,7 +52,7 @@
     </div>
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
-        <h1 style="display: block; text-align: center; padding: 30px">Phim nổi bật</h1>
+        <h1 style="display: block; text-align: center; padding: 30px">Sản phẩm nổi bật</h1>
         <div class="row row-cols-2 row-cols-lg-3"
             style="background-color: rgba(234, 234, 234, 0.496);border-radius: 20px;padding: 0 21px;">
             @foreach ($data as $item)
@@ -70,7 +70,6 @@
                 </a>
             @endforeach
         </div>
-
         <div style="text-align: center">
             <button class="btn btn-outline-success" style="border-radius:50px; margin: 10px ">
                 <a href="{{ route('sanpham') }} " style="font-weight: 600">Xem tất cả

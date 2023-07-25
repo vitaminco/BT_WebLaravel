@@ -68,11 +68,8 @@
                 </div>
                 <ul class="footer_list">
                     <li>
-                        <a href="#" class="icon-link">
+                        <a href="{{ route('help') }}" class="navbar-brand">
                             Câu hỏi thường gặp
-                            <svg class="bi" width="1em" height="1em">
-                                <use xlink:href="#chevron-right" />
-                            </svg>
                         </a>
                     </li>
                     <li>
@@ -106,11 +103,8 @@
                 </div>
                 <ul class="footer_list">
                     <li>
-                        <a href="#" class="icon-link">
-                            Các loại vé xem phim
-                            <svg class="bi" width="1em" height="1em">
-                                <use xlink:href="#chevron-right" />
-                            </svg>
+                        <a href="{{ route('sanpham') }}" class="navbar-brand">
+                            Sản phẩm & Giá
                         </a>
                     </li>
                     <li>
@@ -171,7 +165,7 @@
             <div class="row" style="padding: 18px 0 0 0">
                 <div class="col-8">
                     <p class="mb-0 p-0" style="color: #fff; font-weight: 500">
-                        <span>2023 HNH™</span> © Copyright 2010-2023 HNH Corporation. All
+                        <span>2023 HNH™</span> © Copyright 2023 - 2024 HNH Corporation. All
                         Right
                         Reserved
                     </p>

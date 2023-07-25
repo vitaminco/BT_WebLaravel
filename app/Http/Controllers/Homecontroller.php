@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BangGia;
 use App\Models\CauHinh;
 use Illuminate\Http\Request;
 use App\Models\SanPham;
 use App\Models\DanhMuc;
 use App\Models\DongGop;
+use App\Models\Help;
 use App\Models\MuaSanPham;
 use App\Models\TinTuc;
 use Illuminate\Console\View\Components\Alert;
@@ -20,25 +22,27 @@ class Homecontroller extends Controller
     {
         $datab = SanPham::skip(2)->take(3)->orderBy("id", "desc")->get(); //banner
         $data = SanPham::orderBy("id", "desc")->paginate(42); //sanpham
-        $data1 = DanhMuc::orderBy("id", "desc")->paginate(3); //danh muc
+        $data1 = DanhMuc::orderBy("id", "desc")->get(); //danh muc
         $data2 = TinTuc::orderBy("id", "desc")->paginate(6); //tin tuc
         //tìm kiếm
         $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
         $tukhoa = trim(strip_tags($tukhoa));
-        // $data = [];
         if ($tukhoa != "") {
             $data = SanPham::where("ten_san_pham", "like", "%$tukhoa%")->paginate(42);
         }
-        //logo
-        $datach = CauHinh::orderBy("id", "desc")->paginate(1); //sanpham
 
         return view("welcome")
             ->with("datab", $datab)
             ->with("data", $data)
             ->with("data1", $data1)
             ->with("data2", $data2)
-            ->with("tukhoa,data", $tukhoa, $data)
-            ->with("datach", $datach);
+            ->with("tukhoa,data", $tukhoa, $data);
+    }
+    //help
+    public function nav()
+    {
+        $data = CauHinh::orderBy("id", "desc")->paginate(30);
+        return view(".includes.admin-nav")->with("data", $data);
     }
     // sản phẩm
     public function indexSanPham(Request $request)
@@ -70,7 +74,7 @@ class Homecontroller extends Controller
     public function dm_sp($id_danh_muc)
     {
         $data = SanPham::where("id_danh_muc", $id_danh_muc)
-            ->orderBy("id", "asc")
+            ->orderBy("id", "desc")
             ->paginate(50);
         return view(".sanpham")
             ->with("data", $data);
@@ -93,14 +97,26 @@ class Homecontroller extends Controller
         $data = TinTuc::findOrFail($id);
         return view(".chitiettin")->with("data", $data);
     }
+    //bảng giá
+    public function banggia()
+    {
+        $data = BangGia::orderBy("id", "desc")->paginate(50);
+        return view(".banggia")
+            ->with("data", $data);
+    }
     //index_admin
     public function indexAdmin()
     {
         $data = MuaSanPham::orderBy("id", "desc")->paginate(30);
-        $dem = MuaSanPham::select('so_luong')->get();
-        $datac = $dem->count();
+        $datac = MuaSanPham::select('so_luong')->sum('so_luong');
         return view(".index_Admin")
             ->with("data", $data)
             ->with("datac", $datac);
+    }
+    //help
+    public function help()
+    {
+        $data = Help::orderBy("id", "desc")->paginate(30);
+        return view("help")->with("data", $data);
     }
 }
