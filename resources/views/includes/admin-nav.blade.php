@@ -4,9 +4,7 @@
         <a href="/" class="navbar-brand toolbar">
             <i class="bi bi-house"></i>
             HOME
-            {{-- @foreach ($data as $item)
-                {{ $item->ten_cong_ty }}
-            @endforeach --}}
+
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

@@ -30,7 +30,6 @@ class Homecontroller extends Controller
         if ($tukhoa != "") {
             $data = SanPham::where("ten_san_pham", "like", "%$tukhoa%")->paginate(42);
         }
-
         return view("welcome")
             ->with("datab", $datab)
             ->with("data", $data)
@@ -38,11 +37,11 @@ class Homecontroller extends Controller
             ->with("data2", $data2)
             ->with("tukhoa,data", $tukhoa, $data);
     }
-    //help
+
     public function nav()
     {
-        $data = CauHinh::orderBy("id", "desc")->paginate(30);
-        return view(".includes.admin-nav")->with("data", $data);
+        $data = CauHinh::orderBy("id", "desc")->paginate(1);
+        return view("\includes\admin-nav")->with("data", $data);
     }
     // sản phẩm
     public function indexSanPham(Request $request)
@@ -98,11 +97,17 @@ class Homecontroller extends Controller
         return view(".chitiettin")->with("data", $data);
     }
     //bảng giá
-    public function banggia()
+    public function banggia(Request $request)
     {
         $data = BangGia::orderBy("id", "desc")->paginate(50);
+        $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
+        $tukhoa = trim(strip_tags($tukhoa));
+        if ($tukhoa != "") {
+            $data = BangGia::where("doi_tuong", "like", "%$tukhoa%")->paginate(42);
+        }
         return view(".banggia")
-            ->with("data", $data);
+            ->with("data", $data)
+            ->with("tukhoa,data", $tukhoa, $data);
     }
     //index_admin
     public function indexAdmin()
@@ -114,9 +119,16 @@ class Homecontroller extends Controller
             ->with("datac", $datac);
     }
     //help
-    public function help()
+    public function help(Request $request)
     {
         $data = Help::orderBy("id", "desc")->paginate(30);
-        return view("help")->with("data", $data);
+        $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
+        $tukhoa = trim(strip_tags($tukhoa));
+        if ($tukhoa != "") {
+            $data = Help::where("cau_hoi", "like", "%$tukhoa%")->paginate(42);
+        }
+        return view("help")
+            ->with("data", $data)
+            ->with("tukhoa,data", $tukhoa, $data);
     }
 }
