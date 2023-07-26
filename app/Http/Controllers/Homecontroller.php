@@ -41,7 +41,7 @@ class Homecontroller extends Controller
     public function nav()
     {
         $data = CauHinh::orderBy("id", "desc")->paginate(1);
-        return view("\includes\admin-nav")->with("data", $data);
+        return view("includes/admin-nav")->with("data", $data);
     }
     // sản phẩm
     public function indexSanPham(Request $request)

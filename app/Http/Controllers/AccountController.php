@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CauHinh;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ class AccountController extends Controller
     //hiển thị
     public function index()
     {
-        $data = User::orderBy("id", "asc")->paginate(20);
+        $data = User::orderBy("id", "desc")->paginate(20);
         return view("admin.admin.index")->with("data", $data);
     }
     //sửa
@@ -64,7 +65,8 @@ class AccountController extends Controller
     //dăng kí tài khoảng
     public function register()
     {
-        return view("account/register");
+        $data = CauHinh::orderBy("id", "desc")->paginate(1);
+        return view("account/register")->with("data", $data);
     }
 
     public function save(Request $request)

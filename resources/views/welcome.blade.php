@@ -80,7 +80,7 @@
         {{-- tin tức --}}
         <div class="container">
             <h1 style="display: block; text-align: center; padding: 30px">Tin tức nổi bật</h1>
-            <div class="row">
+            <div class="row justify-content-center">
                 @foreach ($data2 as $item)
                     <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col-6 tin"
                         style="display: flex;width: 47%; margin: 10px; background-color: #fff;border-radius: 10px;">
@@ -106,6 +106,36 @@
                         href="{{ route('tintuc') }}" style="font-weight: 600">Tất cả tin tức
                         <i class="bi bi-arrow-right-circle"></i>
                     </a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"style="background-color: #fff;border-radius: 54px;margin: 20px auto;padding: 84px;">
+        <div class="box-title text-center" style="margin-top:0;">
+            <h3 class="industry-heading" style="font-weight: 700;">HNH cung cấp cho bạn nhiều mặt hàng, sản phẩm chất
+                lượng</h3>
+        </div>
+        <div class="row introduces-list text-center">
+            <div class="col-md-4 introduces-item">
+                <img src="https://www.kiotviet.vn/wp-content/uploads/2021/12/Icon.png" alt="Đơn giản &amp; Dễ sử dụng"
+                    width="" height="" class="introduces-icon lazy">
+                <h5 class="introduces-title">Đơn giản &amp; Dễ sử dụng</h5>
+                <h6 class="introduces-txt mb-0">Giao diện đơn giản, thân thiện và thông minh. Chỉ mất 15
+                    phút làm quen để mua hàng.</h6>
+            </div>
+            <div class="col-md-4 introduces-item">
+                <img src="https://www.kiotviet.vn/wp-content/uploads/2021/12/Icon-1.png"
+                    alt="Phù hợp cho từng ngành hàng" width="" height="" class="introduces-icon lazy">
+                <h5 class="introduces-title">Phù hợp cho từng ngành hàng</h5>
+                <h6 class="introduces-txt mb-0">Phần mềm phù hợp cho hơn 20 ngành hàng khác nhau với cả
+                    bán buôn, bán lẻ và bán online.</h6>
+            </div>
+            <div class="col-md-4 introduces-item">
+                <img src="https://www.kiotviet.vn/wp-content/uploads/2021/12/Icon-2.png" alt="Tiết kiệm chi phí"
+                    width="" height="" class="introduces-icon lazy">
+                <h5 class="introduces-title">Tiết kiệm chi phí</h5>
+                <h6 class="introduces-txt mb-0">Cung cấp nhiều dịch vụ. Rẻ hơn
+                    một ly trà đá mỗi ngày.</h6>
             </div>
         </div>
     </div>

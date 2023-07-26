@@ -11,14 +11,14 @@
                 </div>
                 <ul class="footer_list">
                     <li>
-                        <a href="#" class="icon-link">
+                        <a href="/" class="icon-link">
                             Về ...
                             <svg class="bi" width="1em" height="1em">
                                 <use xlink:href="#chevron-right" />
                             </svg>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#" class="icon-link">
                             Khách hàng
                             <svg class="bi" width="1em" height="1em">
@@ -26,7 +26,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#" class="icon-link">
                             Điều khoảng sử dụng
                             <svg class="bi" width="1em" height="1em">
@@ -49,14 +49,11 @@
                                 <use xlink:href="#chevron-right" />
                             </svg>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         Email: khanhhung89890@gmail.com
                     </li>
-                    <li style="list-style: none;">
-                        <h4 style="color: #f1d132">Tư vấn bán hàng</h4>
-                        <h3>0123456789</h3>
-                    </li>
+
                 </ul>
             </div>
             <div class="feature col">
@@ -72,7 +69,7 @@
                             Câu hỏi thường gặp
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#" class="icon-link">
                             Hướng dẫn sử dụng
                             <svg class="bi" width="1em" height="1em">
@@ -87,7 +84,7 @@
                                 <use xlink:href="#chevron-right" />
                             </svg>
                         </a>
-                    </li>
+                    </li> --}}
                     <li style="list-style: none;">
                         <h4 style="color: #f1d132;">Chăm sóc khách hàng</h4>
                         <h3>0123456789</h3>
@@ -107,7 +104,7 @@
                             Sản phẩm & Giá
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#" class="icon-link">
                             Rạp
                             <svg class="bi" width="1em" height="1em">
@@ -115,7 +112,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#" class="icon-link">
                             Thức ăn
                             <svg class="bi" width="1em" height="1em">
@@ -154,7 +151,7 @@
                                 <use xlink:href="#chevron-right" />
                             </svg>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

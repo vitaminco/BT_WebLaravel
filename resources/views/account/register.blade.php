@@ -13,6 +13,15 @@
                     <h1 class="display-4 fw-bold lh-1 mb-3">WELLCOME TO...</h1>
                     <p class="col-lg-10 fs-4">Đăng kí ngay để có thể mua những sản phẩm và nhận được những ưu đãi tốt
                         nhất từ chúng tôi.</p>
+
+                    @foreach ($data as $item)
+                        @if ($item->logo != '')
+                            <img src="{{ $item->logo }}"
+                                style="object-fit: fill;width: 100%;height: 301px;border-radius: 20px;" />
+                        @else
+                            ""
+                        @endif
+                    @endforeach
                 </div>
                 <div class="col-md-10 mx-auto col-lg-5 ctr">
                     <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
