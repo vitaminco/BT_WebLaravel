@@ -38,11 +38,6 @@ class Homecontroller extends Controller
             ->with("tukhoa,data", $tukhoa, $data);
     }
 
-    public function nav()
-    {
-        $data = CauHinh::orderBy("id", "desc")->paginate(1);
-        return view("includes/admin-nav")->with("data", $data);
-    }
     // sản phẩm
     public function indexSanPham(Request $request)
     {
@@ -114,14 +109,17 @@ class Homecontroller extends Controller
     {
         $data = MuaSanPham::orderBy("id", "desc")->paginate(30);
         $datac = MuaSanPham::select('so_luong')->sum('so_luong');
+        $datagt = MuaSanPham::select(MuaSanPham::raw('SUM(so_luong*gia) as gia'))->get();
         return view(".index_Admin")
             ->with("data", $data)
+            ->with("datagt", $datagt)
             ->with("datac", $datac);
     }
     //help
     public function help(Request $request)
     {
         $data = Help::orderBy("id", "desc")->paginate(30);
+        $datach = CauHinh::orderBy("id", "desc")->paginate(1);
         $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
         $tukhoa = trim(strip_tags($tukhoa));
         if ($tukhoa != "") {
@@ -129,6 +127,7 @@ class Homecontroller extends Controller
         }
         return view("help")
             ->with("data", $data)
+            ->with("datach", $datach)
             ->with("tukhoa,data", $tukhoa, $data);
     }
 }

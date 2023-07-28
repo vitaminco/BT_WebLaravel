@@ -24,7 +24,6 @@ Route::get('/{id}/chitiettin', [Homecontroller::class, "chitiettin"])->name("chi
 Route::get('indexAdmin', [Homecontroller::class, "indexAdmin"])->name("index_Admin");
 Route::get('/banggia', [Homecontroller::class, "banggia"])->name("banggia");
 Route::get('/help', [Homecontroller::class, "help"])->name("help");
-Route::get('/nav', [Homecontroller::class, "nav"])->name("nav"); //
 Route::get('/{id}/chitietdon', [MuaSanPhamController::class, "chitietdon"])->name("chitietdon");
 
 

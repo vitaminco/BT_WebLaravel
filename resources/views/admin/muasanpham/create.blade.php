@@ -21,11 +21,11 @@
                                 displayMember="ten_san_pham" valueMember="id" selected="{{ $data->id }}" />
                             <x-app-select model="User" name="id_users" label="User" displayMember="name"
                                 valueMember="id" selected="{{ Auth::user()->id }}" />
+                            <x-app-input label="Gía" name="gia" value="{{ $data->gia }}" />
                         </div>
                         <p>Tên sản phẩm: {{ $data->ten_san_pham }}</p>
-                        <p>Giá: {{ $data->gia }}</p>
+                        <p>Giá: {{ $data->gia }}.000đ/1SP</p>
                         <p>Mô tả: {{ $data->mo_ta }}</p>
-
                         <x-app-input label="Số lượng" name="so_luong" value="1" />
                         <div class="mt-3">
                             <input type="submit" class="btn btn-success" value="Mua sản phẩm" />

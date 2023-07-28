@@ -27,10 +27,11 @@
                     </a>
                 @else
                     <h1>Bạn chưa có sản phẩm!! Mua ngay nào</h1>
-                @endif
-            @endforeach
-            {{-- giao diện phan trang --}}
-            {{ $data->links() }}
-        </div>
+                @break;
+            @endif
+        @endforeach
+        {{-- giao diện phan trang --}}
+        {{ $data->links() }}
     </div>
+</div>
 </x-admin-layout>

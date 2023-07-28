@@ -65,7 +65,7 @@
                                     <use xlink:href="#speedometer2" />
                                 </svg>
                                 <i class="bi bi-table"></i>
-                                Trang bảng giá
+                                Trang ưu đãi
                             </a>
                         </li>
                         <li class="nav-item">
@@ -97,9 +97,14 @@
                             <tr>
                                 <th scope="col">Tên sản phẩm</th>
                                 <th scope="col">Số lượng mua</th>
+                                <th scope="col">Giá</th>
                                 <th scope="col">Còn tồn</th>
                                 <th scope="col">Ghi chú</th>
                                 <th>Số lượng mua: {{ $datac }} SP</th>
+                                @foreach ($datagt as $item)
+                                    <th>Tổng giá: {{ $item->gia }}.000đ</th>
+                                @endforeach
+
                             </tr>
                         </thead>
                         <tbody>
@@ -107,6 +112,7 @@
                                 <tr>
                                     <td>{{ $item->san_phams->ten_san_pham ?? '' }}</td>
                                     <td>{{ $item->so_luong }}</td>
+                                    <td>{{ $item->gia }}.000đ</td>
                                     <td>{{ $item->san_phams->so_luong_ton ?? '' }}</td>
                                     <td>text</td>
                                 </tr>

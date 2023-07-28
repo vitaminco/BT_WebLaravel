@@ -19,8 +19,9 @@ class MuaSanPhamController extends Controller
     public function chitietdon($id)
     {
         $data = MuaSanPham::findOrFail($id);
+        $datagt = MuaSanPham::select(MuaSanPham::raw('SUM(so_luong*gia) as gia'))->where("id", $id)->get();
         return view(".chitietdon")
-            ->with("data", $data);
+            ->with("data", $data)->with("datagt", $datagt);
     }
 
     public function create($id)

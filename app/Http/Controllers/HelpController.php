@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CauHinh;
 use App\Models\Help;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class HelpController extends Controller
     public function index()
     {
         $data = Help::orderBy("id", "desc")->paginate(50);
-        return view("admin.help.index")->with("data", $data);
+        $datach = CauHinh::orderBy("id", "desc")->paginate(1);
+        return view("admin.help.index")->with("data", $data)->with("datach", $datach);
     }
 
     public function create()

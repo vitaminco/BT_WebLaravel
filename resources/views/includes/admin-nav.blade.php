@@ -1,15 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-light fixed-top"
-    style="background: #fffffff5;;z-index:3; padding:10px; position: sticky;top: 0;right: 0;left: 0; box-shadow: 0 4px 8px rgba(84,104,120,0.1);">
+    style="background: #fffffff5;;z-index:3;position: sticky;top: 0;right: 0;left: 0; box-shadow: 0 4px 8px rgba(84,104,120,0.1);">
     <div class="container-fluid">
-        <a href="/" class="navbar-brand toolbar">
+        <a href="/" class="navbar-brand">
+            @foreach ($datanb as $item)
+                <img src="{{ $item->logo }}" alt="" width="70" height="70">
+            @endforeach
+        </a>
+        <a href="/" class="nav-brand toolbar sidebar tin">
             <i class="bi bi-house"></i>
             HOME
-            {{-- {{ $data->ten_cong_ty }} --}}
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
@@ -39,7 +40,7 @@
                         <i class="bi bi-cart4"></i>
                         Giỏ hàng
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            99+
+                            ?
                             <span class="visually-hidden">unread messages</span>
                         </span>
                     </a>

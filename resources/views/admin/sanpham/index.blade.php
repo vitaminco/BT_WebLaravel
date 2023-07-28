@@ -65,7 +65,7 @@
                                     <use xlink:href="#speedometer2" />
                                 </svg>
                                 <i class="bi bi-table"></i>
-                                Trang bảng giá
+                                Trang ưu đãi
                             </a>
                         </li>
                         <li class="nav-item">

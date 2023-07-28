@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Help</title>
-
+    @foreach ($datach as $item)
+        <link rel="icon" href="{{ $item->logo }}">
+    @endforeach
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -78,7 +80,9 @@
                                 stroke="black" stroke-opacity="0.54" stroke-width="0.195312"></path>
                         </svg>
                     </div>
-                    <div class="icon-help">0823550297</div>
+                    @foreach ($datach as $item)
+                        <div class="icon-help">{{ $item->so_dt_tu_van }}</div>
+                    @endforeach
                 </div>
                 <div class="d-flex cach">
                     <div class="icon-help"><svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -94,7 +98,9 @@
                         </svg>
                     </div>
                     <div class="icon-help">
-                        <div class="">khanhhung89890@gmail.com</div>
+                        @foreach ($datach as $item)
+                            <div class="icon-help">{{ $item->email }}</div>
+                        @endforeach
                     </div>
                 </div>
             </div>

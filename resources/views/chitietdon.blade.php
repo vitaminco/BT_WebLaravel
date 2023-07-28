@@ -30,6 +30,11 @@
                         <li class="nav-item">
                             <b>Số ĐT: </b>{{ $data->so_dt }}
                         </li>
+                        <li class="nav-item">
+                            @foreach ($datagt as $item)
+                                <b>Tổng tiền:</b> {{ $item->gia }}.000đ
+                            @endforeach
+                        </li>
                     </ul>
                     <div class="mt-3" style="text-align: center;">
                         {{-- <a href="{{ route('admin.muasanpham.edit', ['id' => $data->id]) }}" class="btn btn-success"><i
