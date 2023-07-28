@@ -100,11 +100,10 @@
                                 <th scope="col">Giá</th>
                                 <th scope="col">Còn tồn</th>
                                 <th scope="col">Ghi chú</th>
-                                <th>Số lượng mua: {{ $datac }} SP</th>
+                                <th>Số lượng khách mua: {{ $datac }} SP</th>
                                 @foreach ($datagt as $item)
-                                    <th>Tổng giá: {{ $item->gia }}.000đ</th>
+                                    <th>Tổng giá trị: {{ $item->gia }}.000đ</th>
                                 @endforeach
-
                             </tr>
                         </thead>
                         <tbody>

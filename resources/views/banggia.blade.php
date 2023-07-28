@@ -1,4 +1,4 @@
-<x-admin-layout title="Bảng giá">
+<x-admin-layout title="Bảng giá ưu đãi">
     <div class="industry-banner text-center page-banner"
         style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/thoitrang.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
         <div class="container-wrap" style="padding: 154px;text-align: center; display: block">
