@@ -12,7 +12,8 @@
         <div class="row g-4 row-cols-1 row-cols-lg-3" style="padding-top: 3rem;">
             <div class="feature col">
                 <h2>DOANH NGHIỆP</h2>
-                <div class="feature-icon bg-warning bg-gradient">
+                <div
+                    class="feature-icon bg-warning bg-gradient border border-white"style="border-radius:20px 0px 50px 20px">
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#collection" />
                     </svg>
@@ -69,7 +70,8 @@
             <div class="feature
                         col">
                 <h2>HỔ TRỢ</h2>
-                <div class="feature-icon bg-warning bg-gradient">
+                <div class="feature-icon bg-warning bg-gradient border border-white"
+                    style="border-radius:50px 50px 0px 0px">
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#people-circle" />
                     </svg>
@@ -107,7 +109,8 @@
             </div>
             <div class="feature col">
                 <h2>NGÀNH HÀNG</h2>
-                <div class="feature-icon bg-warning bg-gradient">
+                <div class="feature-icon bg-warning bg-gradient border border-white"
+                    style="border-radius:0px 20px 20px 50px">
                     <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#toggles2" />
                     </svg>

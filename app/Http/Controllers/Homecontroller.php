@@ -20,7 +20,7 @@ class Homecontroller extends Controller
 {
     public function index(Request $request)
     {
-        $datab = SanPham::skip(2)->take(3)->orderBy("id", "desc")->get(); //banner
+        $datab = SanPham::orderBy("id", "desc")->paginate(3); //banner
         $data = SanPham::orderBy("id", "desc")->paginate(42); //sanpham
         $data1 = DanhMuc::orderBy("id", "desc")->get(); //danh muc
         $data2 = TinTuc::orderBy("id", "desc")->paginate(6); //tin tuc

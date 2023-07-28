@@ -1,12 +1,7 @@
 <x-admin-layout title="HNH">
     {{-- phần chuyển động đầu trang --}}
-    <div id="myCarousel" class="carousel slide" style="margin: -149px 0 0 0;" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" style="margin: -149px 0 0 0;"
+        data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($datab as $item)
                 <div class="carousel-item active">
@@ -25,24 +20,24 @@
                 </div>
             @endforeach
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
     {{-- phần hiển thị danh mục --}}
     <div class="container marketing" style="padding: 20px">
-        <div class="row" style="background-color: cornsilk;border-radius: 20px;">
+        <div class="row row-cols-4 text-center justify-content-md-center"
+            style="background-color: cornsilk;border-radius: 20px;padding: 20px 0;">
             @foreach ($data1 as $item)
-                <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col-lg-4 center">
+                <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col">
                     <title>{{ $item->ten_danh_muc }}</title>
                     <img src="{{ $item->anh_cover }}" width=150 height="150px"
                         style="border-radius: 100%;object-fit: cover" />
-
                     <h2>{{ $item->ten_danh_muc }}</h2>
                     <p></p>
                     <p class="btn btn-warning sidebar">Xem ngay &raquo; </p>
