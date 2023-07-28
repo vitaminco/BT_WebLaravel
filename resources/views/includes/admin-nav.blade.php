@@ -6,13 +6,14 @@
                 <img src="{{ $item->logo }}" alt="" width="70" height="70">
             @endforeach
         </a>
-        <a href="/" class="nav-brand toolbar sidebar tin">
-            <i class="bi bi-house"></i>
-            HOME
-        </a>
+
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <a href="/" class="nav-brand toolbar sidebar tin">
+                    <i class="bi bi-house"></i>
+                    HOME
+                </a>
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
                     Sản phẩm & Giá
                 </a>
