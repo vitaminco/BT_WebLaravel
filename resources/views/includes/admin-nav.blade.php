@@ -6,8 +6,10 @@
                 <img src="{{ $item->logo }}" alt="" width="70" height="70">
             @endforeach
         </a>
-
-
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <a href="/" class="nav-brand toolbar sidebar tin">
@@ -101,7 +103,6 @@
                     <button type="submit" class="btn btn-outline-danger toolbar"><a class="nav-link"
                             aria-current="page" href="{{ route('account.register') }}">ĐĂNG KÝ</a>
                     </button>
-
                     <button type="submit" class="btn btn-warning toolbar" style="margin-left:10px"><a class="nav-link"
                             aria-current="page" href="{{ route('account.login') }}">ĐĂNG NHẬP</a>
                     </button>
