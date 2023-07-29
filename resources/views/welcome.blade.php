@@ -48,7 +48,7 @@
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
         <h1 style="display: block; text-align: center; padding: 30px">Sản phẩm nổi bật</h1>
-        <div class="row row-cols-2 row-cols-lg-3"
+        <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center"
             style="background-color: rgba(234, 234, 234, 0.496);border-radius: 20px;padding: 0 21px;">
             @foreach ($data as $item)
                 <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 products">
