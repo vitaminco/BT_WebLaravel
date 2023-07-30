@@ -80,7 +80,6 @@
                 @foreach ($data2 as $item)
                     <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col-6 tin"
                         style="display: flex;width: 47%; margin: 10px; background-color: #fff;border-radius: 10px;">
-
                         <title>{{ $item->ten_tin_tuc }}</title>
                         <div class="col-sm-4"style="display: flex;flex-direction: column;justify-content: center;">
                             <img src="{{ $item->anh_cover }}"
