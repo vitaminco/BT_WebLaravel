@@ -113,7 +113,7 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->doi_tuong }}</td>
-                                <td>{{ $item->gia_giam }}</td>
+                                <td>{{ number_format($item->gia_giam, 0, ',', '.') . ' ' . '' }}đ</td>
                                 <td>{{ $item->loai_sp }}</td>
                                 <td>
                                     <img src="{{ $item->anh_cover }}" width=100 />

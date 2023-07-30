@@ -3,7 +3,7 @@
         style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/thoitrang.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
         <div class="container-wrap" style="padding: 154px;text-align: center; display: block">
             <h1 class="industry-heading mb-0" style="color: #fff;">Giỏ hàng thân yêu</h1>
-            <h1 class="industry-heading" style="color: #fff;"> Nơi chứa đựng những sản phẩm hữu ích</h1>
+            <h1 class="industry-heading" style="color: #fff;"> Nơi chứa đựng những chiếc vé chất lượng</h1>
         </div>
     </div>
     <div class="container">
@@ -20,7 +20,8 @@
                                 <div class="w-100 align-items-center justify-content-between">
                                     <strong class="mb-1">Tên sản phẩm:
                                         {{ $item->san_phams->ten_san_pham ?? '' }}</strong>
-                                    <small class="text-muted">Giá: {{ $item->san_phams->gia ?? '' }}</small>
+                                    <small class="text-muted">Giá:
+                                        {{ number_format($item->san_phams->gia ?? '', 0, ',', '.') . ' ' . '' }}đ</small>
                                 </div>
                                 <div class="col-10 mb-1 small" style="max-height: 84px;overflow: hidden;">
                                     Mô tả: {{ $item->san_phams->mo_ta ?? '' }}
@@ -30,7 +31,7 @@
                         <div>{{ $item->created_at->format('D') }}</div>
                     </a>
                 @else
-                    <h1>Bạn chưa có sản phẩm!! Mua ngay nào</h1>
+                    <h1>Bạn chưa có vé nào. Mua ngay thôi!!</h1>
                 @break;
             @endif
         @endforeach

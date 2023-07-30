@@ -17,7 +17,7 @@
                     HOME
                 </a>
                 <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
-                    Sản phẩm & Giá
+                    Vé & Giá
                 </a>
                 <a href="{{ route('banggia') }}" class="navbar-brand toolbar sidebar tin">
                     Ưu đãi

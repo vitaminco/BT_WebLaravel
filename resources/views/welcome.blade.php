@@ -1,4 +1,4 @@
-<x-admin-layout title="HNH">
+<x-admin-layout title="HNH Firm">
     {{-- phần chuyển động đầu trang --}}
     <div id="carouselExampleFade" class="carousel slide carousel-fade" style="margin: -149px 0 0 0;"
         data-bs-ride="carousel">
@@ -47,7 +47,7 @@
     </div>
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
-        <h1 style="display: block; text-align: center; padding: 30px">Sản phẩm nổi bật</h1>
+        <h1 style="display: block; text-align: center; padding: 30px">Vé nổi bật</h1>
         <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center"
             style="background-color: rgba(234, 234, 234, 0.496);border-radius: 20px;padding: 0 21px;">
             @foreach ($data as $item)
@@ -58,7 +58,8 @@
                     <div style="padding: 10px">
                         <p style="max-height: 46px;overflow: hidden;">{{ $item->ten_san_pham }}
                         </p>
-                        <p><b>Giá:</b> {{ number_format($item->gia) }}.000đ</p>
+                        <p><b>Giá:</b> {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
+
                         <p><b>Số lượng:</b> {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
                     </div>
                     <p style="padding: 0 10px;max-height: 50px;overflow: hidden;">{{ $item->mo_ta }}</p>
@@ -107,8 +108,8 @@
 
     <div class="container"style="background-color: #fff;border-radius: 54px;margin: 20px auto;padding: 84px;">
         <div class="box-title text-center" style="margin-top:0;">
-            <h3 class="industry-heading" style="font-weight: 700;">HNH cung cấp cho bạn nhiều mặt hàng, sản phẩm chất
-                lượng</h3>
+            <h3 class="industry-heading" style="font-weight: 700;">HNH cung cấp cho bạn nhiều vé xem phim, và dịch vụ
+                chất lượng</h3>
         </div>
         <div class="row introduces-list text-center">
             <div class="col-md-4 introduces-item">
@@ -116,14 +117,13 @@
                     width="" height="" class="introduces-icon lazy">
                 <h5 class="introduces-title">Đơn giản &amp; Dễ sử dụng</h5>
                 <h6 class="introduces-txt mb-0">Giao diện đơn giản, thân thiện và thông minh. Chỉ mất 15
-                    phút làm quen để mua hàng.</h6>
+                    phút làm quen để mua vé.</h6>
             </div>
             <div class="col-md-4 introduces-item">
                 <img src="https://www.kiotviet.vn/wp-content/uploads/2021/12/Icon-1.png"
                     alt="Phù hợp cho từng ngành hàng" width="" height="" class="introduces-icon lazy">
-                <h5 class="introduces-title">Phù hợp cho từng ngành hàng</h5>
-                <h6 class="introduces-txt mb-0">Phần mềm phù hợp cho hơn 20 ngành hàng khác nhau với cả
-                    bán buôn, bán lẻ và bán online.</h6>
+                <h5 class="introduces-title">Phù hợp cho mọi đối tượng</h5>
+                <h6 class="introduces-txt mb-0">Phần mềm phù hợp cho hơn 20 phòng khác nhau</h6>
             </div>
             <div class="col-md-4 introduces-item">
                 <img src="https://www.kiotviet.vn/wp-content/uploads/2021/12/Icon-2.png" alt="Tiết kiệm chi phí"

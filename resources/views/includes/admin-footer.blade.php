@@ -118,7 +118,7 @@
                 <ul class="footer_list">
                     <li>
                         <a href="{{ route('sanpham') }}" class="navbar-brand">
-                            Sản phẩm & Giá
+                            Vé & Giá
                         </a>
                     </li>
                     {{-- <li>

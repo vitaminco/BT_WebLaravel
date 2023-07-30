@@ -8,12 +8,12 @@
                 <div class="p-4 p-md-5 border rounded-3 bg-light tin ">
                     <h3 class="text-center">Hóa đơn</h3>
                     <ul class="nav flex-column ct-mua card card-body" style="margin: 0 -40px;">
-                        <h3>Thông tin sản phẩm</h3>
+                        <h3>Thông tin vé</h3>
                         <li class="nav-item">
                             <b>Tên sản phẩm: </b>{{ $data->san_phams->ten_san_pham ?? '' }}
                         </li>
                         <li class="nav-item">
-                            <b>Giá: </b>{{ number_format($data->san_phams->gia) }}.000đ
+                            <b>Giá: </b>{{ number_format($data->san_phams->gia, 0, ',', '.') . ' ' . '' }}đ
                         </li>
                         <li class="nav-item">
                             <b>Số lượng: </b>{{ $data->so_luong }} SP
@@ -36,7 +36,7 @@
                         </li>
                         <li class="nav-item">
                             @foreach ($datagt as $item)
-                                <b>Tổng tiền:</b> {{ $item->gia }}.000đ
+                                <b>Tổng tiền:</b> {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ
                             @endforeach
                         </li>
                     </ul>

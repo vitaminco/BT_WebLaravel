@@ -114,7 +114,7 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->ten_san_pham }}</td>
-                                <td>{{ number_format($item->gia) }}</td>
+                                <td>{{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</td>
                                 <td>{{ $item->danh_mucs->ten_danh_muc ?? '' }}</td>
                                 <td>{{ $item->mo_ta }}</td>
                                 <td>

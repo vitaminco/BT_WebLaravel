@@ -3,8 +3,8 @@
     <div class="industry-banner text-center page-banner"
         style="background-image: url(https://www.kiotviet.vn/wp-content/uploads/2021/12/kiotviet.jpg); background-size: cover; background-repeat: no-repeat; height: 395px;">
         <div class="container-wrap" style="padding: 154px;text-align: center; display: block">
-            <h1 class="industry-heading mb-0" style="color: #fff;">Giang hàng sản phẩm</h1>
-            <h1 class="industry-heading" style="color: #fff;"> Thông tin sản phẩm</h1>
+            <h1 class="industry-heading mb-0" style="color: #fff;">Giang hàng vé</h1>
+            <h1 class="industry-heading" style="color: #fff;"> Thông tin vé</h1>
         </div>
     </div>
     {{--  --}}
@@ -21,7 +21,7 @@
                         aria-controls="multiCollapseExample1 multiCollapseExample2">
                         <div style=" padding: 10px; font-weight: 700; font-size: 1.2rem">
                             <p>{{ $data->ten_san_pham }}</p>
-                            <p>Giá: {{ number_format($data->gia) }}.000đ</p>
+                            <p>Giá: {{ number_format($data->gia, 0, ',', '.') . ' ' . '' }}đ</p>
                             <p><b>Số lượng:</b> {{ $data->so_luong_ton }}</p>
                         </div>
                         <div class="collapse multi-collapse" id="multiCollapseExample1">

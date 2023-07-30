@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row" style="background-color: rgba(147, 145, 145, 0.496)">
                 <div class="col-12">
-                    <h2 class="mt-4">Mua sản phẩm nào!!</h2>
+                    <h2 class="mt-4">Mua vé nào!!</h2>
                 </div>
                 <div class="col-md-6 offset-md-3">
                     @include('includes/errors')
@@ -24,7 +24,7 @@
                             <x-app-input label="Gía" name="gia" value="{{ $data->gia }}" />
                         </div>
                         <p>Tên sản phẩm: {{ $data->ten_san_pham }}</p>
-                        <p>Giá: {{ $data->gia }}.000đ/1SP</p>
+                        <p>Giá: {{ number_format($data->gia, 0, ',', '.') . ' ' . '' }}đ/1SP</p>
                         <p>Mô tả: {{ $data->mo_ta }}</p>
                         <x-app-input label="Số lượng" name="so_luong" value="1" />
                         <div class="mt-3">
