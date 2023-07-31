@@ -11,7 +11,7 @@
             @foreach ($data as $item)
                 @if ($item->id_users == Auth::user()->id)
                     <a href="{{ route('chitietdon', ['id' => $item->id]) }}"
-                        class="list-group-item list-group-item-action py-3 lh-tight d-flex"
+                        class="list-group-item list-group-item-action py-3 lh-tight d-flex justify-content-between"
                         style="border: 2px solid #949393">
                         <div class="d-flex">
                             <img src="{{ $item->san_phams->anh_cover ?? '' }}" width=100

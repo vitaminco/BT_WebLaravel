@@ -15,10 +15,44 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     {{ $css ?? '' }}
-
+    <script src="{{ asset('js/main.js') }}"></script>
+    {{--  --}}
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        var loader = function() {
+            setTimeout(function() {
+                $('#loader').css({
+                    'opacity': 0,
+                    'visibility': 'hidden'
+                });
+            }, 1000);
+        };
+        $(function() {
+            loader();
+        });
+    </script>
+    <style>
+        .Spinner {
+            display: block;
+            text-align: center;
+            padding: 250px 0;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="loader" class="Spinner">
+        <div class="loadingio-spinner-ellipsis-tc4i8lzgr8 center">
+            <div class="ldio-mzqse62yvgm">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    </div>
     {{-- Thanh menu ở admin --}}
     @include('includes/admin-nav')
     {{-- tuyết --}}
@@ -58,7 +92,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-    {{ $js ?? '' }}
     {{-- chân trang --}}
     @include('includes/admin-footer')
 </body>
