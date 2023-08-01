@@ -35,7 +35,7 @@
                         <x-app-input name="cf_password" type="password" label="Xác nhận mật khẩu" />
 
                         <div class="mt-3">
-                            <button type="submit" class="btn btn-outline-warning">Đăng ký tài khoản</button>
+                            <button type="submit" class="btn btn-outline-warning">Đăng ký</button>
                         </div>
                     </form>
                 </div>

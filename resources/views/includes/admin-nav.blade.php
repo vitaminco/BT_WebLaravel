@@ -104,11 +104,11 @@
                         </div>
                     </div>
                 @else
-                    <button type="submit" class="btn btn-outline-danger toolbar"><a class="nav-link"
-                            aria-current="page" href="{{ route('account.register') }}">ĐĂNG KÝ</a>
+                    <button type="submit" class="btn btn-outline-danger toolbar">
+                        <a class="nav-link" aria-current="page" href="{{ route('account.register') }}">ĐĂNG KÝ</a>
                     </button>
-                    <button type="submit" class="btn btn-warning toolbar" style="margin-left:10px"><a class="nav-link"
-                            aria-current="page" href="{{ route('account.login') }}">ĐĂNG NHẬP</a>
+                    <button type="submit" class="btn btn-warning toolbar" style="margin-left:10px">
+                        <a class="nav-link" aria-current="page" href="{{ route('account.login') }}">ĐĂNG NHẬP</a>
                     </button>
                 @endif
             </form>
