@@ -46,7 +46,7 @@
                             @if (Auth::check())
                                 +
                             @else
-                                0
+                                <i class="bi bi-question"></i>
                             @endif
                             <span class="visually-hidden">unread messages</span>
                         </span>

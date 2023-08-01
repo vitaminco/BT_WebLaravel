@@ -5,6 +5,12 @@ body {
     background: #cecccc;
 }
 
+/* đăng kí */
+.register {
+    background-color: #d8be3b;
+    border-radius: 30px;
+}
+
 @-webkit-keyframes snowflakes-fall {
     0% {
         top: -10%

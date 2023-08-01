@@ -99,7 +99,6 @@
                                 <th scope="col">Số lượng mua</th>
                                 <th scope="col">Giá</th>
                                 <th scope="col">Còn tồn</th>
-                                <th scope="col">Ghi chú</th>
                                 <th>Số lượng khách mua: {{ $datac }} SP</th>
                                 @foreach ($datagt as $item)
                                     <th>Tổng giá trị: {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</th>
@@ -113,7 +112,6 @@
                                     <td>{{ $item->so_luong }}</td>
                                     <td>{{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ
                                     <td>{{ $item->san_phams->so_luong_ton ?? '' }}</td>
-                                    <td>text</td>
                                 </tr>
                             @endforeach
                         </tbody>

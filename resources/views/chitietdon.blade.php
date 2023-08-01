@@ -6,7 +6,10 @@
             </div>
             <div class="col-4">
                 <div class="p-4 p-md-5 border rounded-3 bg-light tin ">
-                    <h3 class="text-center">Hóa đơn</h3>
+                    <div>
+                        <h3 class="text-center">Hóa đơn</h3>
+
+                    </div>
                     <ul class="nav flex-column ct-mua card card-body" style="margin: 0 -40px;">
                         <h3>Thông tin vé</h3>
                         <li class="nav-item">

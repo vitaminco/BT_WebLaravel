@@ -40,7 +40,31 @@
                 </div>
             </div>
         </div>
-        {{-- phần góp ý --}}
+    </div>
+    {{-- Một vài sản phẩm --}}
+    <div class="container">
+        <h1 style="display: block; text-align: center; padding: 30px">Một vài vé khác</h1>
+        <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center"
+            style="background-color: rgba(234, 234, 234, 0.496);border-radius: 20px;padding: 0 21px;">
+            @foreach ($datasp as $item)
+                <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 products">
+                    <title>{{ $item->ten_san_pham }}</title>
+                    <img src="{{ $item->anh_cover }}" width=100% height="250px"
+                        style="object-fit: cover;border-radius: 2px" />
+                    <div style="padding: 10px">
+                        <p style="max-height: 46px;overflow: hidden;">{{ $item->ten_san_pham }}
+                        </p>
+                        <p><b>Giá:</b> {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
+
+                        <p><b>Số lượng:</b> {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                    </div>
+                    <p style="padding: 0 10px;max-height: 50px;overflow: hidden;">{{ $item->mo_ta }}</p>
+                </a>
+            @endforeach
+        </div>
+    </div>
+    {{-- phần góp ý --}}
+    <div class="container">
         <div class="d-flex align-items-center p-3 my-3  bg-purple rounded shadow-sm">
             <h1 class=" mb-0 lh-1">Phản hồi</h1>
         </div>
@@ -83,10 +107,7 @@
         <div
             style="background-image: url(https://img5.thuthuatphanmem.vn/uploads/2022/01/11/anh-mau-trang-don-gian_050632247.jpg)">
             <div class="container">
-                <div class="row" style="background-color: rgba(147, 145, 145, 0.496)">
-                    <div class="col-12">
-                        <h2 class="mt-4">Góp ý nào!!!</h2>
-                    </div>
+                <div class="row">
                     <div class="col-md-6 offset-md-3">
                         @include('includes/errors')
                         <form action="{{ route('admin.donggop.upsert', ['id' => $data->id]) }}" method="POST"
@@ -100,7 +121,7 @@
                                     valueMember="id" selected="{{ Auth::user()->id }}" />
                             </div>
                             <div class="mt-3" style="float:right">
-                                <input type="submit" class="btn btn-success" value="Góp ý" />
+                                <input type="submit" class="btn btn-success" value="Góp ý " />
                             </div>
                         </form>
                     </div>

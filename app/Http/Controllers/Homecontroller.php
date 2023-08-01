@@ -24,6 +24,7 @@ class Homecontroller extends Controller
         $data = SanPham::orderBy("id", "desc")->paginate(42); //sanpham
         $data1 = DanhMuc::orderBy("id", "desc")->get(); //danh muc
         $data2 = TinTuc::orderBy("id", "desc")->paginate(6); //tin tuc
+        $datach = CauHinh::orderBy("id", "desc")->paginate(1); //cấu hình
         //tìm kiếm
         $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
         $tukhoa = trim(strip_tags($tukhoa));
@@ -35,7 +36,8 @@ class Homecontroller extends Controller
             ->with("data", $data)
             ->with("data1", $data1)
             ->with("data2", $data2)
-            ->with("tukhoa,data", $tukhoa, $data);
+            ->with("tukhoa,data", $tukhoa, $data)
+            ->with("datach", $datach);
     }
 
     // sản phẩm
@@ -54,15 +56,23 @@ class Homecontroller extends Controller
             ->with("tukhoa,data", $tukhoa, $data);
     }
 
-    public function chitiet($id)
+    public function chitiet(Request $request, $id)
     {
+        $datasp = SanPham::orderBy("id", "asc")->paginate(6);
         $data = SanPham::findOrFail($id);
         $data1 = DongGop::where("id_san_phams", $id)
             ->orderBy("id_san_phams", "desc")
             ->paginate(30); //donggop
+        $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
+        $tukhoa = trim(strip_tags($tukhoa));
+        if ($tukhoa != "") {
+            $datasp = SanPham::where("ten_san_pham", "like", "%$tukhoa%")->paginate(42);
+        }
         return view(".chitiet")
+            ->with("datasp", $datasp)
             ->with("data", $data)
-            ->with("data1", $data1);
+            ->with("data1", $data1)
+            ->with("tukhoa,datasp", $tukhoa, $datasp);
     }
     //danh mục san pham
     public function dm_sp($id_danh_muc)
