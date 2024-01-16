@@ -8,7 +8,6 @@
                 <div class="p-4 p-md-5 border rounded-3 bg-light tin ">
                     <div>
                         <h3 class="text-center">Hóa đơn</h3>
-
                     </div>
                     <ul class="nav flex-column ct-mua card card-body" style="margin: 0 -40px;">
                         <h3>Thông tin vé</h3>
@@ -43,7 +42,7 @@
                             @endforeach
                         </li>
                     </ul>
-                    <div class="mt-3" style="text-align: center;">
+                    <div class="mt-3 text-center">
                         {{-- <a href="{{ route('admin.muasanpham.edit', ['id' => $data->id]) }}" class="btn btn-success"><i
                                 class="bi bi-pencil-square"></i> Sửa</a> --}}
                         @if ($data->id_users == Auth::user()->id)

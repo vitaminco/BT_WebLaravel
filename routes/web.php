@@ -16,6 +16,7 @@ use App\Models\DanhMuc;
 use App\Models\MuaSanPham;
 
 Route::get('/', [Homecontroller::class, "index"])->name("home");
+
 Route::get('indexSanPham', [Homecontroller::class, "indexSanPham"])->name("sanpham");
 Route::get('/{id}/dm_sp', [Homecontroller::class, "dm_sp"])->name("dm_sp");
 Route::get('/{id}/chitiet', [Homecontroller::class, "chitiet"])->name("chitiet");
@@ -25,7 +26,6 @@ Route::get('indexAdmin', [Homecontroller::class, "indexAdmin"])->name("index_Adm
 Route::get('/banggia', [Homecontroller::class, "banggia"])->name("banggia");
 Route::get('/help', [Homecontroller::class, "help"])->name("help");
 Route::get('/{id}/chitietdon', [MuaSanPhamController::class, "chitietdon"])->name("chitietdon");
-
 
 //Đường dẫn site quảm trị
 ///admin/{table}/{function}

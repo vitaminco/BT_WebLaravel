@@ -1,0 +1,117 @@
+/*Body*/
+body {
+    padding-top: 0px;
+    padding-bottom: 1px;
+    color: #5a5a5a;
+    background: #cecccc;
+}
+
+/*Navbar*/
+.nav-tool {
+    background: #fffffff5;
+    z-index: 3;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(84, 104, 120, 0.1);
+}
+
+.muinhon {
+    margin: 12px 2px 0 -183px;
+    background-color: cornsilk;
+    border-radius: 40px;
+    width: 356px;
+}
+
+.muinhon::after {
+    content: "";
+    display: block;
+    border-width: 12px 20px;
+    border-style: solid;
+    border-color: transparent transparent #f1d132 transparent;
+    position: absolute;
+    top: -23px;
+    left: 249px;
+    z-index: 2;
+}
+
+.muinhon::before {
+    content: "";
+    display: block;
+    width: 148px;
+    height: 20px;
+    right: 22px;
+    position: absolute;
+    top: -20px;
+}
+
+.muinhon-item::before {
+    content: "";
+    display: block;
+    width: 144px;
+    right: 134px;
+    height: 20px;
+    position: absolute;
+    top: -20px;
+}
+
+.list-tool {
+    width: 100%;
+    margin: 20px 0 10px 0;
+    box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1);
+}
+
+/*pading trên dưới 40px*/
+.padding-text {
+    padding: 40px 0;
+}
+
+/*Xem thêm*/
+.show-more a {
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+/*Banner*/
+.page-banner-content {
+    padding: 154px;
+    text-align: center;
+    display: block;
+}
+
+/*FOOTER*/
+.footer {
+    background-color: #fff3f1;
+}
+
+.footer_list li a {
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer_list li a:hover {
+    color: #f1d132;
+}
+
+.ft-companyname {
+    flex-direction: column;
+    margin: 0 7px;
+}
+
+.box-social {
+    background-color: rgb(94, 99, 99);
+    padding: 10px;
+}
+
+.social {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.social li a {
+    padding: 0 0 0 20px;
+    color: rgba(234, 234, 234, 0.496);
+    font-size: 1.2rem;
+}

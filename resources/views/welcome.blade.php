@@ -30,14 +30,12 @@
         </button>
     </div>
     {{-- phần hiển thị danh mục --}}
-    <div class="container marketing" style="padding: 20px">
-        <div class="row row-cols-4 text-center justify-content-md-center"
-            style="background-color: cornsilk;border-radius: 20px;padding: 20px 0;">
+    <div class="container marketing">
+        <div class="row row-cols-4 text-center justify-content-md-center category-list">
             @foreach ($data1 as $item)
-                <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col">
+                <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col category-item">
                     <title>{{ $item->ten_danh_muc }}</title>
-                    <img src="{{ $item->anh_cover }}" width=150 height="150px"
-                        style="border-radius: 100%;object-fit: cover" />
+                    <img src="{{ $item->anh_cover }}" width=150 height="150px" />
                     <h2>{{ $item->ten_danh_muc }}</h2>
                     <p></p>
                     <p class="btn btn-warning sidebar">Xem ngay &raquo; </p>
@@ -47,74 +45,63 @@
     </div>
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
-        <h1 style="display: block; text-align: center; padding: 30px">Vé mới nhất</h1>
-        <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center"
-            style="background-color: rgba(234, 234, 234, 0.496);border-radius: 20px;padding: 0 21px;">
+        <h1 class="text-center padding-text">Vé mới nhất</h1>
+        <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center product-list">
             @foreach ($data as $item)
-                <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 products">
+                <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 product-item"
+                    data-aos="fade-up">
                     <title>{{ $item->ten_san_pham }}</title>
-                    <img src="{{ $item->anh_cover }}" width=100% height="250px"
-                        style="object-fit: cover;border-radius: 2px" />
-                    <div style="padding: 10px">
-                        <p style="max-height: 46px;overflow: hidden;">{{ $item->ten_san_pham }}
+                    <img src="{{ $item->anh_cover }}" width=100% height="250px" />
+                    <hr />
+                    <div class="product-info">
+                        <p class="product-name">{{ $item->ten_san_pham }}
                         </p>
                         <p><b>Giá:</b> {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
 
                         <p><b>Số lượng:</b> {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
                     </div>
-                    <p style="padding: 0 10px;max-height: 50px;overflow: hidden;">{{ $item->mo_ta }}</p>
+                    <p class="product-content">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
         </div>
-        <div style="text-align: center">
-            <button class="btn btn-outline-success" style="border-radius:50px; margin: 10px ">
-                <a href="{{ route('sanpham') }} " style="font-weight: 600">Xem tất cả
-                    <i class="bi bi-arrow-right-circle"></i>
-                </a>
-            </button>
+        <div class="text-center mt-3 show-more">
+            <a href="{{ route('sanpham') }} " class="btn btn-outline-success">Xem tất cả
+                <i class="bi bi-arrow-right-circle"></i>
+            </a>
         </div>
     </div>
     {{-- tin tức --}}
     <div class="container">
-        <h1 style="display: block; text-align: center; padding: 30px">Tin tức nổi bật</h1>
+        <h1 class="text-center padding-text">Tin tức nổi bật</h1>
         <div class="row justify-content-center">
             @foreach ($data2 as $item)
-                <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col-6 tin"
-                    style="display: flex;width: 47%; margin: 10px; background-color: #fff;border-radius: 10px;">
-                    <title>{{ $item->ten_tin_tuc }}</title>
-                    <div class="col-sm-4"style="display: flex;flex-direction: column;justify-content: center;">
-                        <img src="{{ $item->anh_cover }}"
-                            style="border-radius: 20px;margin-left: 24px;object-fit: cover;" width="100%"
-                            height="80%" />
+                <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="news-item" data-aos="fade-down">
+                    <div class="col-4 news-img">
+                        <img src="{{ $item->anh_cover }}" width="100%" height="300px" />
                     </div>
-                    <div class="col-sm-4">
-                        <div style="margin: 30px 0 0 43px;">
-                            <h4 style="width: 345px;">{{ $item->ten_tin_tuc }}</h4>
-                            <p style="padding: 0 10px;max-height: 148px;width: 237%;overflow: hidden;">
-                                {{ $item->mo_ta }}</p>
-                        </div>
+                    <div class="col-8 news-content">
+                        <h4>{{ $item->ten_tin_tuc }}</h4>
+                        <p> {{ $item->mo_ta }}</p>
                     </div>
                 </a>
             @endforeach
         </div>
-        <div style="text-align: center">
-            <button class="btn btn-outline-success" style="border-radius:50px; margin: 10px "><a
-                    href="{{ route('tintuc') }}" style="font-weight: 600">Tất cả tin tức
-                    <i class="bi bi-arrow-right-circle"></i>
-                </a></button>
+
+        <div class="text-center mt-3 show-more">
+            <a href="{{ route('tintuc') }} " class="btn btn-outline-success">Xem tất cả
+                <i class="bi bi-arrow-right-circle"></i>
+            </a>
         </div>
     </div>
 
-    <div class="container"style="background-color: #fff;border-radius: 54px;margin: 20px auto;padding: 84px;">
-        <div class="box-title text-center" style="margin-top:0;">
+    <div class="container intro-page">
+        <div class="box-title text-center">
             @foreach ($datach as $item)
                 <h3 class="industry-heading" style="font-weight: 700;">{{ $item->ten_cong_ty }} cung cấp cho bạn nhiều
-                    vé xem phim, và dịch
-                    vụ
-                    chất lượng</h3>
+                    vé xem phim, và dịch vụ chất lượng</h3>
             @endforeach
         </div>
-        <div class="row introduces-list text-center">
+        <div class="row introduces-list text-center mt-4">
             <div class="col-md-4 introduces-item">
                 <img src="https://www.kiotviet.vn/wp-content/uploads/2021/12/Icon.png" alt="Đơn giản &amp; Dễ sử dụng"
                     width="" height="" class="introduces-icon lazy">

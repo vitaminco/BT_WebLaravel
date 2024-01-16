@@ -1,11 +1,10 @@
-<div class="footer" style="background-color:#fff3f1">
-    <div class="container px-4" id="featured-3" style="padding-top: 3rem;">
-        <h2 class="pb-2 border-bottom d-flex">
+<div class="footer">
+    <div class="container px-4">
+        <h2 class="border-bottom d-flex mt-3">
             @foreach ($datanb as $item)
                 @if ($item->logo != '')
                     <img src="{{ $item->logo }}" alt="" width="100" height="100">
-                    <span class="d-flex"
-                        style="flex-direction: column;justify-content: center;margin: 0 7px;">{{ $item->ten_cong_ty }}</span>
+                    <span class="d-flex justify-content-center ft-companyname">{{ $item->ten_cong_ty }}</span>
                 @endif
             @endforeach
         </h2>
@@ -180,16 +179,14 @@
         </div>
     </div>
     {{--  --}}
-    <div class="box-social" style="background-color: rgb(94, 99, 99); padding: 10px">
+    <div class="box-social">
         <div class="container">
-            <div class="row" style="padding: 18px 0 0 0">
+            <div class="row mt-3">
                 <div class="col-8">
                     @foreach ($datanb as $item)
-                        <p class="mb-0 p-0" style="color: #fff; font-weight: 500">
+                        <p class="mb-0 p-0 text-white">
                             <span>2023 {{ $item->ten_cong_ty }}™</span> © Copyright 2023 - 2024 {{ $item->ten_cong_ty }}
-                            Corporation. All
-                            Right
-                            Reserved
+                            Corporation. All Right Reserved
                         </p>
                     @endforeach
                 </div>

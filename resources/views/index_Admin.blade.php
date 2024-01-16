@@ -1,5 +1,5 @@
 <x-admin-layout title="Home">
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
             {{--  --}}
             <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">

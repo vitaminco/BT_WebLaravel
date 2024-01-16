@@ -37,10 +37,10 @@
 
 <body>
     <header class="border-bottom">
-        <h3 style="color: red">Trung tâm hổ trợ</h3>
+        <h3 class="text-danger">Trung tâm hổ trợ</h3>
     </header>
     <nav class="bg-danger">
-        <h1 style="text-align: center; color: #fff">Xin chào chúng tôi có thể giúp gì cho bạn ?</h1>
+        <h1 class="text-center text-white">Xin chào chúng tôi có thể giúp gì cho bạn ?</h1>
     </nav>
     <div class="container">
         <h3>Câu hỏi thường gặp</h3>

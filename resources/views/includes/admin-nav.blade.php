@@ -1,5 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top"
-    style="background: #fffffff5;;z-index:3;position: sticky;top: 0;right: 0;left: 0; box-shadow: 0 4px 8px rgba(84,104,120,0.1);">
+<nav class="navbar navbar-expand-md navbar-light fixed-top nav-tool">
     <div class="container-fluid">
         <a href="/" class="navbar-brand">
             @foreach ($datanb as $item)
@@ -62,22 +61,19 @@
                             <i class="bi bi-person-circle"></i>
                         @endif
                         {{ Auth::user()->name }}
-                        <div class="sidebar-item muinhon toolbar"
-                            style="margin: 12px 2px 0 -183px;background-color: cornsilk;border-radius: 40px;width: 356px;">
-                            <div style="text-align: center;">
+                        <div class="sidebar-item muinhon toolbar">
+                            <div class="text-center">
                                 @if (Auth::user()->avatar != '')
                                     <img src="{{ Auth::user()->avatar }}" class="rounded-circle border border-warning"
-                                        style="margin: 0 0 10px 0;" width="50%" height="50%" />
+                                        width="50%" height="50%" />
                                 @else
                                     <i class="bi bi-person-circle" style="margin: 0 0 10px 0;font-size: 8rem;"></i>
                                 @endif
                                 <br><a class="nav-link" href="{{ route('admin.admin.edit', [Auth::user()->id]) }}"><i
-                                        class="bi bi-pencil-square"></i> Thay
-                                    đổi</a>
+                                        class="bi bi-pencil-square"></i> Thay đổi</a>
                             </div>
                             {{--  --}}
-                            <div class=" d-flex flex-column flex-shrink-0 p-3 bg-light"
-                                style="width: 100%;margin: 20px 0 10px 0; box-shadow: 0 2px 3px 0 rgb(0, 0, 0, 0.1)">
+                            <div class=" d-flex flex-column flex-shrink-0 p-3 bg-light list-tool">
                                 <ul class="nav nav-pills flex-column mb-auto">
                                     <li class="nav-item ani-nav">
                                         <a href="/" class="nav-link link-dark">
@@ -107,7 +103,7 @@
                     <button type="submit" class="btn btn-outline-danger toolbar">
                         <a class="nav-link" aria-current="page" href="{{ route('account.register') }}">ĐĂNG KÝ</a>
                     </button>
-                    <button type="submit" class="btn btn-warning toolbar" style="margin-left:10px">
+                    <button type="submit" class="btn btn-warning toolbar">
                         <a class="nav-link" aria-current="page" href="{{ route('account.login') }}">ĐĂNG NHẬP</a>
                     </button>
                 @endif
