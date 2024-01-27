@@ -47,7 +47,7 @@
                                 class="bi bi-pencil-square"></i> Sửa</a> --}}
                         @if ($data->id_users == Auth::user()->id)
                             <form class="d-inline"
-                                action="{{ route('admin.muasanpham.destroy', ['id' => $data->id]) }}" method="POST">
+                                action="{{ route('clients.muasanpham.destroy', ['id' => $data->id]) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"> Xóa</i></button>
                             </form>

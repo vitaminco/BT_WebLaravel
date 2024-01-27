@@ -13,7 +13,7 @@ class MuaSanPhamController extends Controller
     public function index()
     {
         $data = MuaSanPham::orderBy("id", "desc")->paginate(20);
-        return view("admin.muasanpham.index")->with("data", $data);
+        return view("clients.muasanpham.index")->with("data", $data);
     }
     //chitietdon
     public function chitietdon($id)
@@ -27,14 +27,14 @@ class MuaSanPhamController extends Controller
     public function create($id)
     {
         $data = SanPham::findOrFail($id);
-        return view("admin.muasanpham.create")
+        return view("clients.muasanpham.create")
             ->with("data", $data);
     }
 
     public function edit($id)
     {
         $data = MuaSanPham::findOrFail($id);
-        return view("admin.muasanpham.edit")->with("data", $data);
+        return view("clients.muasanpham.edit")->with("data", $data);
     }
 
     public function upsert(Request $request, $id = null)
@@ -50,14 +50,14 @@ class MuaSanPhamController extends Controller
         }
         //update hoặc insert
         MuaSanPham::updateOrCreate(["id" => $id], $data);
-        return redirect()->route('admin.muasanpham.index')->with("success_msg", "THÀNH CÔNG!!!");
+        return redirect()->route('clients.muasanpham.index')->with("success_msg", "THÀNH CÔNG!!!");
     }
     public function destroy($id)
     {
         $dm = MuaSanPham::findOrFail($id);
         $ten_san_pham = $dm->ten_san_pham;
         MuaSanPham::destroy($id);
-        return redirect()->route('admin.muasanpham.index')->with("success_msg", "XÓA THÀNH CÔNG!!!");
+        return redirect()->route('clients.muasanpham.index')->with("success_msg", "XÓA THÀNH CÔNG!!!");
     }
     private function customValidate(Request $request)
     {

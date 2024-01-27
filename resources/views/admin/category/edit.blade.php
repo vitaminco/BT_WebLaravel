@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-6 offset-md-3">
                 @include('includes/errors')
-                <form action="{{ route('admin.danhmuc.upsert', ['id' => $data->id]) }}" method="POST"
+                <form action="{{ route('admin.category.upsert', ['id' => $data->id]) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <x-app-input name="ten_danh_muc" label="Tên danh mục" value="{{ $data->ten_danh_muc }}" />

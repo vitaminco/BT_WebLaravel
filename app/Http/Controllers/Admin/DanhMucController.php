@@ -18,19 +18,19 @@ class DanhMucController extends Controller
         //cách 3: paginate có thê phân trangs số dòng 1 trang
         $data = DanhMuc::orderBy("id", "desc")->paginate(20);
         //cash 1:
-        return view("admin.danhmuc.index")->with("data", $data);
+        return view("admin.category.index")->with("data", $data);
         //cashc 2: return view("admin.danhmuc.index" compact("data"));
     }
 
     public function create()
     {
-        return view("admin.danhmuc.create");
+        return view("admin.category.create");
     }
 
     public function edit($id)
     {
         $data = DanhMuc::findOrFail($id);
-        return view("admin.danhmuc.edit")->with("data", $data);
+        return view("admin.category.edit")->with("data", $data);
     }
 
 
@@ -67,7 +67,7 @@ class DanhMucController extends Controller
         }
         //update hoặc insert
         DanhMuc::updateOrCreate(["id" => $id], $data);
-        return redirect()->route('admin.danhmuc.index')->with("success_msg", $msg);
+        return redirect()->route('admin.category.index')->with("success_msg", $msg);
     }
 
     public function destroy($id)

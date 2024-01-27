@@ -33,7 +33,7 @@
     <div class="container marketing">
         <div class="row row-cols-4 text-center justify-content-md-center category-list">
             @foreach ($data1 as $item)
-                <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col category-item">
+                <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col category-item" data-aos="flip-left">
                     <title>{{ $item->ten_danh_muc }}</title>
                     <img src="{{ $item->anh_cover }}" width=150 height="150px" />
                     <h2>{{ $item->ten_danh_muc }}</h2>
@@ -45,7 +45,8 @@
     </div>
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
-        <h1 class="text-center padding-text">Vé mới nhất</h1>
+        <h1 class="text-center padding-text">Vé mới nhất
+        </h1>
         <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center product-list">
             @foreach ($data as $item)
                 <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 product-item"
@@ -54,13 +55,17 @@
                     <img src="{{ $item->anh_cover }}" width=100% height="250px" />
                     <hr />
                     <div class="product-info">
-                        <p class="product-name">{{ $item->ten_san_pham }}
+                        <p class="product-name">
+                            {{ $item->ten_san_pham }}
                         </p>
-                        <p><b>Giá:</b> {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
+                        <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
+                            {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
 
-                        <p><b>Số lượng:</b> {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                        <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số lượng:</b>
+                            {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
                     </div>
-                    <p class="product-content">{{ $item->mo_ta }}</p>
+                    <p class="product-content" data-aos="fade-right" data-aos-offset="100"
+                        data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
         </div>

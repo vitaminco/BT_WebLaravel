@@ -61,7 +61,7 @@ class Homecontroller extends Controller
         $datasp = SanPham::orderBy("id", "asc")->paginate(6);
         $data = SanPham::findOrFail($id);
         $data1 = DongGop::where("id_san_phams", $id)
-            ->orderBy("id_san_phams", "desc")
+            ->orderBy("id", "desc")
             ->paginate(30); //donggop
         $tukhoa = ($request->has('tukhoa')) ? $request->query('tukhoa') : "";
         $tukhoa = trim(strip_tags($tukhoa));

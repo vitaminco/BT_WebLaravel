@@ -8,7 +8,8 @@
     </div>
     <div class="container my-5">
         @foreach ($data as $item)
-            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border bg-white mt-3">
+            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border bg-white mt-3"
+                data-aos="zoom-in">
                 <div class="col-lg-7 p-3 p-lg-5 pt-lg-3 ctl">
                     <h1 class="display-4 fw-bold lh-1">Đối tượng {{ $item->doi_tuong }}</h1>
                     <p class="lead">Giá giảm: {{ number_format($item->gia_giam, 0, ',', '.') . ' ' . '' }}đ</p>

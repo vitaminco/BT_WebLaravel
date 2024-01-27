@@ -16,11 +16,17 @@ class AccountController extends Controller
         $data = User::orderBy("id", "desc")->paginate(20);
         return view("admin.admin.index")->with("data", $data);
     }
+    //sửa admin
+    public function edit_admin($id)
+    {
+        $data = User::findOrFail($id);
+        return view("admin.admin.edit")->with("data", $data);
+    }
     //sửa
     public function edit($id)
     {
         $data = User::findOrFail($id);
-        return view("admin.admin.edit")->with("data", $data);
+        return view("clients.account.edit")->with("data", $data);
     }
     //
     public function upsert(Request $request, $id = null)
@@ -58,7 +64,7 @@ class AccountController extends Controller
 
         //update hoặc insert
         User::updateOrCreate(["id" => $id], $data);
-        return redirect()->route('admin.admin.index')->with("success_msg", $msg);
+        return redirect("/")->with("success_msg", $msg);
     }
 
 
@@ -83,7 +89,7 @@ class AccountController extends Controller
         $data["password"] = Hash::make($data["password"]);
         $user = new User($data);
         $user->save();
-        return redirect("/");
+        return redirect()->route("account.login")->with("success_msg", "Đăng ký thành công!! Vui lòng đăng nhập.");
     }
     //xóa
     public function destroy($id)

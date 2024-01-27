@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-7 col-lg-8">
                         @include('includes/errors')
-                        <form action="{{ route('admin.muasanpham.upsert', ['id' => $data->id]) }}" method="POST"
+                        <form action="{{ route('clients.muasanpham.upsert', ['id' => $data->id]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <x-app-input name="ten" label="Tên/Nickname" />

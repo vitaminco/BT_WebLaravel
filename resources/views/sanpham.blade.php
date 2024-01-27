@@ -16,13 +16,17 @@
                     <img src="{{ $item->anh_cover }}" width=100% height="250px" />
                     <hr />
                     <div class="product-info">
-                        <p class="product-name">{{ $item->ten_san_pham }}
+                        <p class="product-name">
+                            {{ $item->ten_san_pham }}
                         </p>
-                        <p><b>Giá:</b> {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
+                        <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
+                            {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
 
-                        <p><b>Số lượng:</b> {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                        <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số lượng:</b>
+                            {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
                     </div>
-                    <p class="product-content">{{ $item->mo_ta }}</p>
+                    <p class="product-content" data-aos="fade-right" data-aos-offset="100"
+                        data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
             {{-- giao diện phan trang --}}

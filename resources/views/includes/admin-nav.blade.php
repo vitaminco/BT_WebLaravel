@@ -11,7 +11,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <a href="/" class="nav-brand toolbar sidebar tin">
+                <a href="/"
+                    class="nav-brand toolbar sidebar animate__animated animate__pulse animate__infinite	infinite">
                     <i class="bi bi-house"></i>
                     HOME
                 </a>
@@ -30,7 +31,7 @@
             </ul>
             {{-- sreach --}}
             <form class="d-flex">
-                <input class="form-control me-2 border border-warning ctl" name="tukhoa" type="search"
+                <input class="form-control me-2 border border-warning sidebar ctl" name="tukhoa" type="search"
                     placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-warning rounded-pill sidebar ctr" type="submit"><i
                         class="bi bi-search-heart"></i></button>
@@ -38,7 +39,7 @@
             {{--  --}}
             <form class="d-flex">
                 <div class="toolbar sidebar">
-                    <a href="{{ route('admin.muasanpham.index') }} " class="toolbar position-relative">
+                    <a href="{{ route('clients.muasanpham.index') }} " class="toolbar position-relative">
                         <i class="bi bi-cart4"></i>
                         Giỏ hàng
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -65,11 +66,12 @@
                             <div class="text-center">
                                 @if (Auth::user()->avatar != '')
                                     <img src="{{ Auth::user()->avatar }}" class="rounded-circle border border-warning"
-                                        width="50%" height="50%" />
+                                        width="200px" height="200px" />
                                 @else
                                     <i class="bi bi-person-circle" style="margin: 0 0 10px 0;font-size: 8rem;"></i>
                                 @endif
-                                <br><a class="nav-link" href="{{ route('admin.admin.edit', [Auth::user()->id]) }}"><i
+                                <br><a class="nav-link"
+                                    href="{{ route('clients.account.edit', [Auth::user()->id]) }}"><i
                                         class="bi bi-pencil-square"></i> Thay đổi</a>
                             </div>
                             {{--  --}}

@@ -4,10 +4,10 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\DanhMucController;
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\TinTucController;
-use App\Http\Controllers\BangGiaController;
-use App\Http\Controllers\CauHinhController;
-use App\Http\Controllers\DongGopController;
-use App\Http\Controllers\HelpController;
+use App\Http\Controllers\Admin\HelpController;
+use App\Http\Controllers\Admin\BangGiaController;
+use App\Http\Controllers\Admin\CauHinhController;
+use App\Http\Controllers\Admin\DongGopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homecontroller;
 use App\Http\Controllers\MuaSanPhamController;
@@ -30,49 +30,40 @@ Route::get('/{id}/chitietdon', [MuaSanPhamController::class, "chitietdon"])->nam
 //Đường dẫn site quảm trị
 ///admin/{table}/{function}
 Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
-    Route::prefix("/danhmuc")->name("danhmuc.")->group(function () {
-        Route::get('/danh_sach', [DanhMucController::class, "index"])->name("index");
-        Route::get('/tao_danh_muc', [DanhMucController::class, "create"])->name("create");
-        Route::get('/{id}/sua_danh_muc', [DanhMucController::class, "edit"])->name("edit");
+    Route::prefix("/category")->name("category.")->group(function () {
+        Route::get('/category-list', [DanhMucController::class, "index"])->name("index");
+        Route::get('/create', [DanhMucController::class, "create"])->name("create");
+        Route::get('/{id}/edit', [DanhMucController::class, "edit"])->name("edit");
         //id có ? là ko bắt buộc. id phải nằm ở cuối url
         Route::post('/luu/{id?}', [DanhMucController::class, "upsert"])->name("upsert");
         //xóa
         Route::post('/xoa/{id?}', [DanhMucController::class, "destroy"])->name("destroy");
     });
 
-    Route::prefix("/sanpham")->name("sanpham.")->group(function () {
-        Route::get('/danh_sach_san_pham', [SanPhamController::class, "index"])->name("index");
-        Route::get('/tao_san_pham', [SanPhamController::class, "create"])->name("create");
+    Route::prefix("/product")->name("sanpham.")->group(function () {
+        Route::get('/product-list', [SanPhamController::class, "index"])->name("index");
+        Route::get('/create', [SanPhamController::class, "create"])->name("create");
         //sửa
-        Route::get('/{id}/sua_san_pham', [SanPhamController::class, "edit"])->name("edit");
+        Route::get('/{id}/edit', [SanPhamController::class, "edit"])->name("edit");
         //id có ? là ko bắt buộc. id phải nằm ở cuối url
         Route::post('/luu/{id?}', [SanPhamController::class, "upsert"])->name("upsert");
         //xóa
         Route::post('/xoa/{id?}', [SanPhamController::class, "destroy"])->name("destroy");
     });
 
-    Route::prefix("/tintuc")->name("tintuc.")->group(function () {
-        Route::get('/danh_sach_tin_tuc', [TinTucController::class, "index"])->name("index");
-        Route::get('/tao_tin_tuc', [TinTucController::class, "create"])->name("create");
+    Route::prefix("/news")->name("tintuc.")->group(function () {
+        Route::get('/news-list', [TinTucController::class, "index"])->name("index");
+        Route::get('/create', [TinTucController::class, "create"])->name("create");
         //sửa
-        Route::get('/{id}/sua_tin_tuc', [TinTucController::class, "edit"])->name("edit");
+        Route::get('/{id}/edit', [TinTucController::class, "edit"])->name("edit");
         Route::post('/luu/{id?}', [TinTucController::class, "upsert"])->name("upsert");
         //xóa
         Route::post('/xoa/{id?}', [TinTucController::class, "destroy"])->name("destroy");
     });
 
-    Route::prefix("/muasanpham")->name("muasanpham.")->group(function () {
-        // mua
-        Route::get('/danh_sach_mua', [MuaSanPhamController::class, "index"])->name("index");
-        Route::get('/{id}/create', [MuaSanPhamController::class, "create"])->name("create");
-        Route::get('/{id}/sua_san_pham_mua', [MuaSanPhamController::class, "edit"])->name("edit");
-        Route::post('/luu/{id?}', [MuaSanPhamController::class, "upsert"])->name("upsert");
-        Route::post('/xoa/{id?}', [MuaSanPhamController::class, "destroy"])->name("destroy");
-    });
-
     Route::prefix("/admin")->name("admin.")->group(function () {
-        Route::get('/danh_sach_tai_khoang', [AccountController::class, "index"])->name("index");
-        Route::get('/{id}/sua_san_tai_khoang', [AccountController::class, "edit"])->name("edit");
+        Route::get('/account-list', [AccountController::class, "index"])->name("index");
+        Route::get('/{id}/edit', [AccountController::class, "edit_admin"])->name("edit_admin");
         Route::post('/luu/{id?}', [AccountController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [AccountController::class, "destroy"])->name("destroy");
     });
@@ -87,15 +78,15 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
     Route::prefix("/cauhinh")->name("cauhinh.")->group(function () {
         Route::get('/cau_hinh', [CauHinhController::class, "index"])->name("index");
         Route::get('/create', [CauHinhController::class, "create"])->name("create");
-        Route::get('/{id}/sua_cau_hinh', [CauHinhController::class, "edit"])->name("edit");
+        Route::get('/{id}/edit', [CauHinhController::class, "edit"])->name("edit");
         Route::post('/luu/{id?}', [CauHinhController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [CauHinhController::class, "destroy"])->name("destroy");
     });
 
-    Route::prefix("/banggia")->name("banggia.")->group(function () {
-        Route::get('/bang_gia', [BangGiaController::class, "index"])->name("index");
+    Route::prefix("/cost")->name("banggia.")->group(function () {
+        Route::get('/cost-list', [BangGiaController::class, "index"])->name("index");
         Route::get('/create', [BangGiaController::class, "create"])->name("create");
-        Route::get('/{id}/sua_bang_gia', [BangGiaController::class, "edit"])->name("edit");
+        Route::get('/{id}/edit', [BangGiaController::class, "edit"])->name("edit");
         Route::post('/luu/{id?}', [BangGiaController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [BangGiaController::class, "destroy"])->name("destroy");
     });
@@ -103,9 +94,26 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
     Route::prefix("/help")->name("help.")->group(function () {
         Route::get('/help', [HelpController::class, "index"])->name("index");
         Route::get('/create', [HelpController::class, "create"])->name("create");
-        Route::get('/{id}/sua_help', [HelpController::class, "edit"])->name("edit");
+        Route::get('/{id}/edit', [HelpController::class, "edit"])->name("edit");
         Route::post('/luu/{id?}', [HelpController::class, "upsert"])->name("upsert");
         Route::post('/xoa/{id?}', [HelpController::class, "destroy"])->name("destroy");
+    });
+});
+
+///admin/{table}/{function}
+Route::prefix("/clients")->name("clients.")->middleware("auth")->group(function () {
+    Route::prefix("/muasanpham")->name("muasanpham.")->group(function () {
+        // mua
+        Route::get('/buy-list', [MuaSanPhamController::class, "index"])->name("index");
+        Route::get('/{id}/create', [MuaSanPhamController::class, "create"])->name("create");
+        Route::get('/{id}/edit', [MuaSanPhamController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [MuaSanPhamController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [MuaSanPhamController::class, "destroy"])->name("destroy");
+    });
+
+    Route::prefix("/account")->name("account.")->group(function () {
+        Route::get('/{id}/edit-account', [AccountController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [AccountController::class, "upsert"])->name("upsert");
     });
 });
 

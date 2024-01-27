@@ -8,6 +8,7 @@
     $value = empty($old_value) ? $value : $old_value;
 @endphp
 <div class="mt-3">
+
     <label class="form-label" for="">{{ $label }}</label>
     <input type="{{ $type }}" class="form-control" name="{{ $name }}" id="{{ $name }}"
         value="{{ $value }}" placeholder="{{ $label }}" />

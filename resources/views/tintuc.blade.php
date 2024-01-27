@@ -10,7 +10,7 @@
     <div class="container mt-3">
         <div class="row row-cols-3 news">
             @foreach ($data as $item)
-                <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col">
+                <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="col" data-aos="flip-down">
                     <title>{{ $item->ten_tin_tuc }}</title>
                     <img src="{{ $item->anh_cover }}" width=100% height="250px" style="object-fit: cover; " />
                     <div class="mt-3 mx-1">

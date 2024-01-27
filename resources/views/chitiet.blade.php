@@ -7,7 +7,6 @@
         </div>
     </div>
     {{--  --}}
-
     <div class="container">
         <div class="row mt-3">
             <div class="col-8 ctl">
@@ -33,7 +32,7 @@
 
                     <div class="mt-3 text-center">
                         <button class="btn btn-outline-warning"><a class="text-danger"
-                                href="{{ route('admin.muasanpham.create', ['id' => $data->id]) }}">MUA
+                                href="{{ route('clients.muasanpham.create', ['id' => $data->id]) }}">MUA
                                 NGAY</a></button>
                     </div>
                 </div>
@@ -42,7 +41,7 @@
     </div>
     {{-- Một vài sản phẩm --}}
     <div class="container">
-        <h1 style="display: block; text-align: center; padding: 30px">Một vài vé khác</h1>
+        <h1 class="text-center mt-5 mb-5">Một vài vé khác</h1>
         <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center product-list"
             style="background-color: cornsilk">
             @foreach ($datasp as $item)
@@ -73,33 +72,35 @@
             <div class="d-flex justify-content-center">
                 <h6 class="border-bottom pb-2 mb-0">Recent comments</h6>
             </div>
-            @if (Auth::check())
-                @foreach ($data1 as $item)
-                    <div class="d-flex text-muted pt-3">
-                        <div class="d-flex user-comment">
-                            @if (Auth::user()->avatar != '')
-                                <img src="{{ $item->users->avatar ?? '' }} " width=30 height="30" />
-                            @else
-                                <i class="bi bi-person-circle"></i>
+            <div style="overflow-y: scroll; max-height: 500px;">
+                @if (Auth::check())
+                    @foreach ($data1 as $item)
+                        <div class="d-flex text-muted pt-3 justify-content-between">
+                            <div class="d-flex user-comment">
+                                @if (Auth::user()->avatar != '')
+                                    <img src="{{ $item->users->avatar ?? '' }} " width=30 height="30" />
+                                @else
+                                    <i class="bi bi-person-circle"></i>
+                                @endif
+                                <p class="pb-3 mb-0 small lh-sm">
+                                    <strong class="d-block text-gray-dark"> {{ $item->users->name ?? '' }}</strong>
+                                    <small>Nội dung: {{ $item->mo_ta }}</small>
+                                </p>
+                            </div>
+                            @if ($item->id_users == Auth::user()->id)
+                                <form class="d-inline"
+                                    action="{{ route('admin.donggop.destroy', ['id' => $item->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
+                                </form>
                             @endif
-                            <p class="pb-3 mb-0 small lh-sm">
-                                <strong class="d-block text-gray-dark"> {{ $item->users->name ?? '' }}</strong>
-                                <small>Nội dung: {{ $item->mo_ta }}</small>
-                            </p>
                         </div>
-                        @if ($item->id_users == Auth::user()->id)
-                            <form class="d-inline" action="{{ route('admin.donggop.destroy', ['id' => $item->id]) }}"
-                                method="POST">
-                                @csrf
-                                <button type="submit" class="btn"><i class="bi bi-trash"></i></button>
-                            </form>
-                        @endif
-                    </div>
-                    <hr>
-                @endforeach
-            @else
-                <h1>Vui lòng đăng nhập để xem và bình luận</h1>
-            @endif
+                        <hr>
+                    @endforeach
+                @else
+                    <h1>Vui lòng đăng nhập để xem và bình luận</h1>
+                @endif
+            </div>
         </div>
     </div>
     {{--  --}}
