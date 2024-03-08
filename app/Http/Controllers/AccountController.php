@@ -10,18 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
-    //hiển thị
-    public function index()
+    //dăng kí tài khoảng
+    public function register()
     {
-        $data = User::orderBy("id", "desc")->paginate(20);
-        return view("admin.admin.index")->with("data", $data);
+        $data = CauHinh::orderBy("id", "desc")->paginate(1);
+        return view("account/register")->with("data", $data);
     }
-    //sửa admin
-    public function edit_admin($id)
-    {
-        $data = User::findOrFail($id);
-        return view("admin.admin.edit")->with("data", $data);
-    }
+
     //sửa
     public function edit($id)
     {
@@ -61,19 +56,13 @@ class AccountController extends Controller
 
         //hash mật khẩu
         $data["password"] = Hash::make($data["password"]);
+        $data["cf_password"] = Hash::make($data["cf_password"]);
 
         //update hoặc insert
         User::updateOrCreate(["id" => $id], $data);
         return redirect("/")->with("success_msg", $msg);
     }
 
-
-    //dăng kí tài khoảng
-    public function register()
-    {
-        $data = CauHinh::orderBy("id", "desc")->paginate(1);
-        return view("account/register")->with("data", $data);
-    }
 
     public function save(Request $request)
     {
@@ -90,15 +79,6 @@ class AccountController extends Controller
         $user = new User($data);
         $user->save();
         return redirect()->route("account.login")->with("success_msg", "Đăng ký thành công!! Vui lòng đăng nhập.");
-    }
-    //xóa
-    public function destroy($id)
-    {
-        $dm = User::findOrFail($id);
-        $name = $dm->name;
-        $avatar = $dm->avatar;
-        User::destroy($id);
-        return redirect()->back()->with("success_msg", "XÓA '$name' THÀNH CÔNG!!!");
     }
     //đăng nhập
     public function login()
@@ -118,6 +98,17 @@ class AccountController extends Controller
             //đăng nhập thất bại
             return redirect()->route("account.login")->with("error_msg", "Tài khoản và mật khẩu không chính xác");
         }
+
+
+        // if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 1])) {
+        //     //đăng nhập thành công
+        //     return redirect()->to("/")->with("success_msg", "Đăng nhập thành công");
+        // } else if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 2])) {
+        //     return view("index_Admin")->with("success_msg", "Admin");
+        // } else {
+        //     //đăng nhập thất bại
+        //     return redirect()->route("account.login")->with("error_msg", "Tài khoản và mật khẩu không chính xác");
+        // }
     }
 
     public function logout()

@@ -10,7 +10,6 @@
                             <th>Tên sản phẩm</th>
                             <th>Gía</th>
                             <th>Tên danh mục</th>
-                            <th>Mô tả</th>
                             <th>Hình ảnh</th>
                             <th>Số lượng tồn</th>
                             <th>ID danh mục</th>
@@ -27,7 +26,6 @@
                                 <td>{{ $item->ten_san_pham }}</td>
                                 <td>{{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</td>
                                 <td>{{ $item->danh_mucs->ten_danh_muc ?? '' }}</td>
-                                <td>{{ $item->mo_ta }}</td>
                                 <td>
                                     <img src="{{ $item->anh_cover }}" width=100 />
                                 </td>

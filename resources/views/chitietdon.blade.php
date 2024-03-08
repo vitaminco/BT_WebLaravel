@@ -50,6 +50,8 @@
                                 action="{{ route('clients.muasanpham.destroy', ['id' => $data->id]) }}" method="POST">
                                 @csrf
                                 <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"> Xóa</i></button>
+                                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-printer"></i> In
+                                    Vé</i></button>
                             </form>
                         @endif
                     </div>

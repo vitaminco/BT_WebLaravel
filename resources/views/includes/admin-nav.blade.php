@@ -16,24 +16,29 @@
                     <i class="bi bi-house"></i>
                     HOME
                 </a>
-                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar tin">
+                <a href="{{ route('sanpham') }}" class="navbar-brand toolbar sidebar bootom-top">
                     Vé & Giá
                 </a>
-                <a href="{{ route('banggia') }}" class="navbar-brand toolbar sidebar tin">
+                <a href="{{ route('banggia') }}" class="navbar-brand toolbar sidebar bootom-top">
                     Ưu đãi
                 </a>
-                <a href="{{ route('help') }}" class="navbar-brand toolbar sidebar tin">
+                <a href="{{ route('help') }}" class="navbar-brand toolbar sidebar bootom-top">
                     Hổ Trợ
                 </a>
-                <a href="{{ route('tintuc') }}" class="navbar-brand toolbar sidebar tin">
+                <a href="{{ route('tintuc') }}" class="navbar-brand toolbar sidebar bootom-top">
                     Tin Tức
                 </a>
             </ul>
             {{-- sreach --}}
             <form class="d-flex">
-                <input class="form-control me-2 border border-warning sidebar ctl" name="tukhoa" type="search"
-                    placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-warning rounded-pill sidebar ctr" type="submit"><i
+                <input class="form-control me-2 border border-warning sidebar right-left" name="tukhoa" type="search"
+                    list="items" placeholder="Search" aria-label="Search">
+                <datalist id="items">
+                    @foreach ($dataopsr as $items)
+                        <option value="{{ $items->ten_san_pham }}"></option>
+                    @endforeach
+                </datalist>
+                <button class="btn btn-outline-warning rounded-pill sidebar left-right" type="submit"><i
                         class="bi bi-search-heart"></i></button>
             </form>
             {{--  --}}
@@ -53,7 +58,7 @@
                     </a>
                 </div>
                 @if (Auth::check())
-                    <div class="toolbar sidebar" style="">
+                    <div class="toolbar sidebar" style="z-index: 2;">
                         {{-- tên --}}
                         @if (Auth::user()->avatar != '')
                             <img src="{{ Auth::user()->avatar }}" class="rounded-circle border border-warning"
@@ -92,22 +97,23 @@
                                 </ul>
                                 <hr>
                                 <div class="dropdown">
-                                    <button type="submit" class="btn btn-outline-danger">
-                                        <a class="nav-link" aria-current="page" href="{{ route('account.logout') }}">
-                                            ĐĂNG XUẤT</a>
-                                    </button>
+
+                                    <a class="nav-link btn btn-outline-danger" aria-current="page"
+                                        href="{{ route('account.logout') }}">
+                                        ĐĂNG XUẤT</a>
+
                                 </div>
                             </div>
                             {{--  --}}
                         </div>
                     </div>
                 @else
-                    <button type="submit" class="btn btn-outline-danger toolbar">
-                        <a class="nav-link" aria-current="page" href="{{ route('account.register') }}">ĐĂNG KÝ</a>
-                    </button>
-                    <button type="submit" class="btn btn-warning toolbar">
-                        <a class="nav-link" aria-current="page" href="{{ route('account.login') }}">ĐĂNG NHẬP</a>
-                    </button>
+                    <a class="nav-link btn btn-outline-danger toolbar" aria-current="page"
+                        href="{{ route('account.register') }}">ĐĂNG KÝ</a>
+
+                    <a class="nav-link btn toolbar bg-warning" aria-current="page"
+                        href="{{ route('account.login') }}">ĐĂNG NHẬP</a>
+
                 @endif
             </form>
         </div>

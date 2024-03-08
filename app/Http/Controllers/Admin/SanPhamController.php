@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProductImg;
 use App\Models\SanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Facade;
@@ -40,12 +41,34 @@ class SanPhamController extends Controller
         if ($id == null) {
             $filename = "";
             $file = $request->file("anh_cover");
+
             if (!empty($file)) { //tạo tên file ngẫu nhiên để tránh trùng tên gây lỗi
                 $filename = $file->hashName();
                 //luu ở thư mục public với tên mới tạo
                 $file->storeAs("/files", $filename);
                 $filename = "/files/" . $filename;
             }
+
+            // // Lưu hình ảnh liên quan
+            // if (!empty($sp_img)) {
+            //     $img_file = $request->sp_img;
+            //     $filename = $sp_img->hashName();
+
+            //     // duyệt từng ảnh và thực hiện lưu
+            //     foreach ($request->path as $sp_img) {
+            //         $sp_img->storeAs("/files", $filename);
+            //         $filename = "/files/" . $filename;
+
+            //         // Tạo đối tưọng HinhAnh
+            //         $IMG = new ProductImg();
+            //         $IMG->path = $sp_img->getClientOriginalName();
+
+
+            //         $IMG->save();
+            //     }
+            // }
+
+
             $data["anh_cover"] = $filename;
 
             $msg = "Thêm thành công";
@@ -60,6 +83,8 @@ class SanPhamController extends Controller
             $data["anh_cover"] = $filename;
             $msg = "Cập nhật thành công!!! verrry goood!";
         }
+
+
         //update hoặc insert
         SanPham::updateOrCreate(["id" => $id], $data);
         return redirect()->route('admin.sanpham.index')->with("success_msg", $msg);
@@ -77,7 +102,7 @@ class SanPhamController extends Controller
     private function customValidate(Request $request)
     {
         $rules = [
-            "ten_san_pham" => "required|min:3|max:100" //not null min 3 k tự max 100 kí tự
+            "ten_san_pham" => "required|min:3|max:100", //not null min 3 k tự max 100 kí tự
         ];
         $request->validate($rules);
     }

@@ -424,14 +424,14 @@ a {
 }
 
 
-.tin {
+.bootom-top {
     transform: translateX(0px);
-    animation-name: tin;
+    animation-name: up;
     animation-duration: 4s;
     animation-iteration-count: 1;
 }
 
-@keyframes tin {
+@keyframes up {
     0% {
         transform: translatey(60px);
     }
@@ -446,23 +446,23 @@ a {
 }
 
 /* an ct */
-.ctl {
+.right-left {
 
     transform: translateX(0px);
-    animation-name: ctl;
+    animation-name: right-left;
     animation-duration: 4s;
     animation-iteration-count: 1;
 }
 
-.ctr {
+.left-right {
 
     transform: translateX(0px);
-    animation-name: ctr;
+    animation-name: left-right;
     animation-duration: 4s;
     animation-iteration-count: 1;
 }
 
-@keyframes ctl {
+@keyframes right-left {
     0% {
         transform: translatex(-100px);
     }
@@ -476,7 +476,7 @@ a {
     }
 }
 
-@keyframes ctr {
+@keyframes left-right {
     0% {
         transform: translatex(100px);
     }

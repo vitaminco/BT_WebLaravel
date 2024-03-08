@@ -55,7 +55,7 @@
                             @csrf
                             <x-app-input name="ten" label="Tên/Nickname" />
                             <x-app-input name="dia_chi" label="Địa chỉ" />
-                            <x-app-input name="so_dt" label="Số điện thoại" type="number" />
+                            <x-app-input name="so_dt" label="Số điện thoại(+84)" type="text" />
 
                             <div style="display: none">
                                 <x-app-select model="SanPham" name="id_san_pham" label="Tên sản phẩm"
@@ -64,8 +64,13 @@
                                     valueMember="id" selected="{{ Auth::user()->id }}" />
                                 <x-app-input label="Gía" name="gia" value="{{ $data->gia }}" />
                             </div>
-                            <x-app-input label="Số lượng" name="so_luong" value="1" />
 
+                            <div class="buttons_added mt-3">
+                                <input class="minus is-form" type="button" value="-">
+                                <input label="Số lượng" class="input-qty" max="10" min="1" name="so_luong"
+                                    type="number" value="1">
+                                <input class="plus is-form" type="button" value="+">
+                            </div>
                             {{--  --}}
                             <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
                                 aria-labelledby="exampleModalToggleLabel" tabindex="-1">

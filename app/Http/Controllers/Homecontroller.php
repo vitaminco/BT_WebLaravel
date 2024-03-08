@@ -96,6 +96,7 @@ class Homecontroller extends Controller
             ->with("data", $data)
             ->with("tukhoa,data", $tukhoa, $data);
     }
+
     public function chitiettin($id)
     {
         $data = TinTuc::findOrFail($id);
@@ -114,6 +115,7 @@ class Homecontroller extends Controller
             ->with("data", $data)
             ->with("tukhoa,data", $tukhoa, $data);
     }
+
     //index_admin
     public function indexAdmin()
     {
@@ -125,6 +127,7 @@ class Homecontroller extends Controller
             ->with("datagt", $datagt)
             ->with("datac", $datac);
     }
+
     //help
     public function help(Request $request)
     {

@@ -2,7 +2,7 @@
     <div class="container col-xl-10 col-xxl-8 px-4 py-5">
         <div class="row align-items-center g-lg-5 py-5">
             <div class="col-md-10 mx-auto">
-                <h1>TRANG SỬA TÀI KHOẢN</h1>
+                <h1>TRANG ADMIN SỬA TÀI KHOẢN</h1>
                 <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST"
                     action="{{ route('admin.admin.upsert', ['id' => $data->id]) }}" enctype="multipart/form-data">
                     @csrf

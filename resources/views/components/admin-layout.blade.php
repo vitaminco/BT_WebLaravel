@@ -17,11 +17,13 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--animation text-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    {{-- summernote --}}
+    <link rel="stylesheet" href="{{ asset('summernote-0.8.18-dist/summernote-lite.min.css') }}">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/base.css') }}">
     {{ $css ?? '' }}
-    <script src="{{ asset('js/main.js') }}"></script>
+
     {{--  --}}
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script>
@@ -44,7 +46,27 @@
             margin-top: -100px;
             margin-left: -100px;
         }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {}
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     </style>
+
+
 </head>
 
 <body>
@@ -112,7 +134,20 @@
     </script>
     <!--scroll animation-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    {{-- js main --}}
+    <script src="{{ asset('js/main.js') }}"></script>
+    {{-- summernote --}}
+    <script src="{{ asset('summernote-0.8.18-dist/summernote-lite.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 200,
+                color: '#fff',
+            });
 
+        });
+    </script>
     {{-- chân trang --}}
     @include('includes/admin-footer')
 </body>

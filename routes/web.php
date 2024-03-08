@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DanhMucController;
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\TinTucController;
@@ -11,15 +12,12 @@ use App\Http\Controllers\Admin\DongGopController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homecontroller;
 use App\Http\Controllers\MuaSanPhamController;
-use App\Models\SanPham;
-use App\Models\DanhMuc;
-use App\Models\MuaSanPham;
 
 Route::get('/', [Homecontroller::class, "index"])->name("home");
 
 Route::get('indexSanPham', [Homecontroller::class, "indexSanPham"])->name("sanpham");
-Route::get('/{id}/dm_sp', [Homecontroller::class, "dm_sp"])->name("dm_sp");
-Route::get('/{id}/chitiet', [Homecontroller::class, "chitiet"])->name("chitiet");
+Route::get('/{id}/product_category', [Homecontroller::class, "dm_sp"])->name("dm_sp");
+Route::get('/{id}/detail', [Homecontroller::class, "chitiet"])->name("chitiet");
 Route::get('indexTinTuc', [Homecontroller::class, "indexTinTuc"])->name("tintuc");
 Route::get('/{id}/chitiettin', [Homecontroller::class, "chitiettin"])->name("chitiettin");
 Route::get('indexAdmin', [Homecontroller::class, "indexAdmin"])->name("index_Admin");
@@ -45,7 +43,7 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
         Route::get('/create', [SanPhamController::class, "create"])->name("create");
         //sửa
         Route::get('/{id}/edit', [SanPhamController::class, "edit"])->name("edit");
-        //id có ? là ko bắt buộc. id phải nằm ở cuối url
+        //
         Route::post('/luu/{id?}', [SanPhamController::class, "upsert"])->name("upsert");
         //xóa
         Route::post('/xoa/{id?}', [SanPhamController::class, "destroy"])->name("destroy");
@@ -62,10 +60,11 @@ Route::prefix("/admin")->name("admin.")->middleware("auth")->group(function () {
     });
 
     Route::prefix("/admin")->name("admin.")->group(function () {
-        Route::get('/account-list', [AccountController::class, "index"])->name("index");
-        Route::get('/{id}/edit', [AccountController::class, "edit_admin"])->name("edit_admin");
-        Route::post('/luu/{id?}', [AccountController::class, "upsert"])->name("upsert");
-        Route::post('/xoa/{id?}', [AccountController::class, "destroy"])->name("destroy");
+        Route::get('/account-list', [AdminController::class, "index"])->name("index");
+        Route::get('/create', [AdminController::class, "create"])->name("create");
+        Route::get('/{id}/edit', [AdminController::class, "edit"])->name("edit");
+        Route::post('/luu/{id?}', [AdminController::class, "upsert"])->name("upsert");
+        Route::post('/xoa/{id?}', [AdminController::class, "destroy"])->name("destroy");
     });
 
     Route::prefix("/donggop")->name("donggop.")->group(function () {

@@ -25,8 +25,15 @@
                         <x-app-input name="email" type="email" label="Email" />
                         <x-app-input name="password" type="password" label="Mật khẩu" />
 
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-outline-warning">Đăng Nhập</button>
+                        <div class="mt-3 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-outline-warning">ĐĂNG NHẬP</button>
+                            <div class="d-flex mx-3">
+                                <button type="submit" class="btn btn-outline-danger">+<i class="bi bi-google"></i>
+                                    GOOGLE</button>
+                                <button type="submit" class="mx-3 btn btn-outline-primary"><i
+                                        class="bi bi-facebook"></i>
+                                    FACEBOOK</button>
+                            </div>
                         </div>
                     </form>
                 </div>

@@ -3,22 +3,16 @@
     <div id="carouselExampleFade" class="carousel slide carousel-fade" style="margin: -149px 0 0 0;"
         data-bs-ride="carousel">
         <div class="carousel-inner">
+
             @foreach ($datab as $item)
-                <div class="carousel-item active">
+                <a class="carousel-item active" href="{{ route('chitiet', ['id' => $item->id]) }}">
                     <svg class="bd-placeholder-img" width="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                         preserveAspectRatio="xMidYMid slice" focusable="false">
                         <img src="{{ $item->anh_cover }}" width="100%" height="700" style="object-fit: cover; " />
                     </svg>
-
-                    <div class="container">
-                        <div class="carousel-caption text-start">
-                            <a class="btn btn-lg btn-outline-primary"
-                                href="{{ route('chitiet', ['id' => $item->id]) }}">Xem
-                                chi tiết</a>
-                        </div>
-                    </div>
-                </div>
+                </a>
             @endforeach
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -51,30 +45,35 @@
             @foreach ($data as $item)
                 <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 product-item"
                     data-aos="fade-up">
-                    <title>{{ $item->ten_san_pham }}</title>
-                    <img src="{{ $item->anh_cover }}" width=100% height="250px" />
-                    <hr />
-                    <div class="product-info">
-                        <p class="product-name">
-                            {{ $item->ten_san_pham }}
-                        </p>
-                        <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
-                            {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
+                    <div>
+                        <title>{{ $item->ten_san_pham }}</title>
+                        <img src="{{ $item->anh_cover }}" width=100% height="250px" />
+                        <hr />
+                        <div class="product-info">
+                            <p class="product-name">
+                                {{ $item->ten_san_pham }}
+                            </p>
+                            <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
+                                {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
 
-                        <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số lượng:</b>
-                            {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                            <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số
+                                    lượng:</b>
+                                {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                        </div>
+                        <p class="product-content" data-aos="fade-right" data-aos-offset="100"
+                            data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p>
                     </div>
-                    <p class="product-content" data-aos="fade-right" data-aos-offset="100"
-                        data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
         </div>
+
         <div class="text-center mt-3 show-more">
             <a href="{{ route('sanpham') }} " class="btn btn-outline-success">Xem tất cả
                 <i class="bi bi-arrow-right-circle"></i>
             </a>
         </div>
     </div>
+
     {{-- tin tức --}}
     <div class="container">
         <h1 class="text-center padding-text">Tin tức nổi bật</h1>
