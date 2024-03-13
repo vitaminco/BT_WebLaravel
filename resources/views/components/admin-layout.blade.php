@@ -108,24 +108,6 @@
         <div class="snowflake">❅</div>
         <div class="snowflake">❆</div>
     </div>
-    <div style="position: absolute; right: 0; z-index:4;">
-        <div class="container">
-            @if (!empty(session('success_msg')))
-                <div class="mt-2 alert alert-warning alert-dismissible fade show" role="alert">
-                    {{ session('success_msg') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-
-            @if (!empty(session('error_msg')))
-                <div class="mt-2 alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error_msg') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
-
-        </div>
-    </div>
 
     {{ $slot }}
 

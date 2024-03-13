@@ -1,11 +1,26 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    /*làm mất dấu gạnh dưới chân*/
+    box-sizing: border-box;
+}
+
 /*Body*/
 body {
     padding-top: 0px;
     padding-bottom: 1px;
     color: #5a5a5a;
-    background: #cecccc;
-    /* background: url(../files/bg.jpg) center top no-repeat #222; */
+    /* background: #cecccc; */
+    background: url(../files/bg.jpg) center top #afaeae;
     background-size: contain;
+}
+
+:root {
+    --primary-color: #ffd029;
+    --white-color: #fff;
+    --black-color: #000;
+    --gray-color: #5a5a5a;
+    --text-color: white;
+    --boder-color: #dbdbdb;
 }
 
 /*Navbar*/
@@ -20,9 +35,7 @@ body {
 }
 
 .muinhon {
-    margin: 12px 2px 0 -183px;
     background-color: cornsilk;
-    border-radius: 40px;
     width: 356px;
 }
 
@@ -31,31 +44,11 @@ body {
     display: block;
     border-width: 12px 20px;
     border-style: solid;
-    border-color: transparent transparent #f1d132 transparent;
+    border-color: transparent transparent #777777 transparent;
     position: absolute;
     top: -23px;
-    left: 249px;
+    left: 100px;
     z-index: 2;
-}
-
-.muinhon::before {
-    content: "";
-    display: block;
-    width: 148px;
-    height: 20px;
-    right: 22px;
-    position: absolute;
-    top: -20px;
-}
-
-.muinhon-item::before {
-    content: "";
-    display: block;
-    width: 144px;
-    right: 134px;
-    height: 20px;
-    position: absolute;
-    top: -20px;
 }
 
 .list-tool {
@@ -82,6 +75,31 @@ body {
     display: block;
 }
 
+/* đánh giá sao */
+.star_wrap {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.star_wrap input {
+    appearance: none;
+}
+
+.star_wrap input::before {
+    content: "\2605";
+    color: #ccc;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.star_wrap input:checked::before,
+input:checked~input::before {
+    color: #ffb800;
+}
+
+/*  */
+
+
 /*FOOTER*/
 .footer {
     background-color: #fff3f1;
@@ -103,7 +121,8 @@ body {
 }
 
 .box-social {
-    background-color: rgb(94, 99, 99);
+    /* background-color: rgb(94, 99, 99); */
+    background-image: url(../files/background2.png);
     padding: 10px;
 }
 

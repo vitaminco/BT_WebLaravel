@@ -29,8 +29,8 @@
             @foreach ($data1 as $item)
                 <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col category-item" data-aos="flip-left">
                     <title>{{ $item->ten_danh_muc }}</title>
-                    <img src="{{ $item->anh_cover }}" width=150 height="150px" />
-                    <h2>{{ $item->ten_danh_muc }}</h2>
+                    <img src="{{ $item->anh_cover }}" width=100 height="100px" />
+                    <h2 class="text-white mt-5">{{ $item->ten_danh_muc }}</h2>
                     <p></p>
                     <p class="btn btn-warning sidebar">Xem ngay &raquo; </p>
                 </a>
@@ -39,29 +39,47 @@
     </div>
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
-        <h1 class="text-center padding-text">Vé mới nhất
-        </h1>
+        <h1 class="text-center padding-text text-white">Vé mới nhất</h1>
         <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center product-list">
             @foreach ($data as $item)
                 <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 product-item"
                     data-aos="fade-up">
                     <div>
-                        <title>{{ $item->ten_san_pham }}</title>
-                        <img src="{{ $item->anh_cover }}" width=100% height="250px" />
-                        <hr />
-                        <div class="product-info">
-                            <p class="product-name">
-                                {{ $item->ten_san_pham }}
-                            </p>
-                            <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
-                                {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
-
-                            <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số
-                                    lượng:</b>
-                                {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                        <div class="product-header">
+                            <div class="card_box">
+                                <title>{{ $item->ten_san_pham }}</title>
+                                <img src="{{ $item->anh_cover }}" width=100% height="250px" />
+                                <span>
+                                    <p>HẾT HẠN</p>
+                                </span>
+                            </div>
                         </div>
-                        <p class="product-content" data-aos="fade-right" data-aos-offset="100"
-                            data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p>
+                        <hr />
+                        <div>
+                            <div class="product-info">
+                                <p class="product-name">
+                                    <b>{{ $item->ten_san_pham }}</b>
+                                </p>
+                                <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
+                                    {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
+
+                                <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số
+                                        lượng:</b>
+                                    {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                            </div>
+                            {{-- <p class="product-content" data-aos="fade-right" data-aos-offset="100"
+                                data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p> --}}
+                            <div>
+                                <span>Đánh giá</span>
+                                <div class="star_wrap">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </a>
             @endforeach
@@ -76,7 +94,7 @@
 
     {{-- tin tức --}}
     <div class="container">
-        <h1 class="text-center padding-text">Tin tức nổi bật</h1>
+        <h1 class="text-center padding-text text-white">Tin tức nổi bật</h1>
         <div class="row justify-content-center">
             @foreach ($data2 as $item)
                 <a href="{{ route('chitiettin', ['id' => $item->id]) }}" class="news-item" data-aos="fade-down">

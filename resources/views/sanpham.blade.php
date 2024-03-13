@@ -12,21 +12,43 @@
             @foreach ($data as $item)
                 <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 product-item"
                     data-aos="fade-up">
-                    <title>{{ $item->ten_san_pham }}</title>
-                    <img src="{{ $item->anh_cover }}" width=100% height="250px" />
-                    <hr />
-                    <div class="product-info">
-                        <p class="product-name">
-                            {{ $item->ten_san_pham }}
-                        </p>
-                        <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
-                            {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
+                    <div>
+                        <div class="product-header">
+                            <div class="card_box">
+                                <title>{{ $item->ten_san_pham }}</title>
+                                <img src="{{ $item->anh_cover }}" width=100% height="250px" />
+                                <span>
+                                    <p>HẾT HẠN</p>
+                                </span>
+                            </div>
+                        </div>
+                        <hr />
+                        <div>
+                            <div class="product-info">
+                                <p class="product-name">
+                                    <b>{{ $item->ten_san_pham }}</b>
+                                </p>
+                                <p data-aos="fade-right" data-aos-offset="10" data-aos-easing="ease-in-sine"><b>Giá:</b>
+                                    {{ number_format($item->gia, 0, ',', '.') . ' ' . '' }}đ</p>
 
-                        <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số lượng:</b>
-                            {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                                <p data-aos="fade-right" data-aos-offset="50" data-aos-easing="ease-in-sine"><b>Số
+                                        lượng:</b>
+                                    {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
+                            </div>
+                            {{-- <p class="product-content" data-aos="fade-right" data-aos-offset="100"
+                            data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p> --}}
+                            <div>
+                                <span>Đánh giá</span>
+                                <div class="star_wrap">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                    <input type="radio" name="rate" id="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="product-content" data-aos="fade-right" data-aos-offset="100"
-                        data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p>
                 </a>
             @endforeach
             {{-- giao diện phan trang --}}

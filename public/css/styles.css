@@ -1,14 +1,26 @@
 /* HOME */
+
 /*slide*/
 /*Category*/
 .marketing {
     padding: 20px;
+    background: url(../files/bg-cate.jpg) center top #afaeae;
+    background-size: 782px;
+    border-radius: 2px;
+    overflow-x: scroll;
+
 }
 
 .category-list {
-    background-color: cornsilk;
+    /* background-color: cornsilk; */
     border-radius: 20px;
-    padding: 20px 0;
+    height: 320px;
+}
+
+.category-item {
+    background: url(../files/box.png) center top no-repeat transparent;
+    background-size: 150px;
+    padding: 85px 0;
 }
 
 .category-item img {
@@ -42,15 +54,25 @@
 
 /*hover độ nhòe cái boder*/
 .product-item:hover {
-    transform: translateY(-3px);
-    /*nhảy lên xuống khi hover*/
     box-shadow: 0 1px 20px 0 rgb(0, 0, 0, 0.05);
     border-color: #f1d132;
 }
 
-.product-item img {
+/* .product-item img {
     transform: translateX(0px);
     animation: float 6s ease-out infinite;
+    box-shadow: 13px 20px 13px -3px rgb(0 0 0 / 71%);
+    object-fit: cover;
+    border-radius: 2px;
+} */
+
+.product-header {
+    transform: translateX(0px);
+    animation: float 6s ease-out infinite;
+    height: 253px;
+}
+
+.product-header img {
     box-shadow: 13px 20px 13px -3px rgb(0 0 0 / 71%);
     object-fit: cover;
     border-radius: 2px;
@@ -62,7 +84,7 @@
 }
 
 .product-name {
-    max-height: 46px;
+    max-height: 14px;
     overflow: hidden;
 }
 
@@ -70,6 +92,68 @@
     padding: 0 10px;
     max-height: 50px;
     overflow: hidden;
+}
+
+
+.card_box {
+    background: linear-gradient(170deg, rgba(58, 56, 56, 0.623) 0%, rgb(31, 31, 31) 100%);
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.card_box:hover {
+    transform: scale(0.9);
+}
+
+.card_box span {
+    position: absolute;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_box span::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 40px;
+    background-image: linear-gradient(45deg, #ff6547 0%, #ffb144 51%, #ff7053 100%);
+    transform: rotate(-45deg) translateY(-20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
+}
+
+.card_box span::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    bottom: 0;
+    left: 0;
+    height: 10px;
+    z-index: -1;
+    box-shadow: 140px -140px #cc3f47;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+}
+
+.card_box span p {
+    transform: rotate(-45deg);
+    font-size: 23px;
+    font-weight: 700;
+    padding: 0 0 29px 0;
+    color: #fff;
 }
 
 /*Tin tức*/
@@ -388,28 +472,16 @@ a {
     border-radius: 2px;
 }
 
-.sidebar-item {
-    display: none;
-    position: absolute;
-    margin: 12px 0 0 -135px;
-    transition: ease-in-out color 0.2s;
-}
-
-.sidebar:hover .sidebar-item {
-    display: block;
-    box-shadow: 0 1px 20px 0 rgb(0, 0, 0, 0.05);
-}
-
-
-
 .toolbar {
     margin: 10px;
     font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
     color: black;
-    padding: 10px;
+    padding: 0 5px;
     transition: ease-in-out color 0.2s;
+    align-items: center;
+    display: flex;
 }
 
 .toolbar:hover {

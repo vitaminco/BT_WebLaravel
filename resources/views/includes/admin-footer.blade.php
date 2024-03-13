@@ -3,7 +3,8 @@
         <h2 class="border-bottom d-flex mt-3">
             @foreach ($datanb as $item)
                 @if ($item->logo != '')
-                    <img src="{{ $item->logo }}" alt="" width="100" height="100">
+                    <img src="{{ $item->logo }}" alt="" width="100" height="100"
+                        style="filter: drop-shadow(3px 18px 4px rgba(0, 0, 0, 0.5)">
                     <span class="d-flex justify-content-center ft-companyname">{{ $item->ten_cong_ty }}</span>
                 @endif
             @endforeach
