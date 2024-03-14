@@ -7,8 +7,7 @@
         </div>
     </div>
     <div class="container mt-3">
-        <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center product-list"
-            style="background-color: cornsilk">
+        <div class="row row-cols-2 row-cols-lg-3 justify-content-md-center product-list">
             @foreach ($data as $item)
                 <a href="{{ route('chitiet', ['id' => $item->id]) }}" class="col-4 col-lg-2 product-item"
                     data-aos="fade-up">
@@ -35,8 +34,6 @@
                                         lượng:</b>
                                     {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
                             </div>
-                            {{-- <p class="product-content" data-aos="fade-right" data-aos-offset="100"
-                            data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p> --}}
                             <div>
                                 <span>Đánh giá</span>
                                 <div class="star_wrap">

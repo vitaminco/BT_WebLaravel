@@ -102,7 +102,7 @@ input:checked~input::before {
 
 /*FOOTER*/
 .footer {
-    background-color: #fff3f1;
+    background-color: rgba(234, 234, 234, 0.496);
 }
 
 .footer_list li a {

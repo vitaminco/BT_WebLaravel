@@ -25,18 +25,19 @@
     </div>
     {{-- phần hiển thị danh mục --}}
     <div class="container marketing">
-        <div class="row row-cols-4 text-center justify-content-md-center category-list">
+        <div class="row row-cols-4 text-center category-list" style="flex-wrap: nowrap">
             @foreach ($data1 as $item)
                 <a href="{{ route('dm_sp', ['id' => $item->id]) }}" class="col category-item" data-aos="flip-left">
                     <title>{{ $item->ten_danh_muc }}</title>
                     <img src="{{ $item->anh_cover }}" width=100 height="100px" />
-                    <h2 class="text-white mt-5">{{ $item->ten_danh_muc }}</h2>
+                    <h2 class="text-white mt-5 cate-name">{{ $item->ten_danh_muc }}</h2>
                     <p></p>
                     <p class="btn btn-warning sidebar">Xem ngay &raquo; </p>
                 </a>
             @endforeach
         </div>
     </div>
+
     {{-- Phần hiển thị hình sản phẩm --}}
     <div class="container">
         <h1 class="text-center padding-text text-white">Vé mới nhất</h1>
@@ -67,8 +68,7 @@
                                         lượng:</b>
                                     {{ $item->so_luong_ton }} <i class="bi bi-ticket-detailed"></i></p>
                             </div>
-                            {{-- <p class="product-content" data-aos="fade-right" data-aos-offset="100"
-                                data-aos-easing="ease-in-sine">{{ $item->mo_ta }}</p> --}}
+
                             <div>
                                 <span>Đánh giá</span>
                                 <div class="star_wrap">
@@ -119,7 +119,8 @@
     <div class="container intro-page">
         <div class="box-title text-center">
             @foreach ($datach as $item)
-                <h3 class="industry-heading" style="font-weight: 700;">{{ $item->ten_cong_ty }} cung cấp cho bạn nhiều
+                <h3 class="industry-heading" style="font-weight: 700;">{{ $item->ten_cong_ty }} cung cấp cho bạn
+                    nhiều
                     vé xem phim, và dịch vụ chất lượng</h3>
             @endforeach
         </div>

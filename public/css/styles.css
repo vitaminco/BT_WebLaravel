@@ -14,18 +14,24 @@
 .category-list {
     /* background-color: cornsilk; */
     border-radius: 20px;
-    height: 320px;
+    height: 350px;
 }
 
 .category-item {
     background: url(../files/box.png) center top no-repeat transparent;
     background-size: 150px;
     padding: 85px 0;
+    width: 250px;
 }
 
 .category-item img {
     border-radius: 100%;
     object-fit: cover;
+}
+
+.cate-name {
+    max-width: 100%;
+    overflow: hidden;
 }
 
 /*Product*/
